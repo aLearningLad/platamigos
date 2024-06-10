@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Taviraj } from "next/font/google";
-import { SideBar } from "@/components/forLayout";
+import { FooterComp, MobileNav, SideBar } from "@/components/forLayout";
 
 const tav = Taviraj({ subsets: ["latin"], weight: ["200"] });
 
@@ -18,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={tav.className}>
-        <div className=" flex flex-col lg:flex-row">
+        <div className=" flex flex-col lg:flex-row relative">
           <SideBar />
           {children}
+          <FooterComp />
+          <MobileNav />
         </div>
       </body>
     </html>
