@@ -1,11 +1,12 @@
 import { Tnavdata } from "@/types";
+import { PiCrownBold } from "react-icons/pi";
 
 export const navdata: Tnavdata[] = [
   {
     linkId: 1,
     linkname: "Alerts",
     linkref: "/alerts",
-    icon: <p></p>,
+    icon: <PiCrownBold size={20} color="white" />,
   },
   {
     linkId: 2,
