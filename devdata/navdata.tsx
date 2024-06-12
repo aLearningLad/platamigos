@@ -44,10 +44,4 @@ export const navdata: Tnavdata[] = [
     linkref: "/create",
     icon: <p></p>,
   },
-  //   {
-  //     linkId: 1,
-  //     linkname: "Alerts",
-  //     linkref: "/alerts",
-  //     icon: <p></p>,
-  //     },
 ];
