@@ -1,7 +1,8 @@
 export type TlowerSBdata = {
   btnId: number;
   btnName: string;
-  btnFxn: () => void;
+  btnFxn?: () => void;
+  btnLink?: string;
   btnIcon: React.ReactElement;
 };
 
