@@ -1,5 +1,11 @@
 import { Tnavdata } from "@/types";
+import { FaBookmark } from "react-icons/fa";
+import { IoIosPersonAdd } from "react-icons/io";
+import { IoSettings } from "react-icons/io5";
+import { MdCreateNewFolder } from "react-icons/md";
 import { PiCrownBold } from "react-icons/pi";
+import { SiCodeblocks } from "react-icons/si";
+import { TiHome } from "react-icons/ti";
 
 export const navdata: Tnavdata[] = [
   {
@@ -12,37 +18,37 @@ export const navdata: Tnavdata[] = [
     linkId: 2,
     linkname: "Home",
     linkref: "/home",
-    icon: <p></p>,
+    icon: <TiHome size={20} color="white" />,
   },
   {
     linkId: 3,
     linkname: "Disbursed Loans",
     linkref: "/disbursed",
-    icon: <p></p>,
+    icon: <SiCodeblocks size={20} color="white" />,
   },
   {
     linkId: 4,
     linkname: "Bookmarks",
     linkref: "/bookmarks",
-    icon: <p></p>,
+    icon: <FaBookmark size={20} color="white" />,
   },
   {
     linkId: 5,
     linkname: "Peers",
     linkref: "/peers",
-    icon: <p></p>,
+    icon: <IoIosPersonAdd size={20} color="white" />,
   },
   // REMEMBER, IGNORE ICON ABOVE SETTINGS. NOT INCLUDING IT HERE
   {
     linkId: 6,
     linkname: "Settings",
-    linkref: "/alerts",
-    icon: <p></p>,
+    linkref: "/usersettings",
+    icon: <IoSettings size={20} color="white" />,
   },
   {
     linkId: 7,
     linkname: "Create Listing",
     linkref: "/create",
-    icon: <p></p>,
+    icon: <MdCreateNewFolder size={20} color="white" />,
   },
 ];
