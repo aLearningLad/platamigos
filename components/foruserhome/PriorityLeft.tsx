@@ -1,4 +1,7 @@
+import Link from "next/link";
 import React from "react";
+import { MdCreateNewFolder } from "react-icons/md";
+import MyStatsBtn from "./MyStatsBtn";
 
 const PriorityLeft = () => {
   return (
@@ -22,16 +25,34 @@ const PriorityLeft = () => {
           </span>
         </div>
 
-        <div className="w-full h-[60%] border-2 border-white flex flex-col items-start">
+        <div className="w-full h-[40%] border-2 border-white flex flex-col items-start justify-end">
           {/* TOP 2 LOAN RECOMMENDATIONS */}
-          <div className=" w-full h-[20%] border-2 border-white flex justify-start items-center">
-            <div className=" relative h-full border-2 border-green-400 lg:w-2/12 flex">
-              <div className=" w-[50px] h-[50px] rounded-full bg-white absolute left-0" />
-              <div className=" w-[50px] h-[50px] rounded-full bg-neutral-400 absolute left-7" />
+          <div className=" w-full h-[28%] border-2 border-white flex justify-start items-center">
+            <div className=" relative h-full border-2 border-green-400 lg:w-[10%] flex">
+              <div className=" w-[35px] h-[35px] rounded-full bg-white absolute left-0" />
+              <div className=" w-[35px] h-[35px] rounded-full bg-neutral-400 absolute left-4" />
             </div>
-            <div className=" w-full flex justify-start ">
+            <div className=" w-full flex justify-start flex-col items-start h-full pl-1  ">
               <h3 className=" text-lg font-semibold">See recommended peers</h3>
+              <span className=" flex flex-row h-fit items-center ">
+                <p className="text-neutral-200 text-[12px]">Leroy Daniels</p>
+                <div className="h-[90%] w-[0.5px] rounded-lg bg-neutral-400 mx-1 " />
+                <p className="text-neutral-200 text-[12px]">Thabiso M.</p>
+              </span>
             </div>
+          </div>
+
+          <div className=" border-2 border-white w-full flex gap-2 lg:gap-5">
+            <Link
+              className=" w-fit px-2 flex gap-1 items-center"
+              href="/create"
+            >
+              <MdCreateNewFolder size={20} color="white" />
+              <p className=" text-[12px] text-neutral-200 ">
+                Add a new listing
+              </p>
+            </Link>
+            <MyStatsBtn />
           </div>
         </div>
       </section>
