@@ -5,3 +5,9 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.wallpaper {
+  background-image: url("../public/assets/spaceImg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

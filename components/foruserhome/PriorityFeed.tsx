@@ -4,9 +4,11 @@ import PriorityRight from "./PriorityRight";
 
 const PriorityFeed = () => {
   return (
-    <section className="w-full h-screen md:h-[80vh] lg:h-[65vh] flex flex-col lg:flex-row  border-4 border-white ">
-      <PriorityLeft />
-      <PriorityRight />
+    <section className="w-full wallpaper h-screen md:h-[80vh] lg:h-[65vh] rounded-lg md:rounded-xl lg:rounded-2xl xl:rounded-3xl overflow-hidden ">
+      <div className="flex flex-col z-10 lg:flex-row h-full w-full backdrop-blur-md bg-transparent lg:p-6 xl:p-9">
+        <PriorityLeft />
+        <PriorityRight />
+      </div>
     </section>
   );
 };

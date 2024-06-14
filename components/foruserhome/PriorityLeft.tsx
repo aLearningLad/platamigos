@@ -6,7 +6,7 @@ import { GrMoney } from "react-icons/gr";
 
 const PriorityLeft = () => {
   return (
-    <div className="h-full w-full lg:w-[70%] p-1 lg:p-3 flex flex-col lg:flex-row text-white">
+    <div className="h-full wallpaper w-full lg:w-[70%] p-1 lg:p-3 flex flex-col lg:flex-row text-white">
       {/* FAR LEFT */}
       <section className="w-full lg:w-[70%] h-1/2 lg:h-full flex flex-col items-start justify-between">
         <div className=" w-full py-1 flex items-start justify-between gap-4 lg:gap-7 flex-col">
@@ -70,7 +70,7 @@ const PriorityLeft = () => {
       </section>
 
       {/* FAR RIGHT */}
-      <section className=" w-full lg:w-[30%] h-1/2 lg:h-full bg-red-600 "></section>
+      <section className=" w-full lg:w-[30%] h-1/2 lg:h-full border-2 border-red-600 "></section>
     </div>
   );
 };
