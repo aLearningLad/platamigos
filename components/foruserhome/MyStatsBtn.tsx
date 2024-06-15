@@ -9,7 +9,7 @@ const MyStatsBtn = () => {
 
   return (
     <button
-      className=" cursor-pointer p-1 bg-neutral-600 rounded-md "
+      className=" cursor-pointer p-1 bg-purple-600 rounded-md "
       onClick={showStats}
     >
       <IoIosInformationCircle color="white" size={20} className="" />
