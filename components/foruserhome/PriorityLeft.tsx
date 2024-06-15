@@ -4,6 +4,7 @@ import { MdCreateNewFolder } from "react-icons/md";
 import MyStatsBtn from "./MyStatsBtn";
 import { GrMoney } from "react-icons/gr";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import ChatBtn from "./ChatBtn";
 
 const PriorityLeft = () => {
   return (
@@ -62,26 +63,32 @@ const PriorityLeft = () => {
             </div>
           </div>
 
-          <div className="w-full mb-3 lg:mb-4 flex gap-2 lg:gap-5">
-            <Link
-              className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
-              href="/create"
-            >
-              <MdCreateNewFolder size={20} color="white" />
-              <p className="text-[12px]  text-white hover:text-neutral-300 ">
-                Add a new listing
-              </p>
-            </Link>
-            <Link
-              className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
-              href="/all"
-            >
-              <GrMoney size={20} color="white" />
-              <p className="text-[12px]  text-white hover:text-neutral-300 ">
-                Browse My Loans
-              </p>
-            </Link>
-            <MyStatsBtn />
+          <div className=" w-full flex justify-between">
+            <div className=" w-fit mb-3 lg:mb-4 flex gap-2 lg:gap-5">
+              <Link
+                className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
+                href="/create"
+              >
+                <MdCreateNewFolder size={20} color="white" />
+                <p className="text-[12px]  text-white hover:text-neutral-300 ">
+                  Add a new listing
+                </p>
+              </Link>
+              <Link
+                className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
+                href="/all"
+              >
+                <GrMoney size={20} color="white" />
+                <p className="text-[12px]  text-white hover:text-neutral-300 ">
+                  Browse My Loans
+                </p>
+              </Link>
+              <MyStatsBtn />
+            </div>
+
+            <div className=" flex items-center gap-1">
+              <ChatBtn />
+            </div>
           </div>
         </div>
       </section>
