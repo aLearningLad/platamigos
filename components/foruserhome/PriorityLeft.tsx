@@ -5,6 +5,7 @@ import MyStatsBtn from "./MyStatsBtn";
 import { GrMoney } from "react-icons/gr";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import ChatBtn from "./ChatBtn";
+import MoreOptionsBtn from "./MoreOptionsBtn";
 
 const PriorityLeft = () => {
   return (
@@ -12,7 +13,7 @@ const PriorityLeft = () => {
       {/* FAR LEFT */}
       <section className="w-full h-1/2 lg:h-full flex flex-col items-start justify-between">
         <div className=" w-full py-1 flex items-start justify-between gap-4 lg:gap-7 flex-col">
-          <div className=" w-full flex items-center justify-between border-4 border-white">
+          <div className=" w-full flex items-center justify-between">
             <h1 className=" text-[12px] font-[700] text-neutral-50 ">
               Next Lending Fest
             </h1>
@@ -38,12 +39,12 @@ const PriorityLeft = () => {
 
         <div className="w-full h-[40%] flex flex-col items-start justify-end">
           {/* TOP 2 LOAN RECOMMENDATIONS */}
-          <div className="w-full h-[28%] flex justify-start items-center mb-4 lg:mb-12">
+          <div className="w-full h-[28%] flex justify-start items-end mb-4 lg:mb-12">
             <div className="relative h-full lg:w-[10%] flex">
-              <div className=" w-[35px] h-[39px] rounded-full bg-white absolute left-0" />
-              <div className=" w-[35px] h-[39px] rounded-full bg-neutral-400 absolute left-4" />
+              <div className=" w-[39px] h-[39px] rounded-full bg-white absolute left-2" />
+              <div className=" w-[39px] h-[39px] rounded-full bg-neutral-400 absolute left-6" />
             </div>
-            <div className=" w-full flex justify-start flex-col items-start h-full pl-1  ">
+            <div className=" w-full flex justify-start flex-col items-start h-full  ">
               <div className=" w-full flex justify-between items-end">
                 <h3 className=" text-[20px] font-semibold">
                   See recommended peers
@@ -88,6 +89,7 @@ const PriorityLeft = () => {
 
             <div className=" flex items-center gap-1">
               <ChatBtn />
+              <MoreOptionsBtn />
             </div>
           </div>
         </div>
