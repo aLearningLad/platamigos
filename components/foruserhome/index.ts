@@ -6,3 +6,4 @@ export { default as MyStatsBtn } from "./MyStatsBtn";
 export { default as ChatBtn } from "./ChatBtn";
 export { default as MoreOptionsBtn } from "./MoreOptionsBtn";
 export { default as FeedLoanMiniCard } from "./FeedLoanMiniCard";
+export { default as HomeMiddleTabs } from "./HomeMiddleTabs";

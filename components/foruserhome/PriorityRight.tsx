@@ -12,7 +12,7 @@ const PriorityRight = () => {
       <FeedLoanMiniCard />
       <FeedLoanMiniCard />
       <FeedLoanMiniCard />
-      <span className=" sticky bottom-0 w-full flex justify-center items-center flex-col">
+      <span className="sticky bottom-0 w-full flex justify-center items-center flex-col py-3 ">
         <p className=" text-lg text-neutral-50">Scroll down</p>
         <FaAngleDoubleDown size={18} className=" text-neutral-50" />
       </span>
