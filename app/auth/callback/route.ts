@@ -27,8 +27,42 @@ export async function GET(request: Request) {
         },
       }
     );
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) {
+    const { error: authCodeError } = await supabase.auth.exchangeCodeForSession(
+      code
+    );
+    if (!authCodeError) {
+      try {
+        const { data: userData, error: userDataError } =
+          await supabase.auth.getUser();
+
+        const googleId = userData.user?.id;
+
+        const { data: thisUser, error: thisUserError } = await supabase
+          .from("allusers")
+          .select("*")
+          .eq("googleid", googleId);
+
+        if (thisUserError) {
+          console.log("trouble finding this user: ", thisUserError);
+          return null;
+        } else if (thisUser && thisUser.length > 1) {
+          console.log("this is the user: ", thisUser);
+        } else if (thisUser.length < 1) {
+          const { error: addUserToDbError } = await supabase
+            .from("allusers")
+            .insert({});
+        }
+
+        if (userDataError) {
+          throw new Error(
+            "This error occured while fetching using during sign in: ",
+            userDataError
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+
       return NextResponse.redirect(`${origin}${next}`);
     }
   }

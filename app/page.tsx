@@ -8,6 +8,7 @@ export default function Home() {
         This is just an auth Test Page for now
       </p>
       <GoogleAuthBtn />
+      <p></p>
     </main>
   );
 }
