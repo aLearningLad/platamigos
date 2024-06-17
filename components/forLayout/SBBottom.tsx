@@ -1,16 +1,29 @@
 "use client";
 
 import { lowerSBdata } from "@/devdata/lowerSBdata";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LowerNavBtn from "./LowerNavBtn";
+import { getGoogleDetailsClient } from "@/utils/myFxns/getGoogleDetailsClient";
 
 const SBBottom = () => {
+  const [imgUrl, setImgUrl] = useState<string>("");
+
+  useEffect(() => {
+    const getImageLink = async () => {
+      const result = await getGoogleDetailsClient();
+
+      setImgUrl(result?.user_metadata.avatar_url);
+    };
+
+    getImageLink();
+  }, []);
+
   return (
     <section className="w-full h-[30%] flex flex-col items-center justify-around">
       {lowerSBdata.map((btn) => (
         <LowerNavBtn
           key={btn.btnId}
-          btnIcon={btn.btnIcon}
+          btnIcon={btn.btnId === 2342 ? imgUrl : btn.btnIcon}
           btnId={btn.btnId}
           btnName={btn.btnName}
           btnFxn={btn.btnFxn}

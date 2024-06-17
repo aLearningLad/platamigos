@@ -21,7 +21,7 @@ export type TlowerSBdata = {
   btnName: string;
   btnFxn?: () => void;
   btnLink?: string;
-  btnIcon: React.ReactElement;
+  btnIcon: React.ReactElement | string;
 };
 
 export type Tnavdata = {

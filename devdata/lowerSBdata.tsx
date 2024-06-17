@@ -1,3 +1,5 @@
+"use client";
+
 import { TlowerSBdata, Tnavdata } from "@/types";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { BsCalendarDateFill } from "react-icons/bs";
