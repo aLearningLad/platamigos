@@ -25,8 +25,9 @@ const LowerNavBtn: React.FC<TlowerSBdata> = ({
         <Image
           src={btnIcon as string}
           alt="Authenticated User's Google Profile Picture"
-          width={50}
-          height={50}
+          width={30}
+          height={30}
+          className=" rounded-full"
         />
       ) : (
         <div>{btnIcon}</div>
