@@ -31,47 +31,52 @@ export async function GET(request: Request) {
       code
     );
     if (!authCodeError) {
-      try {
-        const { data: userData, error: userDataError } =
-          await supabase.auth.getUser();
-        console.log("User from sign in functin callback: ", userData);
+      const googleId = (await supabase.auth.getUser()).data.user?.id;
+      const { data: thisUser, error: fetchThisUserError } = await supabase
+        .from("allusers")
+        .select("*")
+        .eq("googleid", googleId);
+      const username = await (
+        await supabase.auth.getUser()
+      ).data.user?.user_metadata.name;
 
-        const googleId = userData.user?.id;
+      if (fetchThisUserError) {
+        console.log(
+          "This error occured while trying to fetch user: ",
+          fetchThisUserError
+        );
+        return;
+      }
 
-        const { data: thisUser, error: thisUserError } = await supabase
-          .from("allusers")
-          .select("*")
-          .eq("googleid", googleId);
-
-        if (!thisUser?.includes(googleId)) {
+      if (thisUser.length < 1) {
+        console.log(
+          "User doesn't exist in table yet. They are being added now"
+        );
+        try {
           const { error: addUserToDbError } = await supabase
             .from("allusers")
             .insert({
               googleid: googleId,
-              username: userData.user?.user_metadata.name,
+              username,
               balance: 0,
               creditors_total: 0,
               debtors_total: 0,
-              allOfferedByMeId: "",
-              allOfferedToMeId: "",
-              allApplicationsId: "",
-              creditScore: "",
-              loan_count: "",
+              allofferedbymeid: "",
+              allofferedtomeid: "",
+              allapplicationsid: "",
+              creditscore: 0,
+              loan_count: 0,
             });
-        }
 
-        if (userDataError) {
-          throw new Error(
-            "This error occured while fetching using during sign in: ",
-            userDataError
-          );
+          if (addUserToDbError) {
+            throw new Error(addUserToDbError.message);
+          }
+        } catch (error) {
+          console.log("Error while adding user to table: ", error);
         }
-      } catch (error) {
-        console.log(error);
       }
-
-      return NextResponse.redirect(`${origin}${next}`);
     }
+    return NextResponse.redirect(`${origin}${next}`);
   }
 
   // return the user to an error page with instructions
