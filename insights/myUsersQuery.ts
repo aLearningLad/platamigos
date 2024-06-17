@@ -1,4 +1,4 @@
-const myUsersQueryExplained = `
+const myUsersQueryExplained: string = `
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; ---> IF I DO NOT SPECIFY A userId WHEN USER SIGNS IN FOR FIRST TIME,
 THIS WILL SIGNAL SUPABASE TO CREATE ONE FOR ME USING uuid_generate_v4()
 
