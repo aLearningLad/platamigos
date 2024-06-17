@@ -34,6 +34,7 @@ export async function GET(request: Request) {
       try {
         const { data: userData, error: userDataError } =
           await supabase.auth.getUser();
+        console.log("User from sign in functin callback: ", userData);
 
         const googleId = userData.user?.id;
 
@@ -42,15 +43,21 @@ export async function GET(request: Request) {
           .select("*")
           .eq("googleid", googleId);
 
-        if (thisUserError) {
-          console.log("trouble finding this user: ", thisUserError);
-          return null;
-        } else if (thisUser && thisUser.length > 1) {
-          console.log("this is the user: ", thisUser);
-        } else if (thisUser.length < 1) {
+        if (!thisUser?.includes(googleId)) {
           const { error: addUserToDbError } = await supabase
             .from("allusers")
-            .insert({});
+            .insert({
+              googleid: googleId,
+              username: userData.user?.user_metadata.name,
+              balance: 0,
+              creditors_total: 0,
+              debtors_total: 0,
+              allOfferedByMeId: "",
+              allOfferedToMeId: "",
+              allApplicationsId: "",
+              creditScore: "",
+              loan_count: "",
+            });
         }
 
         if (userDataError) {
