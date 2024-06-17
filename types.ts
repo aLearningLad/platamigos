@@ -1,3 +1,7 @@
+export type TfetchCurrentUserParams = {
+  googleId: string;
+};
+
 export type TcreateLoanParams = {
   lenderName: string;
   title: string;
