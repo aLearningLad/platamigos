@@ -60,11 +60,27 @@ const CreateLeft = () => {
             Principle Amount & Interest %
           </label>
           <section className=" w-full h-[30vh] border-2 border-white flex flex-col lg:flex-row gap-2 xl:gap-4 items-start ">
-            <div className=" w-full h-[40%] border-2 border-neutral-400 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2 ">
+            <div className=" w-full h-[40%] border-2 lg:w-8/12 border-neutral-400 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2 ">
               <label htmlFor="amount">Amount</label>
-              <input type="slider" />
+              <span className=" flex flex-row w-full items-center gap-[1px] lg:gap-[2px]  ">
+                <p className="text-neutral-200 text-[12px] lg:text-[10px] w-fit">
+                  R300
+                </p>
+                <input
+                  type="range"
+                  id="amount"
+                  name="amount"
+                  min={300}
+                  max={5000}
+                  step={100}
+                  className="rangeInput"
+                />
+                <p className="text-neutral-200 text-[12px] lg:text-[10px] w-fit">
+                  R5000
+                </p>
+              </span>
             </div>
-            <div className=" w-full h-[40%] border-2 border-neutral-400 rounded-md "></div>
+            <div className=" w-full h-[40%] lg:w-4/12 border-2 border-neutral-400 rounded-md "></div>
           </section>
         </div>
       </div>

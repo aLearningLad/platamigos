@@ -23,3 +23,7 @@
 .labelStyles {
   @apply text-lg lg:text-[14px] text-neutral-300;
 }
+
+.rangeInput {
+  @apply bg-neutral-400 rounded-md w-full py-1 lg:py-2 px-2 lg:px-3 text-neutral-200 text-[12px];
+}
