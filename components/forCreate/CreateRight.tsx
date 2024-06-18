@@ -19,25 +19,49 @@ const CreateRight = () => {
   return (
     <section className="w-full h-[70vh] md:h-[65vh] lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
       {/* MONTHS TO REPAY */}
-      <div className="w-full h-[15vh] lg:h-[20%] flex-col items-start px-2 lg:px-5 py-1 lg:py-2">
-        <h3 className="text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
-          Repayments
-        </h3>
-        <label className="labelStyles" htmlFor="months">
-          Months
-        </label>
-        <div className=" h-[40%] w-full md:w-10/12 lg:w-6/12 xl:w-4/12 ">
-          <input
-            type="number"
-            className="numberInput"
-            min={3}
-            max={12}
-            value={repaymentTerm}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setRepaymentTerm(Number(e.target.value))
-            }
-          />
-        </div>
+      <div className="w-full h-[15vh] lg:h-[20%] flex flex-col lg:flex-row items-start px-2 lg:px-5 py-1 lg:py-2">
+        <section className=" w-full flex flex-col h-full items-start">
+          <h3 className="text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
+            Repayments
+          </h3>
+          <label className="labelStyles" htmlFor="months">
+            Months
+          </label>
+          <div className=" h-[40%] w-full md:w-10/12 lg:w-6/12 xl:w-4/12 ">
+            <input
+              type="number"
+              className="numberInput"
+              min={3}
+              max={12}
+              value={repaymentTerm}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setRepaymentTerm(Number(e.target.value))
+              }
+            />
+          </div>
+        </section>
+        <section className="w-full items-start flex flex-col h-full">
+          <h3 className="text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
+            Application Deadline
+          </h3>
+
+          <label className="labelStyles" htmlFor="months">
+            Date
+          </label>
+          <div className=" h-[40%] w-full md:w-10/12">
+            <input
+              type="text"
+              className="inputField"
+              min={3}
+              max={12}
+              // value={expiryDate}
+              // onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              //   setExpiryDate(Number(e.target.value))
+              // }
+              placeholder="eg. 2024-06-28"
+            />
+          </div>
+        </section>
       </div>
 
       {/* INSTALMENT AMOUNT */}
