@@ -13,5 +13,13 @@
 }
 
 .inputField {
-  @apply bg-transparent text-white text-2xl lg:text-lg border-b-2 border-neutral-300 w-full;
+  @apply bg-transparent text-neutral-400 text-2xl lg:text-[16px] border-b-[1px] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
+}
+
+.textarea {
+  @apply bg-transparent text-neutral-400 text-2xl lg:text-[16px] p-2 md:p-3 lg:p-5 border-[1px] rounded-lg min-h-[30vh] lg:rounded-xl lg:min-h-[15vh] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
+}
+
+.labelStyles {
+  @apply text-lg text-white;
 }
