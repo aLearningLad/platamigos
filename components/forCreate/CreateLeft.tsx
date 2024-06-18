@@ -167,22 +167,8 @@ const CreateLeft = () => {
               </span>
             </div>
           </section>
-          {/* <div className="w-full h-fit p-1 lg:p-2 flex justify-center items-center gap-1">
-            <p className=" text-neutral-200 text-[16px] lg:text-[14px]">
-              est. repayment
-            </p>
-            <h2 className=" text-3xl lg:text-2xl text-white font-semibold">
-              R2399.44
-            </h2>
-          </div> */}
         </div>
       </div>
-
-      {/* INTEREST RATE */}
-
-      {/* INSTALMENT AMOUNT */}
-
-      {/* TOTAL DUE */}
     </section>
   );
 };
