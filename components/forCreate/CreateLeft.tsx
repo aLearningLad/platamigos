@@ -7,18 +7,19 @@ const CreateLeft = () => {
   const [purpose, setPurpose] = useState<string>("");
   const [expiryDate, setExpiryDate] = useState<Date | null>(null);
   const [interestRate, setInterestRate] = useState<number | null>(null);
-  const [principle, setPrinciple] = useState<number | null>(null);
+  const [principle, setPrinciple] = useState<number | null>(300);
   const [instalment, setInstalment] = useState<number | null>(null);
   const [totalDue, setTotalDue] = useState<number | null>(null);
   const [interestValue, setInterestValue] = useState({
     unitValue: 0,
-    tensValue: 0,
-    firstDecimal: 0,
-    secondDecimal: 0,
+    decimalValue: 0,
   });
 
   const handleInterestChanges = (e: ChangeEvent<HTMLInputElement>) => {
-    setInterestValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setInterestValue((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -69,8 +70,8 @@ const CreateLeft = () => {
           <label className="labelStyles" htmlFor="inputs">
             Principle Amount & Interest %
           </label>
-          <section className=" w-full h-[30vh] border-2 border-white flex flex-col lg:flex-row gap-2 xl:gap-4 items-start ">
-            <div className=" w-full group cursor-pointer h-[50%] border-2 lg:w-8/12 border-neutral-400 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2 ">
+          <section className=" w-full h-[30vh] lg:h-[18vh] border-2 border-white flex flex-col lg:flex-row gap-2 xl:gap-4 items-start ">
+            <div className=" w-full group cursor-pointer h-[50%] border-2 lg:w-8/12 border-neutral-400/40 hover:border-neutral-100 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2 ">
               <label className="labelStyles" htmlFor="amount">
                 Amount
               </label>
@@ -101,7 +102,7 @@ const CreateLeft = () => {
                 </div>
               </span>
             </div>
-            <div className="w-full group cursor-pointer h-[50%] lg:w-4/12 border-2 border-neutral-400 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2">
+            <div className="w-full group cursor-pointer h-[50%] lg:w-4/12 border-2 border-neutral-400/40 hover:border-neutral-100 transition-all duration-300 hover:bg-neutral-700/30 ease-in-out hover:scale-95 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2">
               <label className="labelStyles" htmlFor="interest">
                 Interest rate
               </label>
@@ -110,34 +111,20 @@ const CreateLeft = () => {
                   type="number"
                   value={interestValue.unitValue}
                   name="unitValue"
-                  className="numberInput mr-1"
-                  min={0}
-                  max={9}
-                />
-                <input
-                  type="number"
-                  value={interestValue.tensValue}
-                  name="tensValue"
                   className="numberInput"
                   min={0}
-                  max={9}
+                  max={16}
                   onChange={handleInterestChanges}
                 />
-                <p className=" text-2xl font-semibold mx-1">.</p>
+
+                <p className=" text-2xl font-semibold mx-1 h-full flex items-end">
+                  .
+                </p>
                 <input
                   type="number"
                   className="numberInput mr-1"
-                  value={interestValue.firstDecimal}
-                  name="firstDecimal"
-                  min={0}
-                  max={9}
-                  onChange={handleInterestChanges}
-                />
-                <input
-                  type="number"
-                  value={interestValue.secondDecimal}
-                  name="secondDecimal"
-                  className="numberInput"
+                  value={interestValue.decimalValue}
+                  name="decimalValue"
                   min={0}
                   max={9}
                   onChange={handleInterestChanges}
@@ -145,22 +132,24 @@ const CreateLeft = () => {
               </span>
               <span className="w-full h-full text-white flex justify-center items-end py-1">
                 <p className=" text-white text-[13px] lg:text-[12px]">
-                  {interestValue.unitValue}
+                  {interestValue.unitValue ? interestValue.unitValue : 0}
                 </p>
+                <p className="text-lg font-semibold h-full flex items-end">.</p>
                 <p className=" text-white text-[13px] lg:text-[12px]">
-                  {interestValue.tensValue}
+                  {interestValue.decimalValue ? interestValue.decimalValue : 0}
                 </p>
-                <p className=" text-2xl font-semibold">.</p>
-                <p className=" text-white text-[13px] lg:text-[12px]">
-                  {interestValue.firstDecimal}
-                </p>
-                <p className=" text-white text-[13px] lg:text-[12px]">
-                  {interestValue.secondDecimal}
-                </p>
-                <p className="text-lg text-neutral-200">%</p>
+                <p className="text-[12px] text-neutral-200">%</p>
               </span>
             </div>
           </section>
+          <div className="w-full h-fit p-1 lg:p-2 flex justify-center items-center gap-1">
+            <p className=" text-neutral-200 text-[16px] lg:text-[14px]">
+              est. repayment
+            </p>
+            <h2 className=" text-3xl lg:text-2xl text-white font-semibold">
+              R2399.44
+            </h2>
+          </div>
         </div>
       </div>
 

@@ -29,5 +29,5 @@
 }
 
 .numberInput {
-  @apply bg-transparent border-[1px] rounded-[3px] text-white w-full px-1 md:px-2 lg:px-3;
+  @apply bg-transparent border-[2px] rounded-[3px] pl-1 border-neutral-500 group-hover:bg-white group-hover:text-black group-hover:border-none transition-all duration-300 ease-in-out text-white w-full h-full;
 }
