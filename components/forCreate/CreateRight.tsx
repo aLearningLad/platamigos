@@ -42,7 +42,7 @@ const CreateRight = () => {
 
       {/* INSTALMENT AMOUNT */}
 
-      <div className="w-full h-[20vh] lg:h-[30%] border-2 flex flex-col items-center text-center text-white justify-center">
+      <div className="w-full h-[20vh] lg:h-[30%] border-2 border-neutral-400/20 flex flex-col items-center text-center text-white justify-center bg-gradient-to-br from-purple-800/40 via-black to-black rounded-lg md:rounded-xl xl:rounded-2xl">
         <h3 className=" text-xl lg:text-lg">Borrower will pay you</h3>
 
         <h1 className=" text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-fuchsia-400 bg-clip-text text-transparent">

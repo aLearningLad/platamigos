@@ -1,9 +1,13 @@
 "use client";
 
+import { ChangeEvent, useState } from "react";
 import CreateLeft from "./CreateLeft";
 import CreateRight from "./CreateRight";
 
 const CreateLoanComp = () => {
+  const [title, setTitle] = useState<string>("");
+  const [purpose, setPurpose] = useState<string>("");
+
   return (
     <div className="flex-col  flex justify-center items-center w-full h-full">
       <header className=" w-full flex h-fit py-3 lg:py-4 justify-center items-center">
@@ -11,9 +15,14 @@ const CreateLoanComp = () => {
           Create an Offer
         </h1>
       </header>
-      <div className=" flex flex-col lg:flex-row w-full h-full">
-        <CreateLeft />
-        <div className=" w-[5px] h-[85%] bg-neutral-600/40 rounded-lg  " />
+      <div className=" flex flex-col lg:flex-row w-full h-full items-center justify-center">
+        <CreateLeft
+          purpose={purpose}
+          setPurpose={setPurpose}
+          setTitle={setTitle}
+          title={title}
+        />
+        <div className="w-[2px] h-[90%] bg-neutral-400/20 rounded-lg  " />
         <CreateRight />
       </div>
     </div>

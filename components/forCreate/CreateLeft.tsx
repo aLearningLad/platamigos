@@ -1,18 +1,22 @@
 "use client";
 
+import { Icreateleft } from "@/interfaces";
 import { ChangeEvent, useState } from "react";
 import { TiTick } from "react-icons/ti";
 
-const CreateLeft = () => {
-  const [title, setTitle] = useState<string>("");
-  const [purpose, setPurpose] = useState<string>("");
+const CreateLeft: React.FC<Icreateleft> = ({
+  purpose,
+  setPurpose,
+  setTitle,
+  title,
+}) => {
   const [expiryDate, setExpiryDate] = useState<Date | null>(null);
-  const [interestRate, setInterestRate] = useState<number | null>(null);
+  const [interestRate, setInterestRate] = useState<number>(11);
   const [principle, setPrinciple] = useState<number | null>(300);
   const [instalment, setInstalment] = useState<number | null>(null);
   const [totalDue, setTotalDue] = useState<number>(0);
   const [interestValue, setInterestValue] = useState({
-    unitValue: 0,
+    unitValue: 11,
     decimalValue: 0,
   });
 
@@ -133,8 +137,8 @@ const CreateLeft = () => {
                   value={interestValue.unitValue}
                   name="unitValue"
                   className="numberInput"
-                  min={0}
-                  max={16}
+                  min={11}
+                  max={23}
                   onChange={handleInterestChanges}
                   required
                 />
