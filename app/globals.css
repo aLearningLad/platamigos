@@ -21,5 +21,5 @@
 }
 
 .labelStyles {
-  @apply text-lg text-white;
+  @apply text-lg lg:text-[14px] text-neutral-300;
 }
