@@ -1,6 +1,10 @@
 "use client";
 
+import { ChangeEvent, useState } from "react";
+
 const CreateRight = () => {
+  const [repaymentTerm, setRepaymentTerm] = useState<number>(3);
+
   const calculateInstalment = (
     principle: number,
     interest: number,
@@ -13,14 +17,42 @@ const CreateRight = () => {
   };
 
   return (
-    <section className=" w-full h-[70vh] md:h-[65vh] lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7 border-2 border-white ">
+    <section className="w-full h-[70vh] md:h-[65vh] lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
       {/* MONTHS TO REPAY */}
-
-      <div className=" w-full h-[15vh] lg:h-[20%] border-2 border-white  "></div>
+      <div className="w-full h-[15vh] lg:h-[20%] flex-col items-start px-2 lg:px-5 py-1 lg:py-2">
+        <h3 className="text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
+          Repayments
+        </h3>
+        <label className="labelStyles" htmlFor="months">
+          Months
+        </label>
+        <div className=" h-[40%] w-full md:w-10/12 lg:w-6/12 xl:w-4/12 ">
+          <input
+            type="number"
+            className="numberInput"
+            min={3}
+            max={12}
+            value={repaymentTerm}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setRepaymentTerm(Number(e.target.value))
+            }
+          />
+        </div>
+      </div>
 
       {/* INSTALMENT AMOUNT */}
 
-      <div className=" w-full h-[20vh] lg:h-[30%] border-2  "></div>
+      <div className="w-full h-[20vh] lg:h-[30%] border-2 flex flex-col items-center text-center text-white justify-center">
+        <h3 className=" text-xl lg:text-lg">Borrower will pay you</h3>
+
+        <h1 className=" text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-fuchsia-400 bg-clip-text text-transparent">
+          R233.33
+        </h1>
+
+        <h1 className="text-xl lg:text-lg">
+          every month for {repaymentTerm} months
+        </h1>
+      </div>
 
       {/* TOTAL DUE */}
 

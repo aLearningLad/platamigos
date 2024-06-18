@@ -13,6 +13,7 @@ const CreateLoanComp = () => {
       </header>
       <div className=" flex flex-col lg:flex-row w-full h-full">
         <CreateLeft />
+        <div className=" w-[5px] h-[85%] bg-neutral-600/40 rounded-lg  " />
         <CreateRight />
       </div>
     </div>
