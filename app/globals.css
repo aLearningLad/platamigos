@@ -11,3 +11,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.inputField {
+  @apply bg-transparent text-white text-2xl lg:text-lg border-b-2 border-neutral-300 w-full;
+}
