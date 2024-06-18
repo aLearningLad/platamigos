@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
+import { TiTick } from "react-icons/ti";
 
 const CreateLeft = () => {
   const [title, setTitle] = useState<string>("");
@@ -9,7 +10,7 @@ const CreateLeft = () => {
   const [interestRate, setInterestRate] = useState<number | null>(null);
   const [principle, setPrinciple] = useState<number | null>(300);
   const [instalment, setInstalment] = useState<number | null>(null);
-  const [totalDue, setTotalDue] = useState<number | null>(null);
+  const [totalDue, setTotalDue] = useState<number>(0);
   const [interestValue, setInterestValue] = useState({
     unitValue: 0,
     decimalValue: 0,
@@ -44,8 +45,15 @@ const CreateLeft = () => {
 
       {/* PURPOSE */}
       <div className=" w-full flex flex-col">
-        <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold">
-          About
+        <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
+          About{" "}
+          <p
+            className={`bg-green-500 p-[1px] ${
+              purpose.length > 2 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <TiTick size={14} className=" text-white" />
+          </p>
         </h3>
 
         <div className=" w-full h-full flex flex-col items-start ">
@@ -55,6 +63,11 @@ const CreateLeft = () => {
           <textarea
             placeholder="Provide information on your loan offer"
             className="textarea"
+            required
+            value={purpose}
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+              setPurpose(e.target.value)
+            }
           />
         </div>
       </div>
@@ -63,6 +76,13 @@ const CreateLeft = () => {
       <div className=" w-full flex flex-col">
         <h3 className=" text-white text-[28px] lg:text-xl mb-5 lg:mb-9">
           Terms Configurations
+          <p
+            className={`bg-green-500 p-[1px] ${
+              totalDue > 299 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <TiTick size={14} className=" text-white" />
+          </p>
         </h3>
 
         {/* Inputs */}
@@ -70,7 +90,7 @@ const CreateLeft = () => {
           <label className="labelStyles" htmlFor="inputs">
             Principle Amount & Interest %
           </label>
-          <section className=" w-full h-[30vh] lg:h-[18vh] border-2 border-white flex flex-col lg:flex-row gap-2 xl:gap-4 items-start ">
+          <section className="w-full h-[30vh] flex flex-col lg:flex-row gap-2 xl:gap-4 items-start ">
             <div className=" w-full group cursor-pointer h-[50%] border-2 lg:w-8/12 border-neutral-400/40 hover:border-neutral-100 rounded-md flex flex-col items-start px-1 md:px-2 lg:px-3 py-2 ">
               <label className="labelStyles" htmlFor="amount">
                 Amount
@@ -91,6 +111,7 @@ const CreateLeft = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setPrinciple(Number(e.target.value))
                   }
+                  required
                 />
                 <p className="text-neutral-200 text-[12px] lg:text-[10px] w-fit group-hover:text-white group-hover:text-[15px] transition-all duration-300 ease-in-out">
                   R5000
@@ -115,6 +136,7 @@ const CreateLeft = () => {
                   min={0}
                   max={16}
                   onChange={handleInterestChanges}
+                  required
                 />
 
                 <p className=" text-2xl font-semibold mx-1 h-full flex items-end">
@@ -128,13 +150,16 @@ const CreateLeft = () => {
                   min={0}
                   max={9}
                   onChange={handleInterestChanges}
+                  required
                 />
               </span>
               <span className="w-full h-full text-white flex justify-center items-end py-1">
                 <p className=" text-white text-[13px] lg:text-[12px]">
                   {interestValue.unitValue ? interestValue.unitValue : 0}
                 </p>
-                <p className="text-lg font-semibold h-full flex items-end">.</p>
+                <p className="text-[12px] mx-[1px] font-semibold h-full flex items-end">
+                  .
+                </p>
                 <p className=" text-white text-[13px] lg:text-[12px]">
                   {interestValue.decimalValue ? interestValue.decimalValue : 0}
                 </p>
@@ -142,14 +167,14 @@ const CreateLeft = () => {
               </span>
             </div>
           </section>
-          <div className="w-full h-fit p-1 lg:p-2 flex justify-center items-center gap-1">
+          {/* <div className="w-full h-fit p-1 lg:p-2 flex justify-center items-center gap-1">
             <p className=" text-neutral-200 text-[16px] lg:text-[14px]">
               est. repayment
             </p>
             <h2 className=" text-3xl lg:text-2xl text-white font-semibold">
               R2399.44
             </h2>
-          </div>
+          </div> */}
         </div>
       </div>
 

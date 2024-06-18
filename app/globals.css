@@ -13,11 +13,11 @@
 }
 
 .inputField {
-  @apply bg-transparent text-neutral-400 text-2xl lg:text-[16px] border-b-[1px] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
+  @apply bg-transparent focus:border-b-neutral-100 transition-all duration-300 focus:text-neutral-100 ease-in-out text-neutral-400 text-2xl lg:text-[16px] border-b-[1px] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
 }
 
 .textarea {
-  @apply bg-transparent text-neutral-400 text-2xl lg:text-[16px] p-2 md:p-3 lg:p-5 border-[1px] rounded-lg min-h-[30vh] lg:rounded-xl lg:min-h-[15vh] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
+  @apply bg-transparent focus:text-neutral-100 focus:border-none focus:bg-neutral-600/40 transition-all duration-300 ease-in-out text-neutral-400 text-2xl lg:text-[16px] p-2 md:p-3 lg:p-5 border-[1px] rounded-lg min-h-[30vh] lg:rounded-xl lg:min-h-[15vh] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
 }
 
 .labelStyles {
