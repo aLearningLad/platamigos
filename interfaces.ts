@@ -10,6 +10,8 @@ export interface Icreateright {
   setMonths: React.Dispatch<React.SetStateAction<number>>;
   interestValue: TinterestStates;
   setInterestRate: React.Dispatch<React.SetStateAction<number>>;
+  expiryDate: string;
+  setExpiryDate: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface Icreateleft {

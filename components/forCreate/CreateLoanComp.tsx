@@ -8,7 +8,7 @@ import { TinterestStates } from "@/types";
 const CreateLoanComp = () => {
   const [title, setTitle] = useState<string>("");
   const [purpose, setPurpose] = useState<string>("");
-  const [expiryDate, setExpiryDate] = useState<Date>();
+  const [expiryDate, setExpiryDate] = useState<string>("");
   const [principle, setPrinciple] = useState<number>(300);
   const [totalDue, setTotalDue] = useState<number>(0);
   const [interestValue, setInterestValue] = useState<TinterestStates>({
@@ -54,6 +54,8 @@ const CreateLoanComp = () => {
           principle={principle}
           interestValue={interestValue}
           setInterestRate={setInterestRate}
+          expiryDate={expiryDate}
+          setExpiryDate={setExpiryDate}
         />
       </div>
     </div>

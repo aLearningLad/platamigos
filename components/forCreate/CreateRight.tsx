@@ -12,6 +12,8 @@ const CreateRight: React.FC<Icreateright> = ({
   setMonths,
   interestValue,
   setInterestRate,
+  expiryDate,
+  setExpiryDate,
 }) => {
   const instalmentAmount = Number(
     (
@@ -66,10 +68,10 @@ const CreateRight: React.FC<Icreateright> = ({
               className="inputField"
               min={3}
               max={12}
-              // value={expiryDate}
-              // onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              //   setExpiryDate(Number(e.target.value))
-              // }
+              value={expiryDate}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setExpiryDate(e.target.value)
+              }
               placeholder="eg. 2024-06-28"
             />
           </div>
@@ -100,7 +102,6 @@ const CreateRight: React.FC<Icreateright> = ({
             R{totalRepayment.toFixed(2)}
           </h2>
         </div>
-        {/* REMOVE THIS */}
         <span className=" w-full flex flex-row items-center gap-1 justify-center">
           <p className=" text-[10px] text-white italic">you're offering</p>
           <p className=" text-[12px] text-white font-semibold italic">
