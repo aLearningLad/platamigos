@@ -13,11 +13,15 @@ const CreateLoanComp = () => {
   const [totalDue, setTotalDue] = useState<number>(0);
   const [interestValue, setInterestValue] = useState<TinterestStates>({
     unitValue: 11,
-    decimalValue: 0,
+    decimalValue: 1,
   });
-  const [interestRate, setInterestRate] = useState<number>(11);
+  const [interestRate, setInterestRate] = useState<number>(
+    Number(interestValue.unitValue + interestValue.decimalValue / 10)
+  );
   const [instalment, setInstalment] = useState<number>(4);
   const [repaymentTerm, setRepaymentTerm] = useState<number>(3);
+
+  //
 
   return (
     <div className="flex-col  flex justify-center items-center w-full h-full">
@@ -38,8 +42,10 @@ const CreateLoanComp = () => {
           totalDue={totalDue}
           interestValue={interestValue}
           setInterestValue={setInterestValue}
+          setInterestRate={setInterestRate}
         />
         <div className="w-[2px] h-[90%] bg-neutral-400/20 rounded-lg  " />
+        <p className=" text-lg text-white">{interestRate}</p>
         <CreateRight
           instalment={instalment}
           interest={interestRate}
@@ -47,6 +53,8 @@ const CreateLoanComp = () => {
           setInstalment={setInstalment}
           setMonths={setRepaymentTerm}
           principle={principle}
+          interestValue={interestValue}
+          setInterestRate={setInterestRate}
         />
       </div>
     </div>

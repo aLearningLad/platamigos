@@ -8,6 +8,8 @@ export interface Icreateright {
   instalment: number;
   setInstalment: React.Dispatch<React.SetStateAction<number>>;
   setMonths: React.Dispatch<React.SetStateAction<number>>;
+  interestValue: TinterestStates;
+  setInterestRate: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface Icreateleft {
@@ -20,6 +22,7 @@ export interface Icreateleft {
   totalDue: number;
   interestValue: TinterestStates;
   setInterestValue: React.Dispatch<React.SetStateAction<TinterestStates>>;
+  setInterestRate: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface Inavcompbtn {

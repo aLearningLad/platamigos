@@ -14,11 +14,12 @@ const CreateLeft: React.FC<Icreateleft> = ({
   totalDue,
   interestValue,
   setInterestValue,
+  setInterestRate,
 }) => {
   const handleInterestChanges = (e: ChangeEvent<HTMLInputElement>) => {
     setInterestValue((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [e.target.name]: Number(e.target.value),
     }));
   };
 

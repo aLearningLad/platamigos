@@ -1,7 +1,7 @@
 "use client";
 
 import { Icreateright } from "@/interfaces";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const CreateRight: React.FC<Icreateright> = ({
   instalment,
@@ -10,17 +10,23 @@ const CreateRight: React.FC<Icreateright> = ({
   principle,
   setInstalment,
   setMonths,
+  interestValue,
+  setInterestRate,
 }) => {
-  const calculateInstalment = (
-    principle: number,
-    interest: number,
-    months: number
-  ) => {
-    const answer =
-      (principle + principle * (interest / 100) * (months / 12)) / months;
+  const instalmentAmount = Number(
+    (
+      (principle + principle * (interest / 100) * (months / 12)) /
+      months
+    ).toFixed(2)
+  );
 
-    alert(`This is the instalment amount: ${answer}`);
-  };
+  const totalRepayment = instalmentAmount * months;
+
+  useEffect(() => {
+    setInterestRate(
+      Number(interestValue.unitValue + interestValue.decimalValue / 10)
+    );
+  }, [interestValue]);
 
   return (
     <section className="w-full h-[70vh] md:h-[65vh] lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
@@ -76,7 +82,8 @@ const CreateRight: React.FC<Icreateright> = ({
         <h3 className=" text-xl lg:text-lg">Borrower will pay you</h3>
 
         <h1 className=" text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-fuchsia-400 bg-clip-text text-transparent">
-          R233.33
+          R{instalmentAmount}
+          {/* R233.33 */}
         </h1>
 
         <h1 className="text-xl lg:text-lg">every month for {months} months</h1>
@@ -90,9 +97,11 @@ const CreateRight: React.FC<Icreateright> = ({
             est. repayment
           </p>
           <h2 className=" text-3xl lg:text-2xl text-white font-semibold">
-            R2399.44
+            {/* R2399.44 */}R{totalRepayment}
           </h2>
         </div>
+        {/* REMOVE THIS */}
+        <p className=" text-lg text-white">{interest}</p>
         <button className=" w-full md:w-10/12 py-1 lg:py-2 bg-gradient-to-r rounded-md md:rounded-lg from-purple-600/40 via-cyan-600 to-cyan-800 text-white text-3xl  lg:text-2xl ">
           Publish
         </button>
