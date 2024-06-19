@@ -45,7 +45,6 @@ const CreateLoanComp = () => {
           setInterestRate={setInterestRate}
         />
         <div className="w-[2px] h-[90%] bg-neutral-400/20 rounded-lg  " />
-        <p className=" text-lg text-white">{interestRate}</p>
         <CreateRight
           instalment={instalment}
           interest={interestRate}

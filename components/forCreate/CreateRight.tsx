@@ -82,7 +82,7 @@ const CreateRight: React.FC<Icreateright> = ({
         <h3 className=" text-xl lg:text-lg">Borrower will pay you</h3>
 
         <h1 className=" text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-fuchsia-400 bg-clip-text text-transparent">
-          R{instalmentAmount}
+          R{instalmentAmount.toFixed(2)}
           {/* R233.33 */}
         </h1>
 
@@ -97,12 +97,22 @@ const CreateRight: React.FC<Icreateright> = ({
             est. repayment
           </p>
           <h2 className=" text-3xl lg:text-2xl text-white font-semibold">
-            {/* R2399.44 */}R{totalRepayment}
+            R{totalRepayment.toFixed(2)}
           </h2>
         </div>
         {/* REMOVE THIS */}
-        <p className=" text-lg text-white">{interest}</p>
-        <button className=" w-full md:w-10/12 py-1 lg:py-2 bg-gradient-to-r rounded-md md:rounded-lg from-purple-600/40 via-cyan-600 to-cyan-800 text-white text-3xl  lg:text-2xl ">
+        <span className=" w-full flex flex-row items-center gap-1 justify-center">
+          <p className=" text-[10px] text-white italic">you're offering</p>
+          <p className=" text-[12px] text-white font-semibold italic">
+            R{principle}
+          </p>
+          <p className=" text-[8px] text-white">@</p>
+          <p className=" text-[10px] text-white font-semibold italic">
+            {interest}%
+          </p>
+          <p className=" text-[10px] text-white italic">for {months} months</p>
+        </span>
+        <button className=" w-full mt-2 md:w-10/12 py-1 lg:py-2 bg-gradient-to-r rounded-md md:rounded-lg from-purple-600/40 via-cyan-600 to-cyan-800 text-white text-3xl  lg:text-2xl ">
           Publish
         </button>
       </section>

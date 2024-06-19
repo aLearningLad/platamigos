@@ -133,8 +133,8 @@ const CreateLeft: React.FC<Icreateleft> = ({
                   value={interestValue.unitValue}
                   name="unitValue"
                   className="numberInput"
-                  min={11}
-                  max={23}
+                  min={18}
+                  max={38}
                   onChange={handleInterestChanges}
                   required
                 />
