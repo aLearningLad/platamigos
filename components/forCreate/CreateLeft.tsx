@@ -9,10 +9,10 @@ const CreateLeft: React.FC<Icreateleft> = ({
   setPurpose,
   setTitle,
   title,
+  principle,
+  setPrinciple,
 }) => {
-  const [expiryDate, setExpiryDate] = useState<Date | null>(null);
   const [interestRate, setInterestRate] = useState<number>(11);
-  const [principle, setPrinciple] = useState<number | null>(300);
   const [instalment, setInstalment] = useState<number | null>(null);
   const [totalDue, setTotalDue] = useState<number>(0);
   const [interestValue, setInterestValue] = useState({
