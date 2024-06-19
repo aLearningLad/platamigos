@@ -3,7 +3,8 @@
 import { ChangeEvent, useState } from "react";
 import CreateLeft from "./CreateLeft";
 import CreateRight from "./CreateRight";
-import { TinterestStates } from "@/types";
+import { TcreateLoanParams, TinterestStates } from "@/types";
+import { createLoan } from "@/utils/queries/createLoan";
 
 const CreateLoanComp = () => {
   const [title, setTitle] = useState<string>("");
@@ -21,7 +22,14 @@ const CreateLoanComp = () => {
   const [instalment, setInstalment] = useState<number>(4);
   const [repaymentTerm, setRepaymentTerm] = useState<number>(3);
 
-  //
+  const loanParams = [
+    purpose,
+    expiryDate,
+    totalDue,
+    interestRate,
+    instalment,
+    repaymentTerm,
+  ];
 
   return (
     <div className="flex-col  flex justify-center items-center w-full h-full">
@@ -56,6 +64,7 @@ const CreateLoanComp = () => {
           setInterestRate={setInterestRate}
           expiryDate={expiryDate}
           setExpiryDate={setExpiryDate}
+          createLoanFxn={() => {}} //COME BACK TO FIX
         />
       </div>
     </div>

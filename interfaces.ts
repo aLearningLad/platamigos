@@ -1,5 +1,5 @@
 import { ChangeEvent, SetStateAction } from "react";
-import { TinterestStates } from "./types";
+import { TcreateLoanParams, TinterestStates } from "./types";
 
 export interface Icreateright {
   principle: number;
@@ -12,6 +12,7 @@ export interface Icreateright {
   setInterestRate: React.Dispatch<React.SetStateAction<number>>;
   expiryDate: string;
   setExpiryDate: React.Dispatch<React.SetStateAction<string>>;
+  createLoanFxn: (params: TcreateLoanParams) => void;
 }
 
 export interface Icreateleft {
