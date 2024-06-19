@@ -11,15 +11,10 @@ const CreateLeft: React.FC<Icreateleft> = ({
   title,
   principle,
   setPrinciple,
+  totalDue,
+  interestValue,
+  setInterestValue,
 }) => {
-  const [interestRate, setInterestRate] = useState<number>(11);
-  const [instalment, setInstalment] = useState<number | null>(null);
-  const [totalDue, setTotalDue] = useState<number>(0);
-  const [interestValue, setInterestValue] = useState({
-    unitValue: 11,
-    decimalValue: 0,
-  });
-
   const handleInterestChanges = (e: ChangeEvent<HTMLInputElement>) => {
     setInterestValue((prev) => ({
       ...prev,

@@ -1,9 +1,13 @@
 import { ChangeEvent, SetStateAction } from "react";
+import { TinterestStates } from "./types";
 
 export interface Icreateright {
   principle: number;
   interest: number;
   months: number;
+  instalment: number;
+  setInstalment: React.Dispatch<React.SetStateAction<number>>;
+  setMonths: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface Icreateleft {
@@ -13,6 +17,9 @@ export interface Icreateleft {
   setPurpose: React.Dispatch<React.SetStateAction<string>>;
   principle: number;
   setPrinciple: React.Dispatch<React.SetStateAction<number>>;
+  totalDue: number;
+  interestValue: TinterestStates;
+  setInterestValue: React.Dispatch<React.SetStateAction<TinterestStates>>;
 }
 
 export interface Inavcompbtn {

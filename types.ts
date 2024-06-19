@@ -1,3 +1,8 @@
+export type TinterestStates = {
+  unitValue: number;
+  decimalValue: number;
+};
+
 export type TfetchCurrentUserParams = {
   googleId: string;
 };

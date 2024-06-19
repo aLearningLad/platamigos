@@ -1,10 +1,16 @@
 "use client";
 
+import { Icreateright } from "@/interfaces";
 import { ChangeEvent, useState } from "react";
 
-const CreateRight = () => {
-  const [repaymentTerm, setRepaymentTerm] = useState<number>(3);
-
+const CreateRight: React.FC<Icreateright> = ({
+  instalment,
+  interest,
+  months,
+  principle,
+  setInstalment,
+  setMonths,
+}) => {
   const calculateInstalment = (
     principle: number,
     interest: number,
@@ -33,9 +39,9 @@ const CreateRight = () => {
               className="numberInput"
               min={3}
               max={12}
-              value={repaymentTerm}
+              value={months}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setRepaymentTerm(Number(e.target.value))
+                setMonths(Number(e.target.value))
               }
             />
           </div>
@@ -73,9 +79,7 @@ const CreateRight = () => {
           R233.33
         </h1>
 
-        <h1 className="text-xl lg:text-lg">
-          every month for {repaymentTerm} months
-        </h1>
+        <h1 className="text-xl lg:text-lg">every month for {months} months</h1>
       </div>
 
       {/* TOTAL DUE */}
