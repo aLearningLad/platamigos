@@ -15,6 +15,7 @@ const CreateRight: React.FC<Icreateright> = ({
   expiryDate,
   setExpiryDate,
   createLoanFxn,
+  loanParams,
 }) => {
   const instalmentAmount = Number(
     (
@@ -114,7 +115,10 @@ const CreateRight: React.FC<Icreateright> = ({
           </p>
           <p className=" text-[10px] text-white italic">for {months} months</p>
         </span>
-        <button className=" w-full mt-2 md:w-10/12 py-1 lg:py-2 bg-gradient-to-r rounded-md md:rounded-lg from-purple-600/40 via-cyan-600 to-cyan-800 text-white text-3xl  lg:text-2xl ">
+        <button
+          onClick={() => createLoanFxn(loanParams)}
+          className=" w-full mt-2 md:w-10/12 py-1 lg:py-2 bg-gradient-to-r rounded-md md:rounded-lg from-purple-600/40 via-cyan-600 to-cyan-800 text-white text-3xl  lg:text-2xl "
+        >
           Publish
         </button>
       </section>

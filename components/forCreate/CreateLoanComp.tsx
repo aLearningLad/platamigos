@@ -55,6 +55,7 @@ const CreateLoanComp = () => {
         />
         <div className="w-[2px] h-[90%] bg-neutral-400/20 rounded-lg  " />
         <CreateRight
+          loanParams={loanParams}
           instalment={instalment}
           interest={interestRate}
           months={repaymentTerm}
