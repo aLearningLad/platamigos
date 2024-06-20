@@ -22,14 +22,15 @@ const CreateLoanComp = () => {
   const [instalment, setInstalment] = useState<number>(4);
   const [repaymentTerm, setRepaymentTerm] = useState<number>(3);
 
-  const loanParams = [
+  const loanParams: TcreateLoanParams = {
+    title,
     purpose,
-    expiryDate,
-    totalDue,
-    interestRate,
+    expiry_date: expiryDate,
+    total_due: totalDue,
+    interest_rate: interestRate,
     instalment,
-    repaymentTerm,
-  ];
+    principal_offer: principle,
+  };
 
   return (
     <div className="flex-col  flex justify-center items-center w-full h-full">
@@ -64,7 +65,9 @@ const CreateLoanComp = () => {
           setInterestRate={setInterestRate}
           expiryDate={expiryDate}
           setExpiryDate={setExpiryDate}
-          createLoanFxn={() => {}} //COME BACK TO FIX
+          createLoanFxn={() => {
+            createLoan(loanParams);
+          }} //COME BACK TO FIX
         />
       </div>
     </div>

@@ -14,6 +14,7 @@ const CreateRight: React.FC<Icreateright> = ({
   setInterestRate,
   expiryDate,
   setExpiryDate,
+  createLoanFxn,
 }) => {
   const instalmentAmount = Number(
     (
