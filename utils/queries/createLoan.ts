@@ -1,7 +1,7 @@
-"use client";
+"use server";
 
 import { TcreateLoanParams } from "@/types";
-import { createClient } from "../supabase/client";
+import { createClient } from "../supabase/server";
 
 export const createLoan = async (loanParams: TcreateLoanParams) => {
   const supabase = createClient();
@@ -27,7 +27,8 @@ export const createLoan = async (loanParams: TcreateLoanParams) => {
     });
 
     if (!createLoanError) {
-      alert("Loan listing created!"); //REPLACE WITH A TOAST
+      //REPLACE WITH A TOAST
+      // alert("Loan listing created!");
     }
 
     if (createLoanError) {

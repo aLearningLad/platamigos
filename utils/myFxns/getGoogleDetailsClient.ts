@@ -16,7 +16,8 @@ export const getGoogleDetailsClient = async () => {
       return;
     }
 
-    console.log("This is the result: ", result);
+    // console.log("This is the result: ", result);
+
     return result;
   } catch (error) {
     console.log("Error while getting google acc details: ", error);
