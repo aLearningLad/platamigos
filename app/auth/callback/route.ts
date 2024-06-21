@@ -61,10 +61,10 @@ export async function GET(request: Request) {
               balance: 0,
               creditors_total: 0,
               debtors_total: 0,
-              allofferedbymeid: "",
+              allofferedbymeid: googleId,
               allofferedtomeid: "",
               allapplicationsid: "",
-              creditscore: 0,
+              creditscore: 100,
               loan_count: 0,
             });
 

@@ -25,6 +25,8 @@ export const createLoan = async (loanParams: TcreateLoanParams) => {
       principal_offer: loanParams.principal_offer,
       instalment: loanParams.instalment,
       total_due: loanParams.total_due,
+      number_payments: loanParams.months,
+      lender_credit_score: 300,
     });
 
     if (!createLoanError) {

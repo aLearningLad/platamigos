@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import CreateLeft from "./CreateLeft";
 import CreateRight from "./CreateRight";
 import { TcreateLoanParams, TinterestStates } from "@/types";
@@ -21,15 +21,27 @@ const CreateLoanComp = () => {
   );
   const [instalment, setInstalment] = useState<number>(4);
   const [repaymentTerm, setRepaymentTerm] = useState<number>(3);
+  const [formattedDate, setFormattedDate] = useState<Date>();
+
+  useEffect(() => {
+    const handleExpiryDate = () => {
+      const expDateToDb = new Date(expiryDate);
+      setFormattedDate(expDateToDb);
+      console.log(expDateToDb);
+    };
+
+    handleExpiryDate();
+  }, [expiryDate]);
 
   const loanParams: TcreateLoanParams = {
     title,
     purpose,
-    expiry_date: expiryDate,
+    expiry_date: formattedDate as Date,
     total_due: totalDue,
     interest_rate: interestRate,
     instalment,
     principal_offer: principle,
+    months: repaymentTerm,
   };
 
   return (
