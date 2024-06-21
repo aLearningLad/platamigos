@@ -6,10 +6,11 @@ import { createClient } from "../supabase/server";
 export const createLoan = async (loanParams: TcreateLoanParams) => {
   const supabase = createClient();
   const lenderId = (await supabase.auth.getUser()).data.user?.id;
-  const lenderName = await supabase
+  const { data: lenderData, error: lenderNameError } = await supabase
     .from("allusers")
     .select("username")
     .eq("googleid", lenderId);
+  const lenderName = await lenderData![0].username;
   const expiryDateToDb = new Date(loanParams.expiry_date);
 
   try {
