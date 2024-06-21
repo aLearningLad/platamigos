@@ -14,6 +14,8 @@ export interface Icreateright {
   setExpiryDate: React.Dispatch<React.SetStateAction<string>>;
   createLoanFxn: (params: TcreateLoanParams) => void;
   loanParams: TcreateLoanParams;
+  totalDue: number;
+  setTotalDue: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface Icreateleft {

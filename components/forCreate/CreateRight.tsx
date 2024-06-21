@@ -16,6 +16,8 @@ const CreateRight: React.FC<Icreateright> = ({
   setExpiryDate,
   createLoanFxn,
   loanParams,
+  setTotalDue,
+  totalDue,
 }) => {
   const instalmentAmount = Number(
     (
@@ -30,7 +32,8 @@ const CreateRight: React.FC<Icreateright> = ({
     setInterestRate(
       Number(interestValue.unitValue + interestValue.decimalValue / 10)
     );
-  }, [interestValue]);
+    setTotalDue(totalRepayment);
+  }, [interestValue, totalDue, principle]);
 
   return (
     <section className="w-full h-[70vh] md:h-[65vh] lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">

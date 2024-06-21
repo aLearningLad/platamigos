@@ -69,6 +69,8 @@ const CreateLoanComp = () => {
           createLoanFxn={() => {
             createLoan(loanParams);
           }} //COME BACK TO FIX
+          totalDue={totalDue}
+          setTotalDue={setTotalDue}
         />
       </div>
     </div>
