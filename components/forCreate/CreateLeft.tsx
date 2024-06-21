@@ -39,6 +39,10 @@ const CreateLeft: React.FC<Icreateleft> = ({
             type="text"
             placeholder="Enter a title for your loan"
             className="inputField"
+            value={title}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setTitle(e.target.value)
+            }
           />
         </div>
       </div>
