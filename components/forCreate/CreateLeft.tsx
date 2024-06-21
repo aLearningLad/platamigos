@@ -2,6 +2,8 @@
 
 import { Icreateleft } from "@/interfaces";
 import { ChangeEvent, useState } from "react";
+import { FaCircleExclamation } from "react-icons/fa6";
+import { TbProgressCheck } from "react-icons/tb";
 import { TiTick } from "react-icons/ti";
 
 const CreateLeft: React.FC<Icreateleft> = ({
@@ -26,8 +28,35 @@ const CreateLeft: React.FC<Icreateleft> = ({
   return (
     <section className="w-full h-[70vh] md:h-[65vh] lg:h-full overflow-auto lg:w-1/2 flex flex-col items-start justify-around px-1 md:px-4 lg:px-8 xl:px-16 bg-gradient-to-br">
       <div className=" w-full flex flex-col">
-        <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold">
+        <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
           Loan details
+          <span
+            className={` p-[1px] gap-1 ${
+              title.length === 0 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <FaCircleExclamation size={14} className="" color="red" />
+            <p className=" text-[12px] lg:text-[10px] text-red-500  ">
+              required
+            </p>
+          </span>
+          <p
+            className={`bg-green-500 p-[1px] ${
+              title.length > 5 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <TiTick size={14} className=" text-white" />
+          </p>
+          <span
+            className={` p-[1px] gap-1 ${
+              title.length >= 1 && title.length <= 5 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <TbProgressCheck size={14} className="" />
+            <p className=" text-[12px] lg:text-[10px] text-pink-400  ">
+              ...try adding a descriptive title
+            </p>
+          </span>
         </h3>
 
         {/* TITLE */}
@@ -50,14 +79,32 @@ const CreateLeft: React.FC<Icreateleft> = ({
       {/* PURPOSE */}
       <div className=" w-full flex flex-col">
         <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
-          About{" "}
+          About
           <p
             className={`bg-green-500 p-[1px] ${
-              purpose.length > 2 ? "flex" : "hidden"
+              purpose.length > 10 ? "flex" : "hidden"
             } justify-center items-center rounded-full`}
           >
             <TiTick size={14} className=" text-white" />
           </p>
+          <span
+            className={` p-[1px] gap-1 ${
+              purpose.length <= 1 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <FaCircleExclamation size={14} className="" color="red" />{" "}
+            <p className="text-[12px] lg:text-[10px] text-red-500">required</p>
+          </span>
+          <span
+            className={` p-[1px] gap-1 ${
+              purpose.length > 1 && purpose.length <= 10 ? "flex" : "hidden"
+            } justify-center items-center rounded-full`}
+          >
+            <TbProgressCheck size={14} className="" />
+            <p className=" text-[12px] lg:text-[10px] text-pink-400  ">
+              ...keep adding info
+            </p>
+          </span>
         </h3>
 
         <div className=" w-full h-full flex flex-col items-start ">
@@ -78,7 +125,7 @@ const CreateLeft: React.FC<Icreateleft> = ({
 
       {/* PRINCIPLE AMOUNT */}
       <div className=" w-full flex flex-col">
-        <h3 className=" text-white text-[28px] lg:text-xl mb-5 lg:mb-9">
+        <h3 className="text-white flex text-[28px] lg:text-xl font-semibold items-center gap-1 mb-3 lg:mb-9 w-full">
           Terms Configurations
           <p
             className={`bg-green-500 p-[1px] ${
