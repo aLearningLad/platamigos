@@ -26,7 +26,7 @@ const CreateLeft: React.FC<Icreateleft> = ({
   };
 
   return (
-    <section className="w-full h-[70vh] md:h-[65vh] lg:h-full overflow-auto lg:w-1/2 flex flex-col items-start justify-around px-1 md:px-4 lg:px-8 xl:px-16 bg-gradient-to-br">
+    <section className="w-full h-full border-4 border-yellow-400 lg:w-1/2 flex flex-col items-start justify-around px-1 md:px-4 lg:px-8 xl:px-16 bg-gradient-to-br">
       <div className=" w-full flex flex-col">
         <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
           Loan details

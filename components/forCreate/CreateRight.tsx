@@ -37,10 +37,10 @@ const CreateRight: React.FC<Icreateright> = ({
   }, [interestValue, totalDue, principle, months]);
 
   return (
-    <section className="w-full h-[70vh] md:h-[65vh] lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
+    <section className="w-full border-green-400 h-[120vh] border-4 mt-8 lg:mt-0 lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
       {/* MONTHS TO REPAY */}
       <div className="w-full h-[15vh] lg:h-[20%] flex flex-col lg:flex-row items-start px-2 lg:px-5 py-1 lg:py-2">
-        <section className=" w-full flex flex-col h-full items-start">
+        <section className=" w-full flex flex-col h-[45vh] lg:h-full items-start">
           <h3 className="text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
             Repayments
           </h3>

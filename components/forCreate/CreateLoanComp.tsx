@@ -45,14 +45,14 @@ const CreateLoanComp = () => {
   };
 
   return (
-    <div className="flex-col  flex justify-center items-center w-full h-full">
-      <header className=" w-full flex h-fit py-3 lg:py-4 justify-center items-center">
+    <div className="flex-col flex justify-center items-center w-full min-h-fit lg:h-full py-3 lg:py-1">
+      <header className=" w-full flex h-fit py-1 lg:py-4 justify-center items-center">
         <h1 className="text-4xl md:text-3xl lg:text-4xl text-white">
           Create an Offer
         </h1>
       </header>
 
-      <div className=" flex flex-col lg:flex-row w-full h-full items-center justify-center">
+      <div className=" flex flex-col lg:flex-row w-full h-fit lg:h-full items-center justify-center">
         <CreateLeft
           purpose={purpose}
           setPurpose={setPurpose}
@@ -65,7 +65,7 @@ const CreateLoanComp = () => {
           setInterestValue={setInterestValue}
           setInterestRate={setInterestRate}
         />
-        <div className="w-[2px] h-[90%] bg-neutral-400/20 rounded-lg  " />
+        <div className="w-[2px] lg:flex hidden h-[90%] bg-neutral-400/20 rounded-lg  " />
         <CreateRight
           loanParams={loanParams}
           instalment={instalment}
