@@ -4,7 +4,7 @@ import React from "react";
 const FooterFeatures = () => {
   return (
     <div className="w-full lg:w-2/12 xl:w-1/12 gap-1 h-full flex flex-row lg:flex-col lg:justify-center justify-center items-center">
-      <h3 className="w-full justify-start hidden lg:flex text-white font-semibold text-[16px]">
+      <h3 className="w-full justify-start hidden lg:flex text-white font-semibold text-[16px] ">
         Features
       </h3>
       {footerfeaturesdata.map((item) => (
