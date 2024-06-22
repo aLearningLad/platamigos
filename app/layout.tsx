@@ -17,6 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link
+        rel="icon"
+        href="/assets/1.png"
+        type="image/<generated>"
+        className=" rounded-full"
+      />
       <body className={tav.className}>
         <div className=" min-h-screen max-h-fit flex flex-col lg:flex-row relative bg-gradient-to-br from-black to-black">
           <SideBar />

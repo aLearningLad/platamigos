@@ -1,3 +1,9 @@
+export type Tfootersocialsdata = {
+  id: number;
+  socialtitle: string;
+  socialImg: React.ReactElement;
+};
+
 export type TinterestStates = {
   unitValue: number;
   decimalValue: number;

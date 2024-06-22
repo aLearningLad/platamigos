@@ -5,3 +5,8 @@ export { default as SBTop } from "./SBTop";
 export { default as SBBottom } from "./SBBottom";
 export { default as NavCompBtn } from "./NavCompBtn";
 export { default as LowerNavBtn } from "./LowerNavBtn";
+export { default as FooterLogo } from "./FooterLogo";
+export { default as FooterContact } from "./FooterContact";
+export { default as FooterSocials } from "./FooterSocials";
+export { default as FooterFeatures } from "./FooterFeatures";
+export { default as FindUsHere } from "./FindUsHere";
