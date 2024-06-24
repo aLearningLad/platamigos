@@ -1,3 +1,5 @@
+"use client";
+
 import { TtrackedLoans } from "@/types";
 import { trackLoan } from "@/utils/myFxns/trackLoan";
 import React from "react";

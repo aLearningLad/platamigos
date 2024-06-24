@@ -4,8 +4,6 @@ import { getAllPublished } from "@/utils/myFxns/getAllPublished";
 import React from "react";
 
 const AllLoansPage = async () => {
-  const falseData = [1, 2, 3, 4, 5, 6, 7];
-
   const loans = await getAllPublished();
 
   console.log("These are the loans: ", loans);
