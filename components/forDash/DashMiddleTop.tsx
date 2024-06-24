@@ -5,6 +5,7 @@ import DoughnutChart from "./DoughnutChart";
 import { IoInformationCircle } from "react-icons/io5";
 import InfoBtn from "./InfoBtn";
 import MiniTab from "./MiniTab";
+import { minitabdata } from "@/devdata/minitabdata";
 
 const DashMiddleTop = () => {
   return (
@@ -26,8 +27,15 @@ const DashMiddleTop = () => {
       {/* TINY GRAPHS & FIGURES */}
       <section className=" w-full p-1 md:p-2 lg:p-5 h-full border-2 border-white rounded-md lg:rounded-lg hidden lg:flex flex-col">
         <div className=" w-full h-1/2 flex gap-3">
-          {/* <MiniTab />
-          <MiniTab /> */}
+          {minitabdata.map((tab) => (
+            <MiniTab
+              tabId={tab.tabId}
+              tabData={tab.tabData}
+              tabIcon={tab.tabIcon}
+              tabLabel={tab.tabLabel}
+              key={tab.tabId}
+            />
+          ))}
         </div>
         <div className=" w-full h-1/2 flex flex-col bg-white"></div>
       </section>

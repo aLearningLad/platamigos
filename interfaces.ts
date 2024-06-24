@@ -2,6 +2,7 @@ import { ChangeEvent, SetStateAction } from "react";
 import { TcreateLoanParams, TinterestStates } from "./types";
 
 export interface Iminitab {
+  tabId: number;
   tabIcon: React.ReactElement;
   tabLabel: string;
   tabData: number | string;
