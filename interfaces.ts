@@ -1,6 +1,12 @@
 import { ChangeEvent, SetStateAction } from "react";
 import { TcreateLoanParams, TinterestStates } from "./types";
 
+export interface Iminitab {
+  tabIcon: React.ReactElement;
+  tabLabel: string;
+  tabData: number | string;
+}
+
 export interface Iloancard {
   loanid: string;
 }
