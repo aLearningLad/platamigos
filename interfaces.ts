@@ -1,6 +1,10 @@
 import { ChangeEvent, SetStateAction } from "react";
 import { TcreateLoanParams, TinterestStates } from "./types";
 
+export interface Iloancard {
+  loanid: string;
+}
+
 export interface Ideleteloantbn {
   loanid: string;
 }

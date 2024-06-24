@@ -1,8 +1,14 @@
 import { LoanCard } from "@/components/forLoansPage";
+import { Tloansfromdb } from "@/types";
+import { getAllPublished } from "@/utils/myFxns/getAllPublished";
 import React from "react";
 
-const AllLoansPage = () => {
+const AllLoansPage = async () => {
   const falseData = [1, 2, 3, 4, 5, 6, 7];
+
+  const loans = await getAllPublished();
+
+  console.log("These are the loans: ", loans);
 
   return (
     <div className=" w-full h-full flex flex-col border-4 border-red-600">
@@ -11,11 +17,15 @@ const AllLoansPage = () => {
           All Your Published Loans
         </h1>
       </header>
-      <section className=" w-full h-full p-1 lg:p-3 xl:p-5 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 overflow-auto gap-2 md:gap-3 lg:gap-5">
-        {falseData.map((card) => (
-          <LoanCard />
-        ))}
-      </section>
+      {loans ? (
+        <section className=" w-full h-full p-1 lg:p-3 xl:p-5 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 overflow-auto gap-2 md:gap-3 lg:gap-5">
+          {loans?.map((card: Tloansfromdb) => (
+            <LoanCard loanid={card.loan_id} />
+          ))}
+        </section>
+      ) : (
+        <section>No loans yet!</section>
+      )}
     </div>
   );
 };

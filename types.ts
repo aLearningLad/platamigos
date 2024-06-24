@@ -1,3 +1,19 @@
+export type Tloansfromdb = {
+  lenderName?: string;
+  title: string;
+  purpose: string;
+  date_posted?: string;
+  expiry_date: string | Date;
+  number_of_applicants?: number;
+  lender_credit_score?: number;
+  interest_rate: number;
+  principal_offer: number;
+  instalment: number;
+  total_due: number;
+  months: number;
+  loan_id: string;
+};
+
 export type Tfootersocialsdata = {
   id: number;
   socialtitle: string;

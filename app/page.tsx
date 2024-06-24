@@ -1,3 +1,4 @@
+import { SignOutBtn } from "@/components/forLayout";
 import { GoogleAuthBtn } from "@/components/utilComps";
 import { createClient } from "@/utils/supabase/server";
 import Image from "next/image";
@@ -12,7 +13,7 @@ export default async function Home() {
       <p className=" text-3xl text-white">
         This is just an auth Test Page for now
       </p>
-      <GoogleAuthBtn />
+      {userIs?.name ? <SignOutBtn /> : <GoogleAuthBtn />}
       {userIs?.name ? (
         <p className=" text-white text-lg">
           {userIs?.name} currently signed in!

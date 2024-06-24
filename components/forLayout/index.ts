@@ -10,3 +10,4 @@ export { default as FooterContact } from "./FooterContact";
 export { default as FooterSocials } from "./FooterSocials";
 export { default as FooterFeatures } from "./FooterFeatures";
 export { default as FindUsHere } from "./FindUsHere";
+export { default as SignOutBtn } from "./SignOutBtn";
