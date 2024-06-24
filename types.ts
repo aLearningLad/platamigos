@@ -1,3 +1,8 @@
+export type TtrackedLoans = {
+  watcher_id: string;
+  loan_id: string;
+};
+
 export type Tloansfromdb = {
   lenderName?: string;
   title: string;
