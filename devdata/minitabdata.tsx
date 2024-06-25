@@ -5,14 +5,14 @@ import { GiCash } from "react-icons/gi";
 export const minitabdata: Iminitab[] = [
   {
     tabId: 1,
-    tabData: 28,
-    tabIcon: <FaUserFriends size="40%" />,
+    tabData: 23.4,
+    tabIcon: <FaUserFriends size={30} color="#00ff00" />,
     tabLabel: "Peers to find",
   },
   {
     tabId: 2,
-    tabData: 431,
-    tabIcon: <GiCash size="40%" />,
+    tabData: 4.6,
+    tabIcon: <GiCash size={30} color="#ffae1a" />,
     tabLabel: "A+ Loan Offers",
   },
 ];

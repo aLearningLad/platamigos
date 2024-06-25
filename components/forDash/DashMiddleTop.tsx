@@ -6,6 +6,7 @@ import { IoInformationCircle } from "react-icons/io5";
 import InfoBtn from "./InfoBtn";
 import MiniTab from "./MiniTab";
 import { minitabdata } from "@/devdata/minitabdata";
+import GrowthProjections from "./GrowthProjections";
 
 const DashMiddleTop = () => {
   return (
@@ -37,7 +38,9 @@ const DashMiddleTop = () => {
             />
           ))}
         </div>
-        <div className=" w-full h-1/2 flex flex-col bg-white"></div>
+        <div className="w-full h-1/2 hidden lg:flex flex-col rounded-lg py-3">
+          <GrowthProjections />
+        </div>
       </section>
     </div>
   );

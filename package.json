@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nivo/bar": "^0.87.0",
     "@nivo/pie": "^0.87.0",
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.43.4",
