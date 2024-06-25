@@ -3,6 +3,7 @@ export type IoverviewDisbursedData = {
   icon: React.ReactElement;
   figure: number | string;
   label: string;
+  blurb: React.ReactElement;
 };
 
 export type TtrackedLoans = {
