@@ -1,3 +1,10 @@
+export type IoverviewDisbursedData = {
+  id: number;
+  icon: React.ReactElement;
+  figure: number | string;
+  label: string;
+};
+
 export type TtrackedLoans = {
   watcher_id: string;
   loan_id: string;
