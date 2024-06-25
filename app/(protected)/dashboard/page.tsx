@@ -3,7 +3,7 @@ import { getDbUser } from "@/utils/myFxns/getDbUser";
 
 const Dashboard = async () => {
   const thisUserFromDb = getDbUser();
-  console.log("User details to summerize", thisUserFromDb);
+  // console.log("User details to summerize", thisUserFromDb);
 
   return (
     <div className=" w-full h-fit lg:h-full flex items-center text-white flex-col p-1 lg:p-3 xl:p-4 ">

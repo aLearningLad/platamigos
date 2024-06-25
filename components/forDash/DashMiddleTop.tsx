@@ -26,7 +26,7 @@ const DashMiddleTop = () => {
       </section>
 
       {/* TINY GRAPHS & FIGURES */}
-      <section className=" w-full p-1 md:p-2 lg:p-5 h-full border-2 border-white rounded-md lg:rounded-lg hidden lg:flex flex-col">
+      <section className="w-full p-1 md:p-2 lg:p-5 h-full rounded-md lg:rounded-lg hidden lg:flex flex-col">
         <div className=" w-full h-1/2 flex gap-3">
           {minitabdata.map((tab) => (
             <MiniTab
@@ -38,7 +38,7 @@ const DashMiddleTop = () => {
             />
           ))}
         </div>
-        <div className="w-full h-1/2 hidden lg:flex flex-col rounded-lg py-3">
+        <div className="w-full relative h-1/2 hidden lg:flex flex-col rounded-lg py-3 group">
           <GrowthProjections />
         </div>
       </section>

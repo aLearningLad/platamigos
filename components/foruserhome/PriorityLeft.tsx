@@ -70,7 +70,7 @@ const PriorityLeft = () => {
                 className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
                 href="/create"
               >
-                <MdCreateNewFolder size={20} color="white" />
+                <MdCreateNewFolder size={20} color="#7cfc00" />
                 <p className="text-[12px]  text-white hover:text-neutral-300 ">
                   Add a new listing
                 </p>

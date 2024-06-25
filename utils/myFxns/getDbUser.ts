@@ -13,7 +13,7 @@ export const getDbUser = async () => {
       .eq("googleid", googleId);
 
     if (!userFromDbError) {
-      console.log("User from DB for summery: ", userFromDb);
+      // console.log("User from DB for summery: ", userFromDb);
       return userFromDb;
     }
 

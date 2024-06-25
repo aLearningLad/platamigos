@@ -1,6 +1,7 @@
 "use client";
 
 import { ResponsiveBar } from "@nivo/bar";
+import { SiSololearn } from "react-icons/si";
 
 const GrowthProjections = () => {
   const data = [
@@ -112,7 +113,13 @@ const GrowthProjections = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col text-start bg-gradient-to-br p-2 from-blue-950 via-purple-950/40 to-blue-900/20 rounded-lg">
+    <div className="w-full h-full group-hover:scale-95 transition-all duration-300 ease-in-out flex flex-col text-start bg-gradient-to-br p-2 from-blue-950 via-purple-950/40 to-blue-900/20 rounded-lg">
+      <div className=" w-full h-full absolute top-0 bottom-0 left-0 right-0 rounded-lg flex-col bg-neutral-100/20 backdrop-blur-md hidden transition-all duration-300 ease-in-out cursor-pointer group-hover:flex justify-center items-center z-[4]">
+        <SiSololearn size={30} color="white" />
+        <button className="text-white text-[18px] mt-2 border-2 border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out hover:scale-95 rounded-md p-2 ">
+          Learn more
+        </button>
+      </div>
       <h1 className=" text-[12px] text-white ">Avg. Community Returns</h1>
       <ResponsiveBar
         data={data}

@@ -5,6 +5,7 @@ import AcceptLoanBtn from "./AcceptLoanBtn";
 import TrackedSymbol from "./TrackedSymbol";
 import TrackLoanBtn from "./TrackLoanBtn";
 import { serverGetGoogleDetails } from "@/utils/myFxns/serverGetGoogleDetails";
+import Link from "next/link";
 
 const LoanCard: React.FC<Iloancard> = async ({ loanid }) => {
   const result: any = await serverGetGoogleDetails();
@@ -16,6 +17,7 @@ const LoanCard: React.FC<Iloancard> = async ({ loanid }) => {
       <AcceptLoanBtn loanId={loanid} />
       <TrackedSymbol />
       <TrackLoanBtn loan_id={loanid} watcher_id={watcher_id} />
+      <Link href={`/all/${loanid}`}>Tweak Offer</Link>
     </div>
   );
 };

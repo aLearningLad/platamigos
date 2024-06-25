@@ -6,7 +6,7 @@ import React from "react";
 const AllLoansPage = async () => {
   const loans = await getAllPublished();
 
-  console.log("These are the loans: ", loans);
+  // console.log("These are the loans: ", loans);
 
   return (
     <div className=" w-full h-full flex flex-col border-4 border-red-600">
