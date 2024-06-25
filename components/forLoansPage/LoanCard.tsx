@@ -7,6 +7,7 @@ import TrackLoanBtn from "./TrackLoanBtn";
 import { serverGetGoogleDetails } from "@/utils/myFxns/serverGetGoogleDetails";
 import Link from "next/link";
 import { Tloansfromdb } from "@/types";
+import EditLoanBtn from "./EditLoanBtn";
 
 const LoanCard: React.FC<Tloansfromdb> = async ({
   expiry_date,
@@ -28,8 +29,8 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
 
   return (
     <div className="w-full hover:border-[8px] hover:border-cyan-600 hover:scale-95 transition-all duration-300 ease-in-out bg-gradient-to-br from-neutral-50 to bg-neutral-50/60 to-neutral-50/70 rounded-md py-2 md:py-3 lg:py-5 px-2 lg:px-4 md:rounded-lg lg:rounded-xl xl:rounded-2xl flex items-center text-black flex-col text-center lg:text-start">
-      <header className="w-full border-b-2 border-neutral-200 flex flex-row">
-        <h1 className="text-ellipsis font-semibold text-3xl lg:text-2xl text-black">
+      <header className="w-full border-b-2 border-neutral-200 flex flex-col text-center lg:text-start">
+        <h1 className="text-ellipsis font-semibold text-3xl lg:text-2xl bg-gradient-to-r from-orange-400 to-fuchsia-700 bg-clip-text text-transparent">
           {title}
         </h1>
         <p className="text-xl lg:text-[14px] text-neutral-800">{purpose}</p>
@@ -37,11 +38,11 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
 
       <section className="mt-2 md:mt-4 lg:mt-5 flex flex-col items-start w-full">
         <h3 className="text-[12px] font-semibold">Amount Offered</h3>
-        <h1 className="text-3xl font-extrabold xl:text-5xl">
+        <h1 className="text-3xl font-extrabold xl:text-5xl bg-gradient-to-r from-orange-400 to-fuchsia-700 bg-clip-text text-transparent">
           R{principal_offer}
         </h1>
         <p className="text-[12px] font-semibold">@ {interest_rate}%</p>
-        <p>over {months} months</p>
+        <p>over 5 {months} months</p>
       </section>
 
       <section className="mt-2 lg:mt-5 flex flex-col w-full text-center lg:text-start">
@@ -63,7 +64,7 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
       <section className="w-full mt-2 flex flex-col gap-2 lg:gap-4">
         <span>
           Loan rating:
-          <b className="text-2xl font-bold italic ml-1">A+</b>
+          <b className="text-2xl font-bold italic ml-1 text-green-600">A+</b>
         </span>
         <span>
           Applicants:
@@ -72,6 +73,7 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
       </section>
 
       <DeleteLoanBtn loanid={loan_id} />
+      <EditLoanBtn />
 
       {/* Uncomment these lines if needed
       <AcceptLoanBtn loanId={loan_id} />
