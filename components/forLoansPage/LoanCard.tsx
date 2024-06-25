@@ -27,8 +27,8 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
   const watcher_id: string = result.user.id;
 
   return (
-    <div className="w-full bg-white rounded-md py-2 md:py-3 lg:py-5 px-2 lg:px-4 md:rounded-lg lg:rounded-xl xl:rounded-2xl flex items-center text-black flex-col text-center lg:text-start">
-      <header className="w-full border-b-2 border-neutral-200 flex flex-col text-center lg:text-start">
+    <div className="w-full hover:border-[8px] hover:border-cyan-600 hover:scale-95 transition-all duration-300 ease-in-out bg-gradient-to-br from-neutral-50 to bg-neutral-50/60 to-neutral-50/70 rounded-md py-2 md:py-3 lg:py-5 px-2 lg:px-4 md:rounded-lg lg:rounded-xl xl:rounded-2xl flex items-center text-black flex-col text-center lg:text-start">
+      <header className="w-full border-b-2 border-neutral-200 flex flex-row">
         <h1 className="text-ellipsis font-semibold text-3xl lg:text-2xl text-black">
           {title}
         </h1>
@@ -51,18 +51,24 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
 
       <section className="mt-2 lg:mt-4 flex flex-col text-center lg:text-start w-full">
         <div>
-          <h2>Potential Returns</h2>
+          <h3 className="text-lg font-semibold">Potential Returns</h3>
           <p>R{total_due}</p>
         </div>
         <div>
-          <h2>Monthly return</h2>
+          <h3 className="text-lg font-semibold">Monthly return</h3>
           <p>R{instalment}</p>
         </div>
       </section>
 
       <section className="w-full mt-2 flex flex-col gap-2 lg:gap-4">
-        <div>Loan rating: A+</div>
-        <div>Applicants: 223</div>
+        <span>
+          Loan rating:
+          <b className="text-2xl font-bold italic ml-1">A+</b>
+        </span>
+        <span>
+          Applicants:
+          <b className="text-2xl ml-1 font-bold italic">223</b>
+        </span>
       </section>
 
       <DeleteLoanBtn loanid={loan_id} />

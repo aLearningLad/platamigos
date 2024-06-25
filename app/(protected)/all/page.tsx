@@ -9,8 +9,8 @@ const AllLoansPage = async () => {
   // console.log("These are the loans: ", loans);
 
   return (
-    <div className=" w-full h-full flex flex-col border-4 border-red-600">
-      <header className=" w-full float-start justify-center items-center text-center py-2 md:py-3 lg:py-5 border-2 border-white">
+    <div className=" w-full h-full flex flex-col relative">
+      <header className="w-full float-start justify-center items-center text-center py-2 md:py-3 lg:py-5 sticky top-0 bg-black">
         <h1 className=" text-5xl font-semibold text-white">
           All Your Published Loans
         </h1>
