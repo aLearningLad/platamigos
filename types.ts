@@ -1,3 +1,11 @@
+export type Tdebttabdata = {
+  tabid: number;
+  title: string;
+  subtitle: string;
+  icon: React.ReactElement;
+  btnText: string;
+};
+
 export type IoverviewDisbursedData = {
   id: number;
   icon: React.ReactElement;
