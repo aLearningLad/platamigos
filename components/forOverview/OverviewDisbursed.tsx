@@ -4,6 +4,7 @@ import { IoverviewDisbursedData } from "@/types";
 import { GiCash } from "react-icons/gi";
 import { FaBalanceScaleRight } from "react-icons/fa";
 import { FcCurrencyExchange, FcSalesPerformance } from "react-icons/fc";
+import { FaFileContract } from "react-icons/fa6";
 
 const OverviewDisbursed = async () => {
   const disbursed = await getAllPublished();
@@ -22,7 +23,7 @@ const OverviewDisbursed = async () => {
     for (tab of disbursed) {
       totalDisbursed = totalDisbursed + tab.principal_offer;
     }
-    console.log("This is the toal amount given out: ", Number(totalDisbursed));
+    console.log("This is the total amount given out: ", Number(totalDisbursed));
   }
 
   // CALCULATE AVG INTEREST
@@ -102,15 +103,14 @@ const OverviewDisbursed = async () => {
       ),
     },
     {
-      id: 47187,
-      icon: <FcCurrencyExchange size="60%" />,
-      figure: avgInterest,
-      label: "Interest Earned",
+      id: 736119,
+      icon: <FaFileContract size="60%" color="#00fafc" />,
+      figure: disbursed?.length as number,
+      label: "Active Loans",
       blurb: (
         <span className="w-full text-center gap-1 flex justify-center items-center">
-          <p className="text-[12px]">close to</p>
           <h3 className="text-xl font-bold italic px-1 bg-gradient-to-r from-lime-400 to-cyan-600 bg-clip-text text-transparent">
-            R{earnedInterest}
+            {disbursed?.length as number} active loans
           </h3>
         </span>
       ),
@@ -119,10 +119,10 @@ const OverviewDisbursed = async () => {
 
   return (
     <div className="w-full relative lg:w-1/2 flex flex-col items-center lg:items-start px-2 md:px-3 lg:px-5 xl:px-7 py-3 lg:py-5">
-      <header className=" w-full sticky top-0 bg-black border-4 border-white py-3">
+      <header className="w-full sticky top-0 bg-black py-3">
         <h1 className=" text-3xl font-semibold">Disbursed</h1>
       </header>
-      <div className="grid h-full w-full grid-cols-1 gap-6 md:gap-4 lg:grid-cols-2 p-2 md:p-4 lg:p-8 overflow-auto border-4 border-white">
+      <div className="grid h-full w-full grid-cols-1 gap-6 md:gap-4 lg:grid-cols-2 p-2 md:p-4 lg:p-8 overflow-auto">
         {disbursed && disbursed.length > 0 ? (
           overviewDisbursedData.map((tab, index) => (
             <DisbursedTab

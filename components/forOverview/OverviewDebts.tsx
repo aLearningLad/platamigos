@@ -6,6 +6,7 @@ const OverviewDebts = () => {
       <header className=" w-full sticky top-0 bg-black">
         <h1 className=" text-3xl font-semibold">Debts</h1>
       </header>
+      <div className="grid h-full w-full grid-cols-1 gap-6 md:gap-4 p-2 md:p-4 lg:p-8 overflow-auto border-4 border-white"></div>
     </div>
   );
 };
