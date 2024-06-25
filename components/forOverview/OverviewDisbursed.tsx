@@ -3,7 +3,7 @@ import DisbursedTab from "./DisbursedTab";
 import { IoverviewDisbursedData } from "@/types";
 import { GiCash } from "react-icons/gi";
 import { FaBalanceScaleRight } from "react-icons/fa";
-import { FcCurrencyExchange } from "react-icons/fc";
+import { FcCurrencyExchange, FcSalesPerformance } from "react-icons/fc";
 
 const OverviewDisbursed = async () => {
   const disbursed = await getAllPublished();
@@ -75,6 +75,33 @@ const OverviewDisbursed = async () => {
       ),
     },
     {
+      id: 377713,
+      icon: <FcSalesPerformance size="60%" />,
+      figure: avgInterest,
+      label: "Loan Performance",
+      blurb: (
+        <span className="w-full text-center gap-1 flex justify-center items-center">
+          <h3 className="text-[16px] text-red-600 font-bold italic px-1">
+            No data yet
+          </h3>
+        </span>
+      ),
+    },
+    {
+      id: 47187,
+      icon: <FcCurrencyExchange size="60%" />,
+      figure: avgInterest,
+      label: "Interest Earned",
+      blurb: (
+        <span className="w-full text-center gap-1 flex justify-center items-center">
+          <p className="text-[12px]">close to</p>
+          <h3 className="text-xl font-bold italic px-1 bg-gradient-to-r from-lime-400 to-cyan-600 bg-clip-text text-transparent">
+            R{earnedInterest}
+          </h3>
+        </span>
+      ),
+    },
+    {
       id: 47187,
       icon: <FcCurrencyExchange size="60%" />,
       figure: avgInterest,
@@ -95,7 +122,7 @@ const OverviewDisbursed = async () => {
       <header className=" w-full sticky top-0 bg-black border-4 border-white py-3">
         <h1 className=" text-3xl font-semibold">Disbursed</h1>
       </header>
-      <div className="grid h-full w-full grid-cols-1 gap-6 md:gap-4 lg:grid-cols-2 p-2 md:p-4 lg:p-8 xl:p-12 overflow-auto border-4 border-white">
+      <div className="grid h-full w-full grid-cols-1 gap-6 md:gap-4 lg:grid-cols-2 p-2 md:p-4 lg:p-8 overflow-auto border-4 border-white">
         {disbursed && disbursed.length > 0 ? (
           overviewDisbursedData.map((tab, index) => (
             <DisbursedTab
