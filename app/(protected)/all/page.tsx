@@ -18,7 +18,22 @@ const AllLoansPage = async () => {
       {loans ? (
         <section className=" w-full h-full p-1 lg:p-3 xl:p-5 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 overflow-auto gap-2 md:gap-3 lg:gap-5">
           {loans?.map((card: Tloansfromdb) => (
-            <LoanCard loanid={card.loan_id} />
+            <LoanCard
+              loan_id={card.loan_id}
+              expiry_date={card.expiry_date}
+              instalment={card.instalment}
+              interest_rate={card.interest_rate}
+              months={card.months}
+              principal_offer={card.principal_offer}
+              purpose={card.purpose}
+              title={card.title}
+              total_due={card.total_due}
+              date_posted={card.date_posted}
+              key={card.loan_id}
+              lenderName={card.lenderName}
+              lender_credit_score={card.lender_credit_score}
+              number_of_applicants={card.number_of_applicants}
+            />
           ))}
         </section>
       ) : (
