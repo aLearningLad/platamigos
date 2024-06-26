@@ -4,6 +4,8 @@ import { ApplyForLoanBtn } from "../utilComps";
 import { createClient } from "@/utils/supabase/server";
 import { GiCash } from "react-icons/gi";
 import { IoInformationCircleSharp } from "react-icons/io5";
+import { GoClockFill } from "react-icons/go";
+import ApplyModal from "./ApplyModal";
 
 const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
   const supabase = createClient();
@@ -22,7 +24,7 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
       >
         <GiCash size={16} color="7cfc00" /> {params.title}
       </h1>
-      <p className=" text-[14px] lg:text-[12px]  text-neutral-300 text-ellipsis">
+      <p className=" text-[14px] lg:text-[12px]  text-neutral-300 text-ellipsis line-clamp-1 ">
         {params.purpose}
       </p>
 
@@ -48,14 +50,29 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
         </span>
       </div>
       <span
-        className={`w-full flex ${
-          (params.index as number) % 2 === 0 ? "flex-row-reverse" : "flex-row"
-        } gap-1 mt-2 lg:m-3 items-center`}
+        className={`w-full flex p-1 lg:p-2 ${
+          (params.index as number) % 2 === 0 ? "justify-end" : "justify-start"
+        } gap-1 mt-2 lg:m-3`}
       >
         <h3 className=" text-lg text-[12px] ">Total due:</h3>
         <h2 className=" text-xl text-[20px] font-semibold">
           R{params.total_due}
         </h2>
+      </span>
+      <span className="flex items-center gap-1">
+        <p className=" text-lg lg:text-[12px] ">exp.</p>
+        <p className="text-xl lg:text-[14px] font-semibold ">
+          {params.expiry_date as string}
+        </p>
+        <GoClockFill size={16} />
+      </span>
+
+      <span className="w-full flex justify-between px-1 lg:px-2 items-center">
+        <p className="text-lg lg:text-[16px] group-hover:scale-90 transition-all duration-500 ease-in-out text-black rounded-md px-2 lg:px-3 py-1 bg-white ">
+          {params.lenderName}
+        </p>
+
+        <ApplyModal />
       </span>
       {/* <ApplyForLoanBtn
         loan_id={params.loan_id}
