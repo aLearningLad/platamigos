@@ -25,6 +25,7 @@ export const checkIfApplied = async (loan_id: string, applicant_id: string) => {
     for (entry of homefeed!) {
       if (entry.lenderid.includes(applicant_id)) {
         // console.log("This loan has been applied for!");
+        console.log("applicant id: ", applicant_id);
         return true;
       } else {
         return false;

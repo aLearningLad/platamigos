@@ -22,6 +22,7 @@ const ApplyForLoanBtn: React.FC<ApplyForLoanBtnProps> = ({
 
       if (result) {
         setAlreadyApplied(result);
+        console.log(result);
       }
     };
 
@@ -30,11 +31,11 @@ const ApplyForLoanBtn: React.FC<ApplyForLoanBtnProps> = ({
 
   return (
     <button
-      onClick={() => applyForLoan(loan_id, google_id)}
-      //   onClick={() => checkIfApplied(loan_id, google_id)}
+      //   onClick={() => applyForLoan(loan_id, google_id)}
+      onClick={() => checkIfApplied(loan_id, google_id)}
       className={`bg-white text-black`}
     >
-      {alreadyApplied ? "Done" : "Apply"}
+      {alreadyApplied === true ? "Done" : "Apply"}
     </button>
   );
 };
