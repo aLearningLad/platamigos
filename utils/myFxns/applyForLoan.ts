@@ -1,4 +1,4 @@
-export const applyForLoan = async () => {
+export const applyForLoan = async (loan_id: string) => {
   try {
   } catch (error) {}
 };
