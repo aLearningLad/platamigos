@@ -3,34 +3,29 @@
 import { createClient } from "../supabase/server";
 
 export const checkIfApplied = async (loan_id: string, applicant_id: string) => {
-  let entry: any;
-
-  // 1. myAppl = COLLTECTION OF MY APPLICATIONS IN APPL. TABLE
-  // 2. all = HOMEFEED APPLICATIONS
-
   const supabase = createClient();
+  let entry: any;
   try {
     const { data: myAppl, error: myApplError } = await supabase
       .from("all_applicants")
       .select("*")
-      .eq("applicant_id", applicant_id);
+      .eq("applicant_id", applicant_id)
+      .eq("loan_id", loan_id);
 
-    const { data: homefeed, error: homefeedError } = await supabase
-      .from("homefeed")
-      .select("*");
-
-    // console.log("myAppl is here: ", myAppl);
-    // console.log("homefeed is here: ", homefeed);
-
-    for (entry of homefeed!) {
-      if (entry.lenderid.includes(applicant_id)) {
-        // console.log("This loan has been applied for!");
-        console.log("applicant id: ", applicant_id);
-        return true;
-      } else {
-        return false;
-        // console.log("This loan has not been applied for yet!");
+    if (myAppl && myAppl.length > 0) {
+      for (entry of myAppl) {
+        if (entry.applicant_id.includes(applicant_id)) {
+          return true;
+        } else {
+          return false;
+        }
       }
     }
-  } catch (error) {}
+
+    if (myApplError) {
+      throw new Error(myApplError.details);
+    }
+  } catch (error) {
+    console.log("Error while retrieving", error);
+  }
 };

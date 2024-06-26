@@ -31,8 +31,8 @@ const ApplyForLoanBtn: React.FC<ApplyForLoanBtnProps> = ({
 
   return (
     <button
-      //   onClick={() => applyForLoan(loan_id, google_id)}
-      onClick={() => checkIfApplied(loan_id, google_id)}
+      onClick={() => applyForLoan(loan_id, google_id)}
+      //   onClick={() => checkIfApplied(loan_id, google_id)}
       className={`bg-white text-black`}
     >
       {alreadyApplied === true ? "Done" : "Apply"}
