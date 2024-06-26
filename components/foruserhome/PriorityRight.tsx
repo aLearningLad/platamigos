@@ -15,8 +15,8 @@ const PriorityRight = async () => {
   return (
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
       {homefeed && homefeed.length > 0 ? (
-        <div className=" w-full h-full flex flex-col items-center gap-3 md:gap-5 overflow-auto">
-          {homefeed.map((card) => (
+        <div className="w-full h-full flex flex-col items-center gap-3 md:gap-5 overflow-auto">
+          {homefeed.map((card, index) => (
             <FeedLoanMiniCard
               expiry_date={card.expiry_date}
               instalment={card.instalment}
@@ -31,6 +31,7 @@ const PriorityRight = async () => {
               date_posted={card.date_posted}
               key={card.loan_id}
               lenderid={card.lenderid}
+              index={index}
             />
           ))}
         </div>
@@ -39,7 +40,7 @@ const PriorityRight = async () => {
           No loans posted yet
         </div>
       )}
-      <span className="sticky bottom-0 w-full flex justify-center items-center flex-col py-3 border-4 border-white ">
+      <span className="sticky bottom-0 w-full flex justify-center items-center flex-col py-3 bg-transparent border-transparent backdrop-blur-md border-4 z-[5] ">
         <p className=" text-lg text-neutral-50">Scroll down</p>
         <FaAngleDoubleDown size={18} className=" text-neutral-50" />
       </span>

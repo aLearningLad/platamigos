@@ -26,6 +26,6 @@ export const checkIfApplied = async (loan_id: string, applicant_id: string) => {
       throw new Error(myApplError.details);
     }
   } catch (error) {
-    console.log("Error while retrieving", error);
+    console.log("Error while retrieving my applications", error);
   }
 };

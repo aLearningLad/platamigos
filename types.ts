@@ -34,6 +34,7 @@ export type Tloansfromdb = {
   total_due: number;
   months: number;
   loan_id: string;
+  index?: number;
 };
 
 export type Tfootersocialsdata = {
