@@ -20,6 +20,7 @@ export type TtrackedLoans = {
 };
 
 export type Tloansfromdb = {
+  lenderid: string;
   lenderName?: string;
   title: string;
   purpose: string;

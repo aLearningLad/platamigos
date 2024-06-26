@@ -4,12 +4,16 @@ import { applyForLoan } from "@/utils/myFxns/applyForLoan";
 
 interface ApplyForLoanBtnProps {
   loan_id: string;
+  google_id: string;
 }
 
-const ApplyForLoanBtn: React.FC<ApplyForLoanBtnProps> = ({ loan_id }) => {
+const ApplyForLoanBtn: React.FC<ApplyForLoanBtnProps> = ({
+  loan_id,
+  google_id,
+}) => {
   return (
     <button
-      onClick={() => applyForLoan(loan_id)}
+      onClick={() => applyForLoan(loan_id, google_id)}
       className=" bg-white text-black"
     >
       Apply

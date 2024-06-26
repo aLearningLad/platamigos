@@ -30,6 +30,7 @@ const PriorityRight = async () => {
               total_due={card.total_due}
               date_posted={card.date_posted}
               key={card.loan_id}
+              lenderid={card.lenderid}
             />
           ))}
         </div>
