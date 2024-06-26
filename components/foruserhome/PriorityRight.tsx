@@ -1,8 +1,16 @@
-import React from "react";
+import { createClient } from "@/utils/supabase/server";
 import FeedLoanMiniCard from "./FeedLoanMiniCard";
 import { FaAngleDoubleDown } from "react-icons/fa";
+import { applyForLoan } from "@/utils/myFxns/applyForLoan";
 
-const PriorityRight = () => {
+const PriorityRight = async () => {
+  const supabase = createClient();
+  const { data: homefeed, error: homeFeedError } = await supabase
+    .from("homefeed")
+    .select("*");
+
+  console.log("homefeed here: ", homefeed);
+
   return (
     <div className="h-full relative w-full lg:w-[30%] overflow-auto px-1 md:px-2 lg:px-3 flex flex-col items-center gap-3 md:gap-5">
       <FeedLoanMiniCard />

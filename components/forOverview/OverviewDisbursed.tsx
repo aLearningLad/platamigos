@@ -97,7 +97,7 @@ const OverviewDisbursed = async () => {
         <span className="w-full text-center gap-1 flex justify-center items-center">
           <p className="text-[12px]">close to</p>
           <h3 className="text-xl font-bold italic px-1 bg-gradient-to-r from-lime-400 to-cyan-600 bg-clip-text text-transparent">
-            R{earnedInterest}
+            R{earnedInterest.toFixed(2)}
           </h3>
         </span>
       ),
@@ -110,7 +110,11 @@ const OverviewDisbursed = async () => {
       blurb: (
         <span className="w-full text-center gap-1 flex justify-center items-center">
           <h3 className="text-xl font-bold italic px-1 bg-gradient-to-r from-lime-400 to-cyan-600 bg-clip-text text-transparent">
-            {disbursed?.length as number} active loans
+            {(disbursed?.length as number) > 1 ? (
+              <>{disbursed?.length as number} active loans </>
+            ) : (
+              <>Just {disbursed?.length as number} loan</>
+            )}
           </h3>
         </span>
       ),
