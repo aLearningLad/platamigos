@@ -10,7 +10,7 @@ const PriorityRight = async () => {
     .from("homefeed")
     .select("*");
 
-  console.log("homefeed here: ", homefeed);
+  // console.log("homefeed here: ", homefeed);
 
   return (
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
