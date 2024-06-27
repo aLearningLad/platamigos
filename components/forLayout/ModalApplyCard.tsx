@@ -1,6 +1,7 @@
 import { Tloansfromdb } from "@/types";
 import CancelBtn from "./CancelBtn";
 import SubmitApplication from "./SubmitApplication";
+import { getGoogleDetailsClient } from "@/utils/myFxns/getGoogleDetailsClient";
 
 const ModalApplyCard: React.FC<Tloansfromdb> = ({ ...params }) => {
   return (
@@ -9,7 +10,18 @@ const ModalApplyCard: React.FC<Tloansfromdb> = ({ ...params }) => {
         <h1>{params.title}</h1>
       </header>
 
-      <SubmitApplication />
+      <SubmitApplication
+        key={params.loan_id}
+        expiry_date={params.expiry_date}
+        instalment={params.instalment}
+        interest_rate={params.interest_rate}
+        loanid={params.loan_id}
+        posterid={params.lenderid}
+        principal={params.principal_offer}
+        purpose={params.purpose}
+        total_due={params.total_due}
+        months={params.months ? (params.months as number) : 3}
+      />
       <CancelBtn />
     </div>
   );

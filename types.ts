@@ -1,6 +1,13 @@
 export type TsubmitApplication = {
   loanid: string;
   posterid: string;
+  expiry_date: Date | string;
+  principal: number;
+  interest_rate: number;
+  purpose: string;
+  instalment: number;
+  total_due: number;
+  months: number | null;
 };
 
 export type Tdebttabdata = {
