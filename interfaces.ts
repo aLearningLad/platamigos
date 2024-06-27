@@ -1,6 +1,15 @@
 import { ChangeEvent, SetStateAction } from "react";
 import { TcreateLoanParams, TinterestStates } from "./types";
 
+export interface IapplyModalBtn {
+  loan_id: string;
+}
+
+export interface Istore {
+  modalToApply: boolean;
+  setModalToApply: () => void;
+}
+
 export interface Iminitab {
   tabId: number;
   tabIcon: React.ReactElement;

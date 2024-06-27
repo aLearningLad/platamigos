@@ -7,4 +7,4 @@ export { default as ChatBtn } from "./ChatBtn";
 export { default as MoreOptionsBtn } from "./MoreOptionsBtn";
 export { default as FeedLoanMiniCard } from "./FeedLoanMiniCard";
 export { default as HomeMiddleTabs } from "./HomeMiddleTabs";
-export { default as ApplyModal } from "./ApplyModal";
+export { default as ApplyModalBtn } from "./ApplyModalBtn";

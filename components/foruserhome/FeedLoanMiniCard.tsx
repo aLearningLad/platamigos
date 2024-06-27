@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { GiCash } from "react-icons/gi";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { GoClockFill } from "react-icons/go";
-import ApplyModal from "./ApplyModal";
+import ApplyModal from "./ApplyModalBtn";
 
 const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
   const supabase = createClient();
@@ -72,7 +72,7 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
           {params.lenderName}
         </p>
 
-        <ApplyModal />
+        <ApplyModal loan_id={params.loan_id} />
       </span>
       {/* <ApplyForLoanBtn
         loan_id={params.loan_id}
