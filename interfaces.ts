@@ -1,5 +1,5 @@
 import { ChangeEvent, SetStateAction } from "react";
-import { TcreateLoanParams, TinterestStates } from "./types";
+import { TcreateLoanParams, TinterestStates, Tloansfromdb } from "./types";
 
 export interface IapplyModalBtn {
   loan_id: string;
@@ -8,6 +8,8 @@ export interface IapplyModalBtn {
 export interface Istore {
   modalToApply: boolean;
   setModalToApply: () => void;
+  loandata: Tloansfromdb | null;
+  setLoanData: (loandata: Tloansfromdb) => void;
 }
 
 export interface Iminitab {

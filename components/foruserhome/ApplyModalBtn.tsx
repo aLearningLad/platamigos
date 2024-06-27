@@ -2,12 +2,14 @@
 
 import useStore from "@/app/(store)/store";
 import { IapplyModalBtn, Istore } from "@/interfaces";
+import { Tloansfromdb } from "@/types";
 import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
 
 const ApplyModalBtn: React.FC<IapplyModalBtn> = ({ loan_id }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  const setLoanData = useStore((store: Istore) => store.setLoanData);
+  const loandata = useStore((store: Istore) => store.loandata);
   const setModalToApply = useStore((store: Istore) => store.setModalToApply);
   const handleModalOpen = async (loan_id: string) => {
     const supabase = createClient();
@@ -24,11 +26,13 @@ const ApplyModalBtn: React.FC<IapplyModalBtn> = ({ loan_id }) => {
       if (!thisLoanError) {
         console.log("Loan data is: ", thisLoan);
         alert("Success!");
+        setLoanData(thisLoan[0]);
       }
     } catch (error) {
       console.log("Problem fetching loan: ", error);
     } finally {
       setIsLoading(false);
+      console.log("loan data here: ", loandata);
     }
   };
 
