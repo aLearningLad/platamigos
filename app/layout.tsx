@@ -7,6 +7,7 @@ import {
   MobileNav,
   SideBar,
 } from "@/components/forLayout";
+import { Toaster } from "react-hot-toast";
 
 const tav = Taviraj({ subsets: ["latin"], weight: ["200"] });
 
@@ -31,6 +32,25 @@ export default function RootLayout({
       <body className={tav.className}>
         <div className="min-h-screen max-h-fit flex flex-col lg:flex-row relative bg-gradient-to-br from-black to-black">
           <ApplyModal />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              success: {
+                style: {
+                  background: "#white",
+                  color: "black",
+                  fontWeight: 600,
+                },
+              },
+              error: {
+                style: {
+                  background: "#b30000",
+                  color: "white",
+                  fontWeight: 600,
+                },
+              },
+            }}
+          />
           <SideBar />
           <div className="w-full lg:w-[95%] xl:w-[97%] h-fit lg:h-[140vh] bg-transparent">
             {children}

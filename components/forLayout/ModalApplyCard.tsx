@@ -1,7 +1,6 @@
 import { Tloansfromdb } from "@/types";
 import CancelBtn from "./CancelBtn";
 import SubmitApplication from "./SubmitApplication";
-import { getGoogleDetailsClient } from "@/utils/myFxns/getGoogleDetailsClient";
 
 const ModalApplyCard: React.FC<Tloansfromdb> = ({ ...params }) => {
   return (

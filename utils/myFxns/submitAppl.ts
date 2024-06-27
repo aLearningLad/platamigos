@@ -1,5 +1,6 @@
 import { TsubmitApplication } from "@/types";
 import { createClient } from "../supabase/client";
+import toast from "react-hot-toast";
 // TO DO WITH THIS FXN
 // 1. ADD LOAN TO pending TABLE
 //
@@ -23,7 +24,7 @@ export const submitAppl = async (params: TsubmitApplication) => {
         date_applied: new Date(),
         expiry_date: params.expiry_date,
         principal: params.principal,
-        interest_rate: params.interest_rate,
+        interest_rate: params.interest_rate.toPrecision(2),
         purpose: params.purpose,
         instalment: params.instalment,
         total_due: params.total_due,
@@ -33,7 +34,12 @@ export const submitAppl = async (params: TsubmitApplication) => {
     if (submitApplicationError) {
       throw new Error(submitApplicationError.details);
     }
+
+    if (!submitApplicationError) {
+      toast.success("Applied!");
+    }
   } catch (error) {
     console.log("Error while applying for loan: ", error);
+    return error;
   }
 };

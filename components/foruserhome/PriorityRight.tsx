@@ -6,11 +6,17 @@ import { Tloansfromdb } from "@/types";
 
 const PriorityRight = async () => {
   const supabase = createClient();
+  const googleid = (await supabase.auth.getUser()).data.user?.id;
   const { data: homefeed, error: homeFeedError } = await supabase
     .from("homefeed")
     .select("*");
 
-  // console.log("homefeed here: ", homefeed);
+  const { data: userApplied } = await supabase
+    .from("pending")
+    .select("loanid")
+    .eq("applicant_id", googleid);
+
+  console.log("All loans applied for here: ", userApplied);
 
   return (
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
