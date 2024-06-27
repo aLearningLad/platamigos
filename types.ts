@@ -1,3 +1,8 @@
+export type TsubmitApplication = {
+  loanid: string;
+  posterid: string;
+};
+
 export type Tdebttabdata = {
   tabid: number;
   title: string;
