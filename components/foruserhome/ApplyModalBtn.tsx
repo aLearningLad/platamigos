@@ -8,8 +8,8 @@ import { useState } from "react";
 const ApplyModalBtn: React.FC<IapplyModalBtn> = ({ loan_id }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const setModalToApply = useStore((store: Istore) => store.setModalToApply);
   const handleModalOpen = async (loan_id: string) => {
-    const setModalToApply = useStore((store: Istore) => store.setModalToApply);
     const supabase = createClient();
     try {
       const { data: thisLoan, error: thisLoanError } = await supabase
@@ -20,6 +20,11 @@ const ApplyModalBtn: React.FC<IapplyModalBtn> = ({ loan_id }) => {
       if (thisLoanError) {
         throw new Error(thisLoanError.details);
       }
+
+      if (!thisLoanError) {
+        console.log("Loan data is: ", thisLoan);
+        alert("Success!");
+      }
     } catch (error) {
       console.log("Problem fetching loan: ", error);
     } finally {
@@ -29,7 +34,9 @@ const ApplyModalBtn: React.FC<IapplyModalBtn> = ({ loan_id }) => {
 
   return (
     <button
-      onClick={() => handleModalOpen(loan_id)}
+      onClick={() => {
+        handleModalOpen(loan_id), setModalToApply();
+      }}
       className="text-lg px-1 group-hover:bg-white group-hover:text-black transition-all duration-300 ease-in-out lg:px-2 bg-pink-600 rounded-md text-white lg:text-[12px] "
     >
       Apply
