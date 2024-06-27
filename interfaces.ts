@@ -10,6 +10,8 @@ export interface Istore {
   setModalToApply: () => void;
   loandata: Tloansfromdb | null;
   setLoanData: (loandata: Tloansfromdb) => void;
+  isLoading: boolean;
+  setIsLoading: (currentState: boolean) => void;
 }
 
 export interface Iminitab {

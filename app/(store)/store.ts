@@ -6,6 +6,7 @@ const useStore = create<Istore>((set) => ({
   // STATE VARIABLES
   modalToApply: false,
   loandata: null,
+  isLoading: true,
 
   // SETTERS
   setModalToApply: () =>
@@ -14,6 +15,8 @@ const useStore = create<Istore>((set) => ({
     set(() => ({
       loandata,
     })),
+  setIsLoading: (currentState: boolean) =>
+    set((state) => ({ isLoading: currentState })),
 }));
 
 export default useStore;
