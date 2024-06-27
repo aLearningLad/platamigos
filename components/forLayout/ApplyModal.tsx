@@ -2,6 +2,7 @@
 
 import useStore from "@/app/(store)/store";
 import { Istore } from "@/interfaces";
+import ModalApplyCard from "./ModalApplyCard";
 
 const ApplyModal = () => {
   const modalToApply = useStore((store: Istore) => store.modalToApply);
@@ -15,16 +16,20 @@ const ApplyModal = () => {
         modalToApply ? "flex z-40" : "hidden z-[-1]"
       }  bg-black/60 w-full h-screen fixed backdrop-blur-md text-white justify-center items-center `}
     >
-      <h3 className=" text-white text-2xl font-normal">
+      <div className=" text-white text-2xl font-normal w-full h-full md:w-10/12 lg:w-8/12 border-4 border-white flex flex-col items-center justify-center text-center">
         {isLoading ? (
-          <>Loading...</>
+          <div className=" h-full w-full flex justify-center items-center text-2xl lg:text-lg text-white font-semibold">
+            Just a minute...
+          </div>
         ) : loandata ? (
-          loandata.loan_id
+          <ModalApplyCard {...loandata} />
         ) : (
-          "No data right now, bruv!"
+          <div className=" h-full w-full flex justify-center items-center text-2xl lg:text-lg text-white font-semibold">
+            "No data right now, bruv!"
+          </div>
         )}
-      </h3>
-      <button onClick={() => setModalToApply()}>Close</button>
+      </div>
+      {/* <button onClick={() => setModalToApply()}>Close</button> */}
     </div>
   );
 };
