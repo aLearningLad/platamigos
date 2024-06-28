@@ -1,10 +1,10 @@
 import { createClient } from "@/utils/supabase/server";
 import FeedLoanMiniCard from "./FeedLoanMiniCard";
 import { FaAngleDoubleDown } from "react-icons/fa";
-import { applyForLoan } from "@/utils/myFxns/applyForLoan";
-import { Tloansfromdb } from "@/types";
 
 const PriorityRight = async () => {
+  let item: any;
+  let thisId: any;
   const supabase = createClient();
   const googleid = (await supabase.auth.getUser()).data.user?.id;
   const { data: homefeed, error: homeFeedError } = await supabase
@@ -16,7 +16,17 @@ const PriorityRight = async () => {
     .select("loanid")
     .eq("applicant_id", googleid);
 
-  console.log("All loans applied for here: ", userApplied);
+  // console.log("All loans applied for here: ", userApplied);
+
+  for (item of homefeed!) {
+    for (thisId of userApplied!) {
+      if (item.loan_id === thisId.loanid) {
+        console.log("You applied for this loan: ", thisId);
+      } else {
+        console.log("This loan WAS NOT applied for: ", item.loan_id);
+      }
+    }
+  }
 
   return (
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
