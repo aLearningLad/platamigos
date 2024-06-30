@@ -1,29 +1,32 @@
 import { createClient } from "@/utils/supabase/server";
 import FeedLoanMiniCard from "./FeedLoanMiniCard";
 import { FaAngleDoubleDown } from "react-icons/fa";
+import { Tloansfromdb } from "@/types";
 
 const PriorityRight = async () => {
-  let item: any;
+  let item: Tloansfromdb;
   let thisId: any;
+  let toShow: Tloansfromdb[] | any[] = [];
   const supabase = createClient();
   const googleid = (await supabase.auth.getUser()).data.user?.id;
   const { data: homefeed, error: homeFeedError } = await supabase
     .from("homefeed")
     .select("*");
 
+  // FETCHING ALL PENDING USER LOANS FROM DATABASE. EACH LOAN'S ID WILL BE USED FOR COMPARISON TO LOANS ON THE HOME FEED.
+  // CONT. --> IF THE IDs MATCH, IT MEANS USER HAS APPLIED FOR THAT LOAN, AND IT WILL NOT SHOW ON HOME FEED
   const { data: userApplied } = await supabase
     .from("pending")
     .select("loanid")
     .eq("applicant_id", googleid);
 
-  // console.log("All loans applied for here: ", userApplied);
-
+  // THIS WILL ADD ALL LOANS THAT HAVEN'T BEEN APPLIED FOR TO A NEW ARRAY. THIS ARRAY IS WHAT THE USER WILL SEE.
   for (item of homefeed!) {
     for (thisId of userApplied!) {
       if (item.loan_id === thisId.loanid) {
-        console.log("You applied for this loan: ", thisId);
+        console.log("You applied for this loan: ", thisId.loanid);
       } else {
-        console.log("This loan WAS NOT applied for: ", item.loan_id);
+        toShow.push(item);
       }
     }
   }
@@ -32,7 +35,7 @@ const PriorityRight = async () => {
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
       {homefeed && homefeed.length > 0 ? (
         <div className="w-full h-full flex flex-col items-center gap-3 md:gap-5 overflow-auto">
-          {homefeed.map((card, index) => (
+          {toShow.map((card, index) => (
             <FeedLoanMiniCard
               expiry_date={card.expiry_date}
               instalment={card.instalment}
