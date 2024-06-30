@@ -11,3 +11,5 @@ export { default as ApplyModalBtn } from "./ApplyModalBtn";
 export { default as LoanHubNav } from "./LoanHubNav";
 export { default as HubBtn } from "./HubBtn";
 export { default as LoanHubBody } from "./LoanHubBody";
+export { default as LoanDisplay } from "./LoanDisplay";
+export { default as EventsDisplay } from "./EventsDisplay";
