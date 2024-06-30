@@ -1,6 +1,7 @@
 import { TsubmitApplication } from "@/types";
 import { createClient } from "../supabase/client";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 // TO DO WITH THIS FXN
 // 1. ADD LOAN TO pending TABLE
 //
@@ -14,6 +15,7 @@ import toast from "react-hot-toast";
 export const submitAppl = async (params: TsubmitApplication) => {
   const supabase = createClient();
   const googleid = (await supabase.auth.getUser()).data.user?.id;
+  const router = useRouter();
 
   try {
     const { error: submitApplicationError } = await supabase
@@ -37,6 +39,7 @@ export const submitAppl = async (params: TsubmitApplication) => {
 
     if (!submitApplicationError) {
       toast.success("Applied!");
+      router.refresh();
     }
   } catch (error) {
     console.log("Error while applying for loan: ", error);

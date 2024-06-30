@@ -12,6 +12,8 @@ export interface Istore {
   setLoanData: (loandata: Tloansfromdb) => void;
   isLoading: boolean;
   setIsLoading: (currentState: boolean) => void;
+  noIssue: boolean | null;
+  setNoIssue: (newStatus: boolean) => void;
 }
 
 export interface Iminitab {

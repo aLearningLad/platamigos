@@ -7,7 +7,8 @@ const PriorityRight = async () => {
   const googleid = (await supabase.auth.getUser()).data.user?.id;
   const { data: homefeed, error: homeFeedError } = await supabase
     .from("homefeed")
-    .select("*");
+    .select("*")
+    .neq("lenderid", googleid);
 
   const { data: userApplied } = await supabase
     .from("pending")
@@ -15,16 +16,16 @@ const PriorityRight = async () => {
     .eq("applicant_id", googleid);
 
   const appliedLoans = new Set(userApplied?.map((loan) => loan.loanid));
-  console.log(appliedLoans);
+  console.log("Already applied for: ", appliedLoans);
 
   const toShow = homefeed?.filter((loan) => !appliedLoans.has(loan.loan_id));
 
-  console.log(toShow);
+  console.log("Loans to show: ", toShow);
 
   return (
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
       {homefeed && homefeed.length > 0 && toShow && toShow?.length > 0 ? (
-        <div className="w-full h-full flex flex-col items-center gap-3 md:gap-5 overflow-auto">
+        <div className="w-full h-full flex flex-col items-center gap-3 md:gap-5 overflow-auto pb-28">
           {toShow?.map((card, index) => (
             <FeedLoanMiniCard
               expiry_date={card.expiry_date}
@@ -49,7 +50,7 @@ const PriorityRight = async () => {
           No loans posted yet
         </div>
       )}
-      <span className="sticky bottom-0 w-full flex justify-center items-center flex-col py-3 bg-transparent border-transparent backdrop-blur-md border-4 z-[5] ">
+      <span className="sticky bottom-0 w-full hidden lg:flex justify-center items-center flex-col py-3 bg-transparent border-transparent backdrop-blur-md border-4 z-[5] ">
         <p className=" text-lg text-neutral-50">Scroll down</p>
         <FaAngleDoubleDown size={18} className=" text-neutral-50" />
       </span>
