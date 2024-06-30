@@ -8,8 +8,12 @@ const useStore = create<Istore>((set) => ({
   loandata: null,
   isLoading: true,
   noIssue: null,
+  currentHub: "all",
 
   // ----------------------------> SETTERS <---------------------------------
+
+  // SET CURRENTLY SELECTED HUB
+  setCurrentHub: (hubname: string) => set((state) => ({ currentHub: hubname })),
 
   // SET ISSUE STATE THAT WILL DETERMINE IF ROUTER REFRESH SHOULD BE USED
   setNoIssue: (newStatus: boolean) => set((state) => ({ noIssue: newStatus })),

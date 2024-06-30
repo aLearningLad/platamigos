@@ -14,6 +14,8 @@ export interface Istore {
   setIsLoading: (currentState: boolean) => void;
   noIssue: boolean | null;
   setNoIssue: (newStatus: boolean) => void;
+  currentHub: string;
+  setCurrentHub: (hubname: string) => void;
 }
 
 export interface Iminitab {
