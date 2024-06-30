@@ -18,6 +18,10 @@ export interface Istore {
   setCurrentHub: (hubname: string) => void;
 }
 
+export interface Ihubbtn {
+  hubName: string;
+}
+
 export interface Iminitab {
   tabId: number;
   tabIcon: React.ReactElement;

@@ -8,4 +8,6 @@ export { default as MoreOptionsBtn } from "./MoreOptionsBtn";
 export { default as FeedLoanMiniCard } from "./FeedLoanMiniCard";
 export { default as HomeMiddleTabs } from "./HomeMiddleTabs";
 export { default as ApplyModalBtn } from "./ApplyModalBtn";
-export { default as LoanHub } from "./LoanHub";
+export { default as LoanHubNav } from "./LoanHubNav";
+export { default as HubBtn } from "./HubBtn";
+export { default as LoanHubBody } from "./LoanHubBody";
