@@ -34,18 +34,6 @@ export const applyForLoan = async (loan_id: string, googleId: string) => {
         loan_id: loan_id,
         applicant_id: googleId,
       });
-
-    // RECREATE PENDING TABLE, CURRENT ONE IS TRASHY
-
-    // ADD ERROR HANDLING VIA SWICTH STATMENT
-    // switch (key) {
-    //   case value:
-
-    //     break;
-
-    //   default:
-    //     break;
-    // }
   } catch (error) {
     console.log(error);
   }

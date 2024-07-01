@@ -21,11 +21,21 @@ const LDApplied = () => {
   }, []);
 
   return (
-    <div className=" flex w-1/2 border-4 border-white flex-col text-white relative">
+    <div className=" flex w-1/2 flex-col text-white relative">
       <header className=" w-full flex justify-center py-2">
         <h1 className=" text-lg ">Loans {"you've"} applied for</h1>
       </header>
-      <div className=" w-full h-full border-2 border-yellow-300 flex flex-col "></div>
+      <div className=" w-full h-full flex flex-col ">
+        {allApplied && allApplied.length > 0 ? (
+          <>These are applied for</>
+        ) : (
+          <div className=" w-full h-full flex justify-center items-center bg-blue-950/60 rounded-2xl ">
+            <p className=" text-xl font-semibold text-neutral-200 ">
+              You haven't applied for anything yet!
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

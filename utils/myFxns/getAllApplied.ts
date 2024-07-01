@@ -9,6 +9,8 @@ export const getAllApplied = async () => {
       .select("*")
       .eq("applicant_id", googleId);
 
+    console.log("These are the loans to apply for: ", allAppliedData);
+
     if (allAppliedDataError) {
       throw new Error(allAppliedDataError.details);
     }
