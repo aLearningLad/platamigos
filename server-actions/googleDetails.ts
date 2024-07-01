@@ -18,7 +18,7 @@ export const getGoogleDetailsServer = async () => {
         "Users google details: ",
         GoogleDetails.user.user_metadata.avatar_url
       );
-      return GoogleDetails.user.user_metadata.avatar_url;
+      return GoogleDetails;
     }
   } catch (error) {
     console.log("Error while fetching Google details: ", error);

@@ -3,6 +3,7 @@
 import useStore from "@/app/(store)/store";
 import { Istore } from "@/interfaces";
 import LDAll from "./LDAll";
+import LDDisbursed from "./LDDisbursed";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
@@ -12,11 +13,7 @@ const LoanDisplay = () => {
       return <LDAll />;
 
     case "disbursed":
-      return (
-        <div className=" flex w-1/2 border-4 border-white">
-          These are only disbursed loans
-        </div>
-      );
+      return <LDDisbursed />;
 
     case "borrowed":
       return (

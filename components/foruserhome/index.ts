@@ -16,3 +16,4 @@ export { default as EventsDisplay } from "./EventsDisplay";
 export { default as LDAll } from "./LDAll";
 export { default as SearchBar } from "./SearchBar";
 export { default as LDAllBody } from "./LDAllBody";
+export { default as LDDisbursed } from "./LDDisbursed";
