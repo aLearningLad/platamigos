@@ -4,6 +4,7 @@ import useStore from "@/app/(store)/store";
 import { Istore } from "@/interfaces";
 import LDAll from "./LDAll";
 import LDDisbursed from "./LDDisbursed";
+import LDPending from "./LDPending";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
@@ -23,11 +24,7 @@ const LoanDisplay = () => {
       );
 
     case "pending":
-      return (
-        <div className=" flex w-1/2 border-4 border-white">
-          You need to approve these!
-        </div>
-      );
+      return <LDPending />;
 
     case "applied":
       return (

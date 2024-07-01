@@ -17,3 +17,5 @@ export { default as LDAll } from "./LDAll";
 export { default as SearchBar } from "./SearchBar";
 export { default as LDAllBody } from "./LDAllBody";
 export { default as LDDisbursed } from "./LDDisbursed";
+export { default as LDPending } from "./LDPending";
+export { default as ToDisburseBody } from "./ToDisburseBody";
