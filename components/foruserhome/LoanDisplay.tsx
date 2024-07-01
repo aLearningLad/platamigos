@@ -5,6 +5,7 @@ import { Istore } from "@/interfaces";
 import LDAll from "./LDAll";
 import LDDisbursed from "./LDDisbursed";
 import LDPending from "./LDPending";
+import LDApplied from "./LDApplied";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
@@ -27,11 +28,7 @@ const LoanDisplay = () => {
       return <LDPending />;
 
     case "applied":
-      return (
-        <div className=" flex w-1/2 border-4 border-white">
-          You applied for these!
-        </div>
-      );
+      return <LDApplied />;
 
     default:
       return (
