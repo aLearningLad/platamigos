@@ -19,3 +19,4 @@ export { default as LDAllBody } from "./LDAllBody";
 export { default as LDDisbursed } from "./LDDisbursed";
 export { default as LDPending } from "./LDPending";
 export { default as ToDisburseBody } from "./ToDisburseBody";
+export { default as DisburseBtn } from "./DisburseBtn";
