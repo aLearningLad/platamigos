@@ -2,17 +2,14 @@
 
 import useStore from "@/app/(store)/store";
 import { Istore } from "@/interfaces";
+import LDAll from "./LDAll";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
 
   switch (currentHub) {
     case "all":
-      return (
-        <div className=" flex w-1/2 border-4 border-white">
-          This is all loans
-        </div>
-      );
+      return <LDAll />;
 
     case "disbursed":
       return (

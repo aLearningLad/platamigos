@@ -3,7 +3,7 @@ import LoanDisplay from "./LoanDisplay";
 
 const LoanHubBody = () => {
   return (
-    <div className=" w-full h-full bg-red-600 flex">
+    <div className="w-full h-full flex">
       <LoanDisplay />
       <EventsDisplay />
     </div>

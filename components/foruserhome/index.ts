@@ -13,3 +13,5 @@ export { default as HubBtn } from "./HubBtn";
 export { default as LoanHubBody } from "./LoanHubBody";
 export { default as LoanDisplay } from "./LoanDisplay";
 export { default as EventsDisplay } from "./EventsDisplay";
+export { default as LDAll } from "./LDAll";
+export { default as SearchBar } from "./SearchBar";

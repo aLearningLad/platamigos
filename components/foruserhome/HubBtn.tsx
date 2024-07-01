@@ -6,9 +6,17 @@ import React from "react";
 
 const HubBtn: React.FC<Ihubbtn> = ({ hubName }) => {
   const setCurrentHub = useStore((store: Istore) => store.setCurrentHub);
+  const currentHub = useStore((store: Istore) => store.currentHub);
 
   return (
-    <button onClick={() => setCurrentHub(hubName.toLowerCase())}>
+    <button
+      className={` ${
+        currentHub === hubName.toLowerCase()
+          ? "text-white text-xl mx-2 border-b-2 border-white"
+          : "text-neutral-300 text-[14px]"
+      }`}
+      onClick={() => setCurrentHub(hubName.toLowerCase())}
+    >
       {hubName}
     </button>
   );
