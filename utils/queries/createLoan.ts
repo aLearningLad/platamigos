@@ -29,6 +29,10 @@ export const createLoan = async (loanParams: TcreateLoanParams) => {
       lender_credit_score: 300,
     });
 
+    const { error: addToDisbursedError } = await supabase
+      .from("to_disburse")
+      .insert({});
+
     if (!createLoanError) {
       //REPLACE WITH A TOAST
       // alert("Loan listing created!");
