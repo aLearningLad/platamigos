@@ -27,14 +27,7 @@ export const applyForLoan = async (loan_id: string, googleId: string) => {
         })
         .eq("loan_id", loan_id);
     }
-
-    const { error: updateAllApplicationsError } = await supabase
-      .from("all_applicants")
-      .insert({
-        loan_id: loan_id,
-        applicant_id: googleId,
-      });
   } catch (error) {
-    console.log(error);
+    console.log("Error while applying for loan", error);
   }
 };
