@@ -16,11 +16,11 @@ const PriorityRight = async () => {
     .eq("applicant_id", googleid);
 
   const appliedLoans = new Set(userApplied?.map((loan) => loan.loanid));
-  console.log("Already applied for: ", appliedLoans);
+  // console.log("Already applied for: ", appliedLoans);
 
   const toShow = homefeed?.filter((loan) => !appliedLoans.has(loan.loan_id));
 
-  console.log("Loans to show: ", toShow);
+  // console.log("Loans to show: ", toShow);
 
   return (
     <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
