@@ -27,6 +27,21 @@ export const applyForLoan = async (loan_id: string, googleId: string) => {
         })
         .eq("loan_id", loan_id);
     }
+
+    // ADD TO ALL APPLICATIONS TABLE AS WELL
+    const { data: newEntry, error: allApplicationsInsertError } = await supabase
+      .from("all_applicants")
+      .insert({
+        applicant_id: googleId,
+        loan_id: loan_id,
+      });
+
+    if (allApplicationsInsertError) {
+      console.log(
+        "Data not inserted into all_applicants table: ",
+        allApplicationsInsertError
+      );
+    }
   } catch (error) {
     console.log("Error while applying for loan", error);
   }
