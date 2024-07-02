@@ -1,10 +1,11 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { createClient } from "../supabase/server";
 
-export const applyForLoan = async (loan_id: string, googleId: string) => {
+export const applyForLoan = async (loan_id: string) => {
   const supabase = createClient();
-
+  const googleId = (await supabase.auth.getUser()).data.user?.id;
   const { data: prevApplCount } = await supabase
     .from("homefeed")
     .select("number_of_applicants")
@@ -42,6 +43,8 @@ export const applyForLoan = async (loan_id: string, googleId: string) => {
         allApplicationsInsertError
       );
     }
+
+    revalidatePath("/home");
   } catch (error) {
     console.log("Error while applying for loan", error);
   }

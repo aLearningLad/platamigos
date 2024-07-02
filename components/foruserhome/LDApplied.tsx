@@ -9,6 +9,7 @@ import { GiCash } from "react-icons/gi";
 const LDApplied = () => {
   const [allApplied, setAllApplied] = useState<any>();
   const [loanid, setLoanid] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -19,21 +20,31 @@ const LDApplied = () => {
 
         const { data: appliedLoan, error: appliedLoanError } = await supabase
           .from("homefeed")
-          .select("&")
-          .eq("loan_id", data);
+          .select("*")
+          .eq("loan_id", data![0].loan_id);
 
-        setLoanid(data);
+        setLoanid(data![0].loan_id);
 
         console.log("This is all applied: ", allApplied);
 
         setAllApplied(appliedLoan);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     getData();
-  }, [loanid]);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className=" w-1/2 h-full flex justify-center items-center">
+        <h1 className=" text-neutral-300 text-[18px] ">Just a second...</h1>
+      </div>
+    );
+  }
 
   return (
     <div className=" flex w-1/2 flex-col text-white relative">
@@ -42,7 +53,7 @@ const LDApplied = () => {
       </header>
       <div className=" w-full h-full  ">
         {allApplied && allApplied.length > 0 ? (
-          <div className="flex line-clamp-3 text-ellipsis flex-col w-full h-full text-white items-center justify-center overflow-auto">
+          <div className="flex line-clamp-3 text-ellipsis flex-col w-full h-full text-white rounded-2xl bg-gradient-to-t from-blue-950/70 via-cyan-600/30 to-cyan-200/10 items-center justify-center overflow-auto">
             <h2 className=" text-lg text-white font-semibold">
               {allApplied[0].title}
             </h2>
@@ -52,6 +63,7 @@ const LDApplied = () => {
             <span className=" w-full justify-center gap-2 items-center flex">
               <p className="text-[12px]">by</p>
               <h3 className=" text-[18px] ">{allApplied[0].lendername}</h3>
+              <p className=" text-cyan-300 text-[13px] "> - pending...</p>
             </span>
             <span className=" w-full py-3 flex">
               <div className=" w-full flex justify-center items-center flex-col">
