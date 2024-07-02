@@ -13,7 +13,6 @@ export const getGoogleDetailsClient = async () => {
 
     if (GoogleDataError) {
       throw new Error(GoogleDataError.message);
-      return;
     }
 
     // console.log("This is the result: ", result);
