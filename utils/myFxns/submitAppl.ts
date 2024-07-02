@@ -17,6 +17,14 @@ import { Istore } from "@/interfaces";
 export const submitAppl = async (params: TsubmitApplication) => {
   const supabase = createClient();
   const googleid = (await supabase.auth.getUser()).data.user?.id;
+  const applicant_name = (await supabase.auth.getUser()).data.user
+    ?.user_metadata.username;
+  const { data: applicant_credit_score, error: applicant_credit_scoreError } =
+    await supabase.from("allusers").select("username").eq("googleid", googleid);
+  const { data: creditScore, error: creditScoreError } = await supabase
+    .from("homefeed")
+    .select("creditscore")
+    .eq("googleid", googleid);
 
   try {
     const { error: submitApplicationError } = await supabase
@@ -32,6 +40,8 @@ export const submitAppl = async (params: TsubmitApplication) => {
         instalment: params.instalment,
         total_due: params.total_due,
         applicant_id: googleid,
+        applicant_name,
+        applicant_credit_score: creditScore,
       });
 
     if (submitApplicationError) {

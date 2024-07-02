@@ -10,6 +10,21 @@ export type TsubmitApplication = {
   months: number | null;
 };
 
+export type Tpending = {
+  loanid: string;
+  posterid: string;
+  date_applied: Date | string;
+  expiry_date: Date | string;
+  principal: number;
+  interest_rate: number;
+  purpose: string;
+  instalment: number;
+  total_due: number;
+  applicant_id: string;
+  applicant_name: string;
+  applicant_credit_score: number;
+};
+
 export type Ttodisburse = {
   loanid: string;
   userid: string;
