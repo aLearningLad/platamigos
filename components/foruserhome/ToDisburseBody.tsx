@@ -35,8 +35,13 @@ const ToDisburseBody = () => {
     getResult();
   }, []);
 
-  const handleToDisburseModal = () => {
-    alert("clicked!");
+  const handleGrant = async () => {
+    try {
+      // UPDATE HOMEFEED 'disbursed' COLUMN
+      // DELETE ENTRY FROM 'pending'
+      // DELETE ENTRY FROM 'to_disburse'
+      // CREATE ENTRY IN 'granted_loans'
+    } catch (error) {}
   };
 
   if (isLoading) {
@@ -94,7 +99,10 @@ const ToDisburseBody = () => {
                 </p>
               </section>
             </div>
-            <button className=" w-10/12 py-2 mt-1 hover:bg-white hover:border-white hover:font-extrabold hover:scale-95 transition-all duration-300 ease-in-out text-lg bg-gradient-to-tr rounded-lg from-purple-800/50 via-cyan-600/70 to-cyan-700/90 text-white font-semibold">
+            <button
+              onClick={handleGrant}
+              className=" w-10/12 py-2 mt-1 hover:bg-white hover:border-white hover:font-extrabold hover:scale-95 transition-all duration-300 ease-in-out text-lg bg-gradient-to-tr rounded-lg from-purple-800/50 via-cyan-600/70 to-cyan-700/90 text-white font-semibold"
+            >
               Grant
             </button>
           </div>
