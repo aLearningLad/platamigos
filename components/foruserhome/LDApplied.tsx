@@ -4,6 +4,7 @@ import { Tloansfromdb } from "@/types";
 import { getAllApplied } from "@/utils/myFxns/getAllApplied";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
+import { GiCash } from "react-icons/gi";
 
 const LDApplied = () => {
   const [allApplied, setAllApplied] = useState<any>();
@@ -21,6 +22,8 @@ const LDApplied = () => {
           .select("&")
           .eq("loan_id", data);
 
+        setLoanid(data);
+
         console.log("This is all applied: ", allApplied);
 
         setAllApplied(appliedLoan);
@@ -30,7 +33,7 @@ const LDApplied = () => {
     };
 
     getData();
-  }, []);
+  }, [loanid]);
 
   return (
     <div className=" flex w-1/2 flex-col text-white relative">
@@ -39,8 +42,31 @@ const LDApplied = () => {
       </header>
       <div className=" w-full h-full  ">
         {allApplied && allApplied.length > 0 ? (
-          <div className="flex flex-col w-full h-full overflow-auto text-white">
-            {allApplied[0].title}
+          <div className="flex line-clamp-3 text-ellipsis flex-col w-full h-full text-white items-center justify-center overflow-auto">
+            <h2 className=" text-lg text-white font-semibold">
+              {allApplied[0].title}
+            </h2>
+            <p className=" text-[12px]">{allApplied[0].purpose}</p>
+            <GiCash className="" size={80} color="#7cfc00" />
+
+            <span className=" w-full justify-center gap-2 items-center flex">
+              <p className="text-[12px]">by</p>
+              <h3 className=" text-[18px] ">{allApplied[0].lendername}</h3>
+            </span>
+            <span className=" w-full py-3 flex">
+              <div className=" w-full flex justify-center items-center flex-col">
+                <p>R{allApplied[0].principal_offer}</p>
+                <p>offered</p>
+              </div>
+              <div className=" w-full flex justify-center items-center flex-col">
+                <p>{allApplied[0].interest_rate}%</p>
+                <p>interest</p>
+              </div>
+              <div className=" w-full flex justify-center items-center flex-col">
+                <p>R{allApplied[0].total_due}</p>
+                <p>due</p>
+              </div>
+            </span>
           </div>
         ) : (
           <div className=" w-full h-full flex justify-center items-center bg-blue-950/60 rounded-2xl ">

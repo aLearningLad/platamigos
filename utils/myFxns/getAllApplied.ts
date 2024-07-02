@@ -20,8 +20,8 @@ export const getAllApplied = async () => {
     }
 
     if (!allAppliedDataError) {
-      console.log("Loan id here: ", allAppliedData);
-      return allAppliedData![0];
+      console.log("Loan id here: ", allAppliedData![0]);
+      return allAppliedData![0].loan_id;
     }
   } catch (error) {
     console.log("Error while retrieving all applications data: ", error);
