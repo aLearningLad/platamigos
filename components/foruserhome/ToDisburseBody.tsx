@@ -41,7 +41,7 @@ const ToDisburseBody = () => {
 
   if (isLoading) {
     return (
-      <div className=" w-full h-full flex justify-center items-center text-lg text-neutral-200  ">
+      <div className=" w-full h-full flex justify-center items-center text-lg text-neutral-200 rounded-2xl  ">
         Just a second...
       </div>
     );
@@ -49,10 +49,10 @@ const ToDisburseBody = () => {
 
   if (toDisburse && toDisburse.length > 0) {
     return (
-      <div className="w-full h-[80%] border-4 border-white flex flex-col items-center gap-7 overflow-auto text-white">
+      <div className="w-full h-full rounded-2xl flex flex-col items-center gap-7 overflow-auto text-white p-3">
         {toDisburse?.map((item: Ttodisburse) => (
-          <div className=" w-full min-h-[15vh] bg-white  ">
-            This is an individual application
+          <div className="w-full min-h-[25vh] bg-gradient-to-b from-transparent via-pink-400/30 to-pink-600/70  rounded-2xl p-3 text-center flex flex-col items-center justify-center">
+            <h1>{}</h1>
           </div>
         ))}
       </div>
