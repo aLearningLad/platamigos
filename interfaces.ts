@@ -5,6 +5,12 @@ export interface IapplyModalBtn {
   loan_id: string;
 }
 
+export interface Idisbursedcard {
+  index: number;
+  applicant_name: string;
+  total_due: number;
+}
+
 export interface Istore {
   modalToApply: boolean;
   setModalToApply: () => void;
