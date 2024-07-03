@@ -35,8 +35,16 @@ const ToDisburseBody = () => {
     getResult();
   }, []);
 
-  const handleGrant = async (loanid: string, applicant_id: string) => {
+  const handleGrant = async (
+    loanid: string,
+    applicant_id: string,
+    principal_amount: number,
+    applicant_name: string,
+    total_due: number,
+    interest_rate: number
+  ) => {
     const supabase = createClient();
+    const googleid = (await supabase.auth.getUser()).data.user?.id;
     try {
       // UPDATE HOMEFEED 'disbursed' COLUMN ==> BRAVO!
       const { error: homefeedUpdateError } = await supabase
@@ -62,6 +70,12 @@ const ToDisburseBody = () => {
         .from("granted_loans")
         .insert({
           applicant_id,
+          lender_id: googleid,
+          loan_id: loanid,
+          principal_amount,
+          applicant_name,
+          total_due,
+          interest_rate,
         });
     } catch (error) {}
   };
