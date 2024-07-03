@@ -25,7 +25,7 @@ const LDApplied = () => {
 
         setLoanid(data![0].loan_id);
 
-        console.log("This is all applied: ", allApplied);
+        console.log("This is all applied: ", appliedLoan);
 
         setAllApplied(appliedLoan);
       } catch (error) {
