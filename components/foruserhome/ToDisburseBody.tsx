@@ -35,12 +35,34 @@ const ToDisburseBody = () => {
     getResult();
   }, []);
 
-  const handleGrant = async () => {
+  const handleGrant = async (loanid: string, applicant_id: string) => {
+    const supabase = createClient();
     try {
-      // UPDATE HOMEFEED 'disbursed' COLUMN
-      // DELETE ENTRY FROM 'pending'
+      // UPDATE HOMEFEED 'disbursed' COLUMN ==> BRAVO!
+      const { error: homefeedUpdateError } = await supabase
+        .from("homefeed")
+        .update({
+          disbursed: true,
+        });
+
+      // DELETE ENTRY FROM 'pending' ===> BRAVO
+      const { error: deleteFromPendingError } = await supabase
+        .from("pending")
+        .delete()
+        .eq("loanid", loanid);
+
       // DELETE ENTRY FROM 'to_disburse'
+      const { error: deleteFromDisburseError } = await supabase
+        .from("to_disburse")
+        .delete()
+        .eq("loanid", loanid);
+
       // CREATE ENTRY IN 'granted_loans'
+      const { data: granted_data, error: grantedError } = await supabase
+        .from("granted_loans")
+        .insert({
+          applicant_id,
+        });
     } catch (error) {}
   };
 
@@ -56,11 +78,14 @@ const ToDisburseBody = () => {
     return (
       <div className="w-full h-full rounded-2xl flex flex-col items-center gap-7 overflow-auto text-white p-3">
         {toDisburse?.map((item: Tpending) => (
-          <div className="w-full min-h-[25vh] bg-gradient-to-b from-transparent via-pink-400/30 to-pink-600/70  rounded-2xl p-3 text-center flex flex-col items-center justify-center">
+          <div
+            key={item.loanid}
+            className="w-full min-h-[25vh] bg-gradient-to-b from-transparent via-pink-400/30 to-pink-600/70  rounded-2xl p-3 text-center flex flex-col items-center justify-center"
+          >
             <h1 className=" text-lg ">{item.applicant_name}</h1>
             <span className=" w-full flex justify-center gap-2 items-center ">
               <p className=" text-[12px]">is borrowing</p>
-              <p className=" text-[16px] text-pink-700 bg-white rounded-md p-[2px] ">
+              <p className=" text-[16px] text-pink-950 bg-white rounded-md p-[2px] ">
                 R{item.principal}
               </p>{" "}
               <p className=" text-[12px]">@{item.interest_rate}%</p>
@@ -100,7 +125,7 @@ const ToDisburseBody = () => {
               </section>
             </div>
             <button
-              onClick={handleGrant}
+              // onClick={handleGrant}
               className=" w-10/12 py-2 mt-1 hover:bg-white hover:border-white hover:font-extrabold hover:scale-95 transition-all duration-300 ease-in-out text-lg bg-gradient-to-tr rounded-lg from-purple-800/50 via-cyan-600/70 to-cyan-700/90 text-white font-semibold"
             >
               Grant
