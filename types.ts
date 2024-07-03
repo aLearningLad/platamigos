@@ -1,3 +1,14 @@
+export type TgrantedLoans = {
+  applicant_id: string;
+  lender_id: string;
+  loan_id: string;
+  principal_amount: number;
+  date_granted: Date | string;
+  applicant_name: string;
+  total_due: number;
+  interest_rate: number;
+};
+
 export type TsubmitApplication = {
   loanid: string;
   posterid: string;

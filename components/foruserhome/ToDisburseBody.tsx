@@ -149,13 +149,30 @@ const ToDisburseBody = () => {
           .from("allusers")
           .update({
             total_borrowed: new_total_borrowed,
-          });
+          })
+          .eq("googleid", applicant_id);
 
         if (updateTotalBorrowedError) {
           throw new Error(updateTotalBorrowedError.details);
         }
 
         // ADD total_due TO APPLICANT'S total_outstanding COLUMN IN allusers
+        const { data: totalOutstanding, error: totalOutstandingError } =
+          await supabase
+            .from("allusers")
+            .select("total_outstanding")
+            .eq("googleid", applicant_id);
+        const newOutsanding =
+          totalOutstanding![0].total_outstanding + total_due;
+        const { error: updateTotalOutstandingError } = await supabase
+          .from("allusers")
+          .update({
+            total_outstanding: newOutsanding,
+          });
+
+        if (updateTotalOutstandingError) {
+          throw new Error(updateTotalOutstandingError.details);
+        }
 
         if (updateGranteeBalanceError) {
           throw new Error(updateGranteeBalanceError.details);
