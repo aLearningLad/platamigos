@@ -22,3 +22,4 @@ export { default as ToDisburseBody } from "./ToDisburseBody";
 export { default as DisburseBtn } from "./DisburseBtn";
 export { default as LDApplied } from "./LDApplied";
 export { default as DisbursedCard } from "./DisbursedCard";
+export { default as LDBorrowed } from "./LDBorrowed";

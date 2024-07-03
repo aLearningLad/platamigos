@@ -6,6 +6,7 @@ import LDAll from "./LDAll";
 import LDDisbursed from "./LDDisbursed";
 import LDPending from "./LDPending";
 import LDApplied from "./LDApplied";
+import LDBorrowed from "./LDBorrowed";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
@@ -18,11 +19,7 @@ const LoanDisplay = () => {
       return <LDDisbursed />;
 
     case "borrowed":
-      return (
-        <div className=" flex w-1/2 border-4 border-white">
-          Everything you've borrowed!
-        </div>
-      );
+      return <LDBorrowed />;
 
     case "pending":
       return <LDPending />;

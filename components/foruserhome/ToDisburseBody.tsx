@@ -224,7 +224,9 @@ const ToDisburseBody = () => {
             key={item.loanid}
             className="w-full min-h-[25vh] bg-gradient-to-b from-transparent via-pink-400/30 to-pink-600/70  rounded-2xl p-3 text-center flex flex-col items-center justify-center"
           >
-            <h1 className=" text-lg ">{item.applicant_name}</h1>
+            <h1 className=" text-lg ">
+              {item.applicant_name ? item.applicant_name : "This Peer"}
+            </h1>
             <span className=" w-full flex justify-center gap-2 items-center ">
               <p className=" text-[12px]">is borrowing</p>
               <p className=" text-[16px] text-pink-950 bg-white rounded-md p-[2px] ">
@@ -243,7 +245,9 @@ const ToDisburseBody = () => {
               </section>
               <section className=" w-full h-full hover:scale-90 group flex flex-col items-center justify-center hover:bg-neutral-200 rounded-md transition-all duration-300 ease-in-out cursor-pointer">
                 <p className=" text-lg font-extrabold group-hover:text-black ">
-                  {item.applicant_credit_score}
+                  {item.applicant_credit_score
+                    ? item.applicant_credit_score
+                    : "N/A"}
                 </p>
                 <p className=" text-[12px] text-neutral-200 flex group-hover:hidden">
                   Credit Score

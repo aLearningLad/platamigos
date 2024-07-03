@@ -57,7 +57,7 @@ const LDDisbursed = () => {
 
       <div className="w-full h-full relative overflow-auto flex flex-col justify-center">
         {disbursed ? (
-          <div className=" w-full h-full overflow-auto flex flex-col gap-7">
+          <div className=" w-full h-full overflow-auto flex flex-col gap-7 items-center ">
             {disbursed.map((loan, index) => (
               <DisbursedCard
                 applicant_name={loan.applicant_name}
