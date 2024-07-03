@@ -3,6 +3,7 @@
 import { TgrantedLoans } from "@/types";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
+import BorrowedCard from "./BorrowedCard";
 
 const LDBorrowed = () => {
   const [borrowed, setBorrowed] = useState<TgrantedLoans[] | null>();
@@ -49,9 +50,8 @@ const LDBorrowed = () => {
   return (
     <div className=" flex w-1/2 border-4 border-white p-3 flex-col overflow-auto gap-7">
       {borrowed?.map((loan) => (
-        <div className=" w-full h-[25vh] bg-white"></div>
+        <BorrowedCard />
       ))}
-      {/* {typeof borrowed} */}
     </div>
   );
 };

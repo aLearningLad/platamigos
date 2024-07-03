@@ -23,3 +23,4 @@ export { default as DisburseBtn } from "./DisburseBtn";
 export { default as LDApplied } from "./LDApplied";
 export { default as DisbursedCard } from "./DisbursedCard";
 export { default as LDBorrowed } from "./LDBorrowed";
+export { default as BorrowedCard } from "./BorrowedCard";
