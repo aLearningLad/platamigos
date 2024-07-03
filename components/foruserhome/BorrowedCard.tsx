@@ -13,7 +13,13 @@ const BorrowedCard: React.FC<TgrantedLoans> = ({
 }) => {
   return (
     <div className=" w-full h-[30vh] border-4 border-white p-3 flex-col flex items-center justify-center ">
-      card
+      <h1>{principal_amount}</h1>
+      <p>borrowed on</p>
+      <h3>{date_granted as string}</h3>
+      <div className=" w-full flex justify-center items-center gap-2">
+        <p>due:</p>
+        <h2>{total_due}</h2>
+      </div>
     </div>
   );
 };
