@@ -64,10 +64,11 @@ const LDAllBody = () => {
           setGrantedBy(null);
         }
 
-        allLoans.push(homefeedData);
-        allLoans.push(appliedFor);
-        allLoans.push(grantedByData);
-        allLoans.push(grantedToData);
+        // ADD CHECKS USING IF STATEMENT TO ACCOUNT FOR POSSIBLE NULL VALUES
+        allLoans.push(...homefeedData!);
+        allLoans.push(...appliedFor!);
+        allLoans.push(...grantedByData!);
+        allLoans.push(...grantedToData!);
         console.log("Array of loans here: ", ...allLoans);
       } catch (error) {
         console.log(error);
