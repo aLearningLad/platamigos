@@ -52,7 +52,7 @@ const CreateLoanComp = () => {
         </h1>
       </header>
 
-      <div className=" flex flex-col lg:flex-row w-full h-fit lg:h-full items-center justify-center">
+      <div className=" flex flex-col lg:flex-row w-full h-fit lg:h-full items-center justify-center lg:p-0 p-2 md:p-3">
         <CreateLeft
           purpose={purpose}
           setPurpose={setPurpose}

@@ -26,7 +26,7 @@ const CreateLeft: React.FC<Icreateleft> = ({
   };
 
   return (
-    <section className="w-full h-full border-4 border-yellow-400 lg:w-1/2 flex flex-col items-start justify-around px-1 md:px-4 lg:px-8 xl:px-16 bg-gradient-to-br">
+    <section className="w-full h-full lg:w-1/2 flex flex-col items-start justify-around px-1 md:px-4 lg:px-8 xl:px-16 bg-gradient-to-br">
       <div className=" w-full flex flex-col">
         <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
           Loan details
@@ -170,7 +170,8 @@ const CreateLeft: React.FC<Icreateleft> = ({
               </span>
               <span className=" w-full py-1 flex justify-center items-center">
                 <div className=" text-[15px] flex items-center justify-center group-hover:px-3 lg:group-hover:px-5 py-1 group-hover:text-[12px] text-white group-hover:bg-white group-hover:text-black rounded-md transition-all duration-300 ease-in">
-                  <p className=" group-hover:hidden mr-1">~</p> R{principle}
+                  <p className=" group-hover:hidden mr-1  ">~</p>
+                  <p className="lg:text-[10px] text-xl">R{principle}</p>
                 </div>
               </span>
             </div>
@@ -178,7 +179,7 @@ const CreateLeft: React.FC<Icreateleft> = ({
               <label className="labelStyles" htmlFor="interest">
                 Interest rate
               </label>
-              <span className=" w-full h-full text-white flex items-end">
+              <span className=" w-full h-full text-white items-end lg:flex hidden">
                 <input
                   type="number"
                   value={interestValue.unitValue}
@@ -203,6 +204,46 @@ const CreateLeft: React.FC<Icreateleft> = ({
                   onChange={handleInterestChanges}
                   required
                 />
+              </span>
+              <span className=" w-full h-full text-white items-end flex lg:hidden ">
+                <select className=" text-white text-lg" name="" id="">
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                </select>
+                <p className=" text-2xl font-semibold mx-1 h-full flex items-end">
+                  .
+                </p>
+                <select className=" text-white text-lg" name="" id="">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
               </span>
               <span className="w-full h-full text-white flex justify-center items-end py-1">
                 <p className=" text-white text-[13px] lg:text-[12px]">
