@@ -37,7 +37,7 @@ const CreateRight: React.FC<Icreateright> = ({
   }, [interestValue, totalDue, principle, months]);
 
   return (
-    <section className="w-full border-green-400 h-[120vh] border-4 mt-8 lg:mt-0 lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
+    <section className="w-full h-[120vh] mt-8 lg:mt-0 lg:h-full lg:w-1/2 flex flex-col items-center justify-around p-1 md:p-2 lg:p-4 xl:p-7">
       {/* MONTHS TO REPAY */}
       <div className="w-full h-[15vh] lg:h-[20%] flex flex-col lg:flex-row items-start px-2 lg:px-5 py-1 lg:py-2">
         <section className=" w-full flex flex-col h-[45vh] lg:h-full items-start">
@@ -58,6 +58,28 @@ const CreateRight: React.FC<Icreateright> = ({
                 setMonths(Number(e.target.value))
               }
             />
+            <select
+              name=""
+              className=" w-full pl-3 h-full text-lg rounded-md focus:outline-none border-2 border-white lg:hidden flex py-2"
+              id=""
+              onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                setMonths(Number(e.target.value))
+              }
+              value={months}
+            >
+              <option value="1">1 month</option>
+              <option value="2">2 months</option>
+              <option value="3">3 months</option>
+              <option value="4">4 months</option>
+              <option value="5">5 months</option>
+              <option value="6">6 months</option>
+              <option value="7">7 months</option>
+              <option value="8">8 months</option>
+              <option value="9">9 months</option>
+              <option value="10">10 months</option>
+              <option value="11">11 months</option>
+              <option value="12">12 months</option>
+            </select>
           </div>
         </section>
         <section className="w-full items-start flex flex-col h-full">
@@ -109,7 +131,9 @@ const CreateRight: React.FC<Icreateright> = ({
           </h2>
         </div>
         <span className=" w-full flex flex-row items-center gap-1 justify-center">
-          <p className=" text-[10px] text-white italic">you're offering</p>
+          <p className=" lg:text-[10px] text-[15px] text-white italic">
+            you're offering
+          </p>
           <p className=" text-[12px] text-white font-semibold italic">
             R{principle}
           </p>

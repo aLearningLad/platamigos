@@ -79,7 +79,7 @@ const CreateLeft: React.FC<Icreateleft> = ({
       </div>
 
       {/* PURPOSE */}
-      <div className=" w-full flex flex-col">
+      <div className=" w-full flex flex-col lg:my-0 my-12">
         <h3 className=" text-white text-[28px] lg:text-xl mb-3 font-semibold flex items-center gap-1">
           About
           <p
