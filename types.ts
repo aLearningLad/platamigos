@@ -9,6 +9,13 @@ export type TgrantedLoans = {
   interest_rate: number;
 };
 
+export type Tmobilenavdata = {
+  linkID: number;
+  linkname: string;
+  linkref: string;
+  icon: React.ReactElement;
+};
+
 export type TsubmitApplication = {
   loanid: string;
   posterid: string;
