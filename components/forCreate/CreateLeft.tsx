@@ -18,7 +18,9 @@ const CreateLeft: React.FC<Icreateleft> = ({
   setInterestValue,
   setInterestRate,
 }) => {
-  const handleInterestChanges = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInterestChanges = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
+  ) => {
     setInterestValue((prev) => ({
       ...prev,
       [e.target.name]: Number(e.target.value),
@@ -208,8 +210,10 @@ const CreateLeft: React.FC<Icreateleft> = ({
               <span className=" w-full h-full text-white flex lg:hidden items-center ">
                 <select
                   className=" text-white bg-blue-950/80 text-lg p-2 w-4/12"
-                  name=""
-                  id=""
+                  value={interestValue.unitValue}
+                  onChange={handleInterestChanges}
+                  name="unitValue"
+                  id="unitValue"
                 >
                   <option value="18">18</option>
                   <option value="19">19</option>
@@ -238,8 +242,10 @@ const CreateLeft: React.FC<Icreateleft> = ({
                 </p>
                 <select
                   className=" text-white text-lg bg-blue-950/80 p-2 w-4/12"
-                  name=""
-                  id=""
+                  name="decimalValue"
+                  id="decimalValue"
+                  value={interestValue.decimalValue}
+                  onChange={handleInterestChanges}
                 >
                   <option value="0">0</option>
                   <option value="1">1</option>
