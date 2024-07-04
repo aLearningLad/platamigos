@@ -23,9 +23,9 @@ const PriorityRight = async () => {
   // console.log("Loans to show: ", toShow);
 
   return (
-    <div className="h-full relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
+    <div className="lg:h-full h-[60vh] relative w-full lg:w-[30%] px-1 md:px-2 lg:px-3">
       {homefeed && homefeed.length > 0 && toShow && toShow?.length > 0 ? (
-        <div className="w-full h-full flex flex-col items-center gap-3 md:gap-5 overflow-auto pb-28">
+        <div className="w-full h-full flex flex-row lg:flex-col items-center gap-3 md:gap-5 overflow-auto py-4 lg:pb-28">
           {toShow?.map((card, index) => (
             <FeedLoanMiniCard
               expiry_date={card.expiry_date}

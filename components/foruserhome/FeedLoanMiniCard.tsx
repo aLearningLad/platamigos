@@ -13,22 +13,22 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
 
   return (
     <div
-      className={`text-white group min-h-[45vh] ${
+      className={`text-white group min-h-[50vh] max-h-full ${
         thisUserId === params.lenderid ? "hidden" : "flex"
-      } flex-col odd:items-start items-end odd:text-start text-end md:min-h-[30vh] lg:min-h-[40vh] w-full p-1 md:p-2 lg:p-3 bg-gradient-to-br hover:bg-orange-500 odd:hover:bg-pink-700 from-purple-950/90 via-purple-950/20 cursor-pointer hover:scale-95 transition-all duration-300 to-pink-700/10 rounded-md xl:rounded-xl lg:rounded-lg`}
+      } flex-col odd:items-start items-end justify-between p-5 lg:justify-center odd:text-start text-end md:min-h-[30vh] min-w-full lg:min-h-[40vh] lg:w-full odd:bg-orange-600/80 even:bg-cyan-600/70 rounded-2xl md:p-2 lg:p-3 lg:bg-gradient-to-br lg:hover:bg-orange-500 lg:odd:hover:bg-pink-700 from-purple-950/90 via-purple-950/20 cursor-pointer hover:scale-95 transition-all duration-300 to-pink-700/10 xl:rounded-xl lg:rounded-lg`}
     >
       <h1
-        className={`text-white flex ${
+        className={`text-white flex text-2xl font-semibold lg:font-normal lg:text-[16px] ${
           params.index! % 2 === 0 ? "flex-row" : "flex-row-reverse"
         } items-center gap-1`}
       >
         <GiCash size={16} color="7cfc00" /> {params.title}
       </h1>
-      <p className=" text-[14px] lg:text-[12px]  text-neutral-300 text-ellipsis line-clamp-1 ">
+      <p className=" text-[18px] lg:text-[12px] lg:pb-2 text-neutral-100  lg:text-neutral-300 text-ellipsis line-clamp-1 ">
         {params.purpose}
       </p>
 
-      <div className="w-full h-[40%] flex flex-col group justify-center group-hover:bg-white/80 transition-all duration-300 ease-in-out items-center text-center bg-neutral-400/30 rounded-md lg:rounded-lg">
+      <div className="w-full h-[40%] flex flex-col group justify-center p-2 group-hover:bg-white/80 transition-all duration-300 ease-in-out items-center text-center bg-neutral-400/30 rounded-md lg:rounded-lg">
         <IoInformationCircleSharp
           className="text-white mb-1 lg:mb-2 xl:mb-3 group-hover:scale-150 transition-all duration-300 ease-in group-hover:text-black "
           size={16}
