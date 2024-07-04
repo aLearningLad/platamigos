@@ -5,6 +5,7 @@ import {
   ApplyModal,
   FooterComp,
   MobileNav,
+  MobileOptionsModal,
   SideBar,
 } from "@/components/forLayout";
 import { Toaster } from "react-hot-toast";
@@ -31,6 +32,7 @@ export default function RootLayout({
       />
       <body className={tav.className}>
         <div className="min-h-screen max-h-fit flex flex-col lg:flex-row relative bg-gradient-to-br from-black to-black">
+          <MobileOptionsModal />
           <ApplyModal />
           <Toaster
             position="top-right"
