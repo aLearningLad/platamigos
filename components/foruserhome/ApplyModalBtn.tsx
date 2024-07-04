@@ -43,7 +43,7 @@ const ApplyModalBtn: React.FC<IapplyModalBtn> = ({ loan_id }) => {
       onClick={() => {
         handleModalOpen(loan_id), setModalToApply();
       }}
-      className="text-lg px-1 group-hover:bg-white group-hover:text-black transition-all duration-300 ease-in-out lg:px-2 bg-pink-600 rounded-md text-white lg:text-[12px] "
+      className="lg:text-lg px-5 py-2 lg:py-1 font-semibold lg:font-normal text-xl group-hover:bg-white group-hover:text-black transition-all duration-300 ease-in-out lg:px-2 bg-pink-600 rounded-md text-white lg:text-[12px] "
     >
       Apply
     </button>

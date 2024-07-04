@@ -15,7 +15,7 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
     <div
       className={`text-white group min-h-[50vh] max-h-full ${
         thisUserId === params.lenderid ? "hidden" : "flex"
-      } flex-col odd:items-start items-end justify-between p-5 lg:justify-center odd:text-start text-end md:min-h-[30vh] min-w-full lg:min-h-[40vh] lg:w-full odd:bg-orange-600/80 even:bg-cyan-600/70 rounded-2xl md:p-2 lg:p-3 lg:bg-gradient-to-br lg:hover:bg-orange-500 lg:odd:hover:bg-pink-700 from-purple-950/90 via-purple-950/20 cursor-pointer hover:scale-95 transition-all duration-300 to-pink-700/10 xl:rounded-xl lg:rounded-lg`}
+      } flex-col odd:items-start items-end justify-between p-5 lg:justify-center odd:text-start text-end md:min-h-[30vh] min-w-full lg:p-2 lg:min-h-[45vh] lg:w-full odd:bg-orange-600/80 even:bg-cyan-600/70 rounded-2xl md:p-2 lg:bg-gradient-to-br lg:hover:bg-orange-500 lg:odd:hover:bg-pink-700 from-purple-950/90 via-purple-950/20 cursor-pointer hover:scale-95 transition-all duration-300 to-pink-700/10 xl:rounded-xl lg:rounded-lg`}
     >
       <h1
         className={`text-white flex text-2xl font-semibold lg:font-normal lg:text-[16px] ${
