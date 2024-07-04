@@ -10,10 +10,10 @@ const ChatBtn = () => {
   return (
     <button
       onClick={handleChatBtn}
-      className=" w-fit h-fit bg-neutral-900 flex justify-center items-center py-4 md:py-5  xl:py-1 px-2 rounded-lg text-xl lg:text-[12px] text-white"
+      className=" w-8/12 h-full lg:w-fit lg:h-fit bg-neutral-900 flex justify-center items-center py-4 md:py-5  xl:py-1 px-2 rounded-lg text-xl lg:text-[12px] text-white"
     >
       <IoChatbubbleEllipsesSharp />{" "}
-      <p className=" text-[10px] text-white">
+      <p className=" lg:text-[10px] text-xl text-white">
         Negotiate with <i>Peers</i>{" "}
       </p>
     </button>

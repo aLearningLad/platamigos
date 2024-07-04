@@ -9,9 +9,9 @@ import MoreOptionsBtn from "./MoreOptionsBtn";
 
 const PriorityLeft = () => {
   return (
-    <div className="h-[80vh] wallpaper w-full lg:w-[70%] p-1 lg:p-3 flex flex-col lg:flex-row text-white rounded-lg lg:rounded-xl xl:rounded-2xl">
+    <div className="h-[75vh] lg:h-[100%] wallpaper w-full lg:w-[70%] p-1 lg:p-3 flex flex-col lg:flex-row text-white rounded-lg lg:rounded-xl xl:rounded-2xl">
       {/* FAR LEFT */}
-      <section className="w-full h-1/2 lg:h-full flex flex-col items-start justify-between">
+      <section className="w-full h-fit lg:h-full flex flex-col items-start justify-between lg:justify-between">
         <div className=" w-full py-1 flex items-start justify-between gap-4 lg:gap-7 flex-col">
           <div className=" w-full flex items-center justify-between">
             <h1 className=" text-[12px] font-[700] text-neutral-50 ">
@@ -37,7 +37,7 @@ const PriorityLeft = () => {
           </div>
         </div>
 
-        <div className="w-full h-[40%] flex flex-col items-start justify-end">
+        <div className="w-full h-full lg:h-[40%] flex flex-col items-start justify-end ">
           {/* TOP 2 LOAN RECOMMENDATIONS */}
           <div className="w-full h-[28%] flex justify-start items-end mb-4 lg:mb-12">
             <div className="relative h-full lg:w-[10%] hidden lg:flex">
@@ -64,10 +64,10 @@ const PriorityLeft = () => {
             </div>
           </div>
 
-          <div className=" w-full flex flex-col lg:flex-row items-center justify-between">
+          <div className=" w-full flex flex-col lg:flex-row items-center justify-between ">
             <div className=" w-full items-center justify-center py-12 lg:py-1 lg:w-fit mb-3 lg:mb-4 flex flex-col lg:flex-row gap-2 lg:gap-5">
               <Link
-                className=" w-full justify-center lg:w-fit py-5 lg:px-2 flex  gap-1 items-center bg-neutral-900 rounded-md lg:p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
+                className=" w-full justify-center lg:w-fit py-5 lg:px-2 flex lg:h-fit h-full  gap-1 items-center bg-gradient-to-b from-cyan-600 via-cyan-600/80 to-cyan-600/20 rounded-md lg:p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
                 href="/create"
               >
                 <MdCreateNewFolder size={20} color="#7cfc00" />
@@ -76,18 +76,18 @@ const PriorityLeft = () => {
                 </p>
               </Link>
               <Link
-                className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
+                className=" lg:w-fit lg:p-1 w-full h-full py-5 justify-center bg-gradient-to-b from-pink-600 via-pink-600/80 to-pink-600/40 px-2 flex gap-1 items-center rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
                 href="/all"
               >
                 <GrMoney size={20} color="white" />
-                <p className="text-[12px]  text-white hover:text-neutral-300 ">
+                <p className="lg:text-[12px] text-2xl text-white hover:text-neutral-300 ">
                   Browse My Loans
                 </p>
               </Link>
               <MyStatsBtn />
             </div>
 
-            <div className=" flex items-center gap-1">
+            <div className=" flex items-center gap-1 lg:flex-row flex-col w-full lg:w-fit">
               <ChatBtn />
               <MoreOptionsBtn />
             </div>
