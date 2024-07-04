@@ -9,7 +9,7 @@ import MoreOptionsBtn from "./MoreOptionsBtn";
 
 const PriorityLeft = () => {
   return (
-    <div className="h-[120vh] wallpaper w-full lg:w-[70%] p-1 lg:p-3 flex flex-col lg:flex-row text-white rounded-lg lg:rounded-xl xl:rounded-2xl">
+    <div className="h-[80vh] wallpaper w-full lg:w-[70%] p-1 lg:p-3 flex flex-col lg:flex-row text-white rounded-lg lg:rounded-xl xl:rounded-2xl">
       {/* FAR LEFT */}
       <section className="w-full h-1/2 lg:h-full flex flex-col items-start justify-between">
         <div className=" w-full py-1 flex items-start justify-between gap-4 lg:gap-7 flex-col">
@@ -65,13 +65,13 @@ const PriorityLeft = () => {
           </div>
 
           <div className=" w-full flex flex-col lg:flex-row items-center justify-between">
-            <div className=" w-fit mb-3 lg:mb-4 flex gap-2 lg:gap-5">
+            <div className=" w-full items-center justify-center py-12 lg:py-1 lg:w-fit mb-3 lg:mb-4 flex flex-col lg:flex-row gap-2 lg:gap-5">
               <Link
-                className=" w-fit px-2 flex gap-1 items-center bg-neutral-900 rounded-md p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
+                className=" w-full justify-center lg:w-fit py-5 lg:px-2 flex  gap-1 items-center bg-neutral-900 rounded-md lg:p-1 text-white hover:scale-95 transition duration-500 ease-in-out "
                 href="/create"
               >
                 <MdCreateNewFolder size={20} color="#7cfc00" />
-                <p className="text-[12px]  text-white hover:text-neutral-300 ">
+                <p className="lg:text-[12px] text-2xl  text-white hover:text-neutral-300 ">
                   Add a new listing
                 </p>
               </Link>
