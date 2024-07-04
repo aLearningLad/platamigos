@@ -22,6 +22,8 @@ export interface Istore {
   setNoIssue: (newStatus: boolean) => void;
   currentHub: string;
   setCurrentHub: (hubname: string) => void;
+  showMobileOptionsModal: boolean;
+  setMobileOptionsModal: (newState: boolean) => void;
 }
 
 export interface Ihubbtn {

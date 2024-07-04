@@ -9,8 +9,13 @@ const useStore = create<Istore>((set) => ({
   isLoading: true,
   noIssue: null,
   currentHub: "all",
+  showMobileOptionsModal: false,
 
   // ----------------------------> SETTERS <---------------------------------
+
+  // SET MOBILE OPTIONS MODAL
+  setMobileOptionsModal: (newState: boolean) =>
+    set((state) => ({ showMobileOptionsModal: newState })),
 
   // SET CURRENTLY SELECTED HUB
   setCurrentHub: (hubname: string) =>

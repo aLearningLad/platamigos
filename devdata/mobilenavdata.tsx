@@ -8,13 +8,13 @@ export const mobilenavdata: Tmobilenavdata[] = [
     linkID: 273111,
     linkname: "New",
     linkref: "/create",
-    icon: <MdCreateNewFolder size={20} color="white" />,
+    icon: <MdCreateNewFolder size={40} color="white" />,
   },
 
   {
     linkID: 2878,
     linkname: "Home",
-    icon: <TiHome size={20} color="white" />,
+    icon: <TiHome size={40} color="white" />,
     linkref: "/home",
   },
 ];
