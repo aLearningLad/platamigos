@@ -205,8 +205,12 @@ const CreateLeft: React.FC<Icreateleft> = ({
                   required
                 />
               </span>
-              <span className=" w-full h-full text-white items-end flex lg:hidden ">
-                <select className=" text-white text-lg" name="" id="">
+              <span className=" w-full h-full text-white flex lg:hidden items-center ">
+                <select
+                  className=" text-white bg-blue-950/80 text-lg p-2 w-4/12"
+                  name=""
+                  id=""
+                >
                   <option value="18">18</option>
                   <option value="19">19</option>
                   <option value="20">20</option>
@@ -232,7 +236,11 @@ const CreateLeft: React.FC<Icreateleft> = ({
                 <p className=" text-2xl font-semibold mx-1 h-full flex items-end">
                   .
                 </p>
-                <select className=" text-white text-lg" name="" id="">
+                <select
+                  className=" text-white text-lg bg-blue-950/80 p-2 w-4/12"
+                  name=""
+                  id=""
+                >
                   <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
