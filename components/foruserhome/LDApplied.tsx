@@ -27,11 +27,15 @@ const LDApplied = () => {
 
         console.log("This is all applied: ", appliedLoan);
 
-        setAllApplied(appliedLoan);
+        if (appliedLoan && appliedLoan?.length > 0) {
+          setAllApplied(appliedLoan);
+          setIsLoading(false);
+        } else {
+          setAllApplied(null);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.log(error);
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -44,6 +48,12 @@ const LDApplied = () => {
         <h1 className=" text-neutral-300 text-[18px] ">Just a second...</h1>
       </div>
     );
+  }
+
+  if (allApplied === null) {
+    <div className=" w-full h-full flex justify-center items-center text-lg  ">
+      Not outstanding applications...
+    </div>;
   }
 
   return (

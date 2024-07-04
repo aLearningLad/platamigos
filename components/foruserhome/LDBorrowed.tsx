@@ -48,7 +48,7 @@ const LDBorrowed = () => {
   }
 
   return (
-    <div className=" flex w-1/2 border-4 border-white p-3 flex-col overflow-auto gap-7">
+    <div className=" flex w-1/2 p-3 flex-col overflow-auto gap-7">
       {borrowed?.map((loan) => (
         <BorrowedCard
           applicant_id={loan.applicant_id}
