@@ -1,3 +1,5 @@
+export type Tloanstoshow = any; //DEFINE LATER
+
 export type TgrantedLoans = {
   applicant_id: string;
   lender_id: string;

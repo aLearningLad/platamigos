@@ -1,6 +1,6 @@
 "use client";
 
-import { Tloansfromdb } from "@/types";
+import { Tloansfromdb, Tloanstoshow } from "@/types";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 
@@ -9,8 +9,8 @@ const LDAllBody = () => {
   const [applied, setApplied] = useState<any[] | null>();
   const [grantedTo, setGrantedTo] = useState<any[] | null>();
   const [grantedBy, setGrantedBy] = useState<any[] | null>();
-
   const allLoans: any[] = [];
+  const [loansToShow, setLoansToShow] = useState<any>([]);
 
   useEffect(() => {
     const getAllData = async () => {
@@ -65,11 +65,30 @@ const LDAllBody = () => {
         }
 
         // ADD CHECKS USING IF STATEMENT TO ACCOUNT FOR POSSIBLE NULL VALUES
-        allLoans.push(...homefeedData!);
-        allLoans.push(...appliedFor!);
-        allLoans.push(...grantedByData!);
-        allLoans.push(...grantedToData!);
-        console.log("Array of loans here: ", ...allLoans);
+        if (homefeedData && homefeedData.length > 0) {
+          allLoans.push(...homefeedData!);
+        }
+
+        if (appliedFor && appliedFor.length > 0) {
+          let aLoan;
+          for (aLoan of appliedFor) {
+            aLoan += { APPLIED: "YES" };
+            allLoans.push(aLoan);
+          }
+          console.log("Marked loans: ", appliedFor);
+          // allLoans.push(...appliedFor!);
+        }
+
+        if (grantedByData && grantedByData.length > 0) {
+          allLoans.push(...grantedByData!);
+        }
+
+        if (grantedToData && grantedToData.length > 0) {
+          allLoans.push(...grantedToData!);
+        }
+        // console.log("Array of loans here: ", ...allLoans);
+        // console.log("Loans applied for: ", appliedFor);
+        setLoansToShow(allLoans);
       } catch (error) {
         console.log(error);
       }
@@ -78,11 +97,11 @@ const LDAllBody = () => {
     getAllData();
   }, []);
 
-  // FETCH PENDING, APPLIED FOR AND GRANTED TO & BY. COMBINED INTO ARRAY
-
   return (
     <div className=" h-full w-full overflow-auto flex flex-col px-2 pt-3 pb-1 border-4 border-white ">
-      LDAllBody
+      {loansToShow.map((loan: Tloanstoshow) => (
+        <div className=" text-white text-lg">This is a loan</div>
+      ))}
     </div>
   );
 };

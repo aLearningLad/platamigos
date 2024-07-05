@@ -28,7 +28,7 @@
 }
 
 .textarea {
-  @apply lg:bg-transparent bg-blue-950/60 focus:text-neutral-100 focus:border-none focus:bg-neutral-600/40 transition-all duration-300 ease-in-out text-neutral-400 text-2xl lg:text-[16px] p-2 md:p-3 lg:p-5 border-none lg:border-[3px] lg:border-neutral-400 rounded-lg min-h-[30vh] lg:rounded-xl lg:min-h-[15vh] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
+  @apply lg:bg-transparent bg-blue-950/60 focus:text-neutral-100 focus:border-none focus:bg-neutral-600/40 transition-all duration-300 ease-in-out text-neutral-400 text-2xl lg:text-[16px] p-5 md:p-3 lg:p-5 border-none lg:border-[3px] lg:border-neutral-400 rounded-lg min-h-[30vh] lg:rounded-xl lg:min-h-[15vh] border-neutral-500 w-full outline-none placeholder:text-neutral-400 placeholder:text-[16px];
 }
 
 .labelStyles {
