@@ -10,7 +10,7 @@ import LDBorrowed from "./LDBorrowed";
 import { useEffect, useState } from "react";
 import { getAllApplied } from "@/utils/myFxns/getAllApplied";
 import { createClient } from "@/utils/supabase/client";
-import { TgrantedLoans } from "@/types";
+import { TgrantedLoans, Tloansfromdb } from "@/types";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
@@ -21,6 +21,14 @@ const LoanDisplay = () => {
   const [isDisbursedLoading, setIsDisbursedLoading] = useState<boolean>(true);
   const [borrowed, setBorrowed] = useState<TgrantedLoans[] | null>();
   const [isBorrowedLoading, setIsBorrowedLoading] = useState(true);
+
+  // STATES FOR LDALL
+  const [homefeed, setHomeFeed] = useState<Tloansfromdb[] | null>();
+  const [applied, setApplied] = useState<any[] | null>();
+  const [grantedTo, setGrantedTo] = useState<any[] | null>();
+  const [grantedBy, setGrantedBy] = useState<any[] | null>();
+  const allLoans: any[] = [];
+  const [loansToShow, setLoansToShow] = useState<any>([]);
 
   useEffect(() => {
     // FOR APPLIED
@@ -111,6 +119,107 @@ const LoanDisplay = () => {
       }
     };
 
+    // FOR LDAllBody
+    const getAllData = async () => {
+      const supabase = createClient();
+      const googleid = (await supabase.auth.getUser()).data.user?.id;
+      try {
+        // CREATED BY USER
+        const { data: homefeedData, error: homefeedError } = await supabase
+          .from("homefeed")
+          .select("*")
+          .eq("lenderid", googleid);
+        if (homefeedData && homefeedData.length > 0) {
+          setHomeFeed(homefeedData);
+        } else {
+          setHomeFeed(null);
+        }
+
+        // APPLIED FOR BY USER
+        const { data: appliedFor, error: appliedForError } = await supabase
+          .from("pending")
+          .select("*")
+          .eq("applicant_id", googleid);
+        console.log("applied for data: ", appliedFor);
+        if (appliedFor && appliedFor.length > 0) {
+          setApplied(appliedFor);
+        } else {
+          setApplied(null);
+        }
+
+        // GRANTED TO USER
+        const { data: grantedToData, error: grantedToDataError } =
+          await supabase
+            .from("granted_loans")
+            .select("*")
+            .eq("applicant_id", googleid);
+        if (grantedToData && grantedToData.length > 0) {
+          setGrantedTo(grantedToData);
+        } else {
+          setGrantedTo(null);
+        }
+
+        // GRANTED BY USER
+        const { data: grantedByData, error: grantedByDataError } =
+          await supabase
+            .from("granted_loans")
+            .select("*")
+            .eq("applicant_id", googleid);
+        if (grantedByData && grantedByData.length > 0) {
+          setGrantedBy(grantedByData);
+        } else {
+          setGrantedBy(null);
+        }
+
+        // ADD CHECKS USING IF STATEMENT TO ACCOUNT FOR POSSIBLE NULL VALUES
+        if (homefeedData && homefeedData.length > 0) {
+          allLoans.push(...homefeedData!);
+        }
+
+        // if (appliedFor && appliedFor.length > 0) {
+        //   let updatedApplied: any[] = [];
+        //   for (let aLoan of appliedFor) {
+        //     let updatedLoan = { ...aLoan, APPLIED: "Yes" };
+        //     updatedApplied.push(updatedLoan);
+        //     allLoans.push(updatedLoan);
+        //   }
+        //   console.log("Marked loans: ", updatedApplied);
+
+        //   // allLoans.push(...appliedFor!);
+        // }
+
+        if (appliedFor && appliedFor.length > 0) {
+          let updatedApplied: any[] = [];
+          for (let aLoan of appliedFor) {
+            console.log("Original loan: ", aLoan); // Log each original loan for debugging
+            let updatedLoan = { ...aLoan, APPLIED: "Yes" };
+            updatedApplied.push(updatedLoan);
+            allLoans.push(updatedLoan);
+            console.log("single loan: ", aLoan);
+          }
+          console.log("Marked loans: ", updatedApplied);
+        } else {
+          console.log("appliedFor is empty or undefined");
+        }
+
+        if (grantedByData && grantedByData.length > 0) {
+          allLoans.push(...grantedByData!);
+        }
+
+        if (grantedToData && grantedToData.length > 0) {
+          allLoans.push(...grantedToData!);
+        }
+        // console.log("Array of loans here: ", ...allLoans);
+        // console.log("Loans applied for: ", appliedFor);
+        console.log("Marked loans: ", appliedFor);
+
+        setLoansToShow(allLoans);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAllData();
     getBorrowed();
     getDetails();
     getData();
@@ -118,7 +227,7 @@ const LoanDisplay = () => {
 
   switch (currentHub) {
     case "all":
-      return <LDAll />;
+      return <LDAll allLoans={allLoans} loansToShow={loansToShow} />;
 
     case "disbursed":
       return (

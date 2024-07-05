@@ -11,6 +11,11 @@ export interface Ilddisbursed {
   disbursed: any;
 }
 
+export interface Ildallbody {
+  allLoans: any[];
+  loansToShow: any;
+}
+
 export interface Ildborrowed {
   isBorrowedLoading: boolean;
   borrowed: any;
