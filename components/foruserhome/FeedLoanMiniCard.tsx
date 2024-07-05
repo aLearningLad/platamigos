@@ -1,4 +1,4 @@
-import { Tloansfromdb } from "@/types";
+import { Tloansfromdb, TloansfromdbForMiniCard } from "@/types";
 import React from "react";
 import { ApplyForLoanBtn } from "../utilComps";
 import { createClient } from "@/utils/supabase/server";
@@ -7,7 +7,9 @@ import { IoInformationCircleSharp } from "react-icons/io5";
 import { GoClockFill } from "react-icons/go";
 import ApplyModal from "./ApplyModalBtn";
 
-const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
+const FeedLoanMiniCard: React.FC<TloansfromdbForMiniCard> = async ({
+  ...params
+}) => {
   const supabase = createClient();
   const thisUserId = (await supabase.auth.getUser()).data.user?.id;
 
@@ -69,7 +71,7 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
 
       <span className="w-full flex justify-between px-1 lg:px-2 items-center">
         <p className="text-lg lg:text-[16px] group-hover:scale-90 transition-all duration-500 ease-in-out text-black rounded-md px-2 lg:px-3 py-1 bg-white ">
-          {params.lenderName}
+          {params.lendername}
         </p>
 
         <ApplyModal loan_id={params.loan_id} />

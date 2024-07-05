@@ -1,5 +1,5 @@
 import { Istore } from "@/interfaces";
-import { Tloansfromdb } from "@/types";
+import { Tloansfromdb, TloansfromdbForMiniCard } from "@/types";
 import { create } from "zustand";
 
 const useStore = create<Istore>((set) => ({
@@ -29,7 +29,7 @@ const useStore = create<Istore>((set) => ({
     set((state) => ({ modalToApply: !state.modalToApply })),
 
   // SET LOAN DATA RECIEVED FROM DATABASE ACCORDING TO TYPE
-  setLoanData: (loandata: Tloansfromdb) =>
+  setLoanData: (loandata: Tloansfromdb | TloansfromdbForMiniCard) =>
     set(() => ({
       loandata,
     })),

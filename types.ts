@@ -100,6 +100,23 @@ export type Tloansfromdb = {
   loan_id: string;
   index?: number;
 };
+export type TloansfromdbForMiniCard = {
+  lenderid: string;
+  lendername?: string;
+  title: string;
+  purpose: string;
+  date_posted?: string;
+  expiry_date: string | Date;
+  number_of_applicants?: number;
+  lender_credit_score?: number;
+  interest_rate: number;
+  principal_offer: number;
+  instalment: number;
+  total_due: number;
+  months: number;
+  loan_id: string;
+  index?: number;
+};
 
 export type Tfootersocialsdata = {
   id: number;
