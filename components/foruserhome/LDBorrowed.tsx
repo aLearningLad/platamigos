@@ -1,45 +1,10 @@
 "use client";
 
-import { TgrantedLoans } from "@/types";
-import { createClient } from "@/utils/supabase/client";
-import { useEffect, useState } from "react";
 import BorrowedCard from "./BorrowedCard";
+import { Ildborrowed } from "@/interfaces";
 
-const LDBorrowed = () => {
-  const [borrowed, setBorrowed] = useState<TgrantedLoans[] | null>();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const getBorrowed = async () => {
-      const supabase = createClient();
-      const googleid = (await supabase.auth.getUser()).data.user?.id;
-      try {
-        const { data: borrowedData, error: borrowedDataError } = await supabase
-          .from("granted_loans")
-          .select("*")
-          .eq("applicant_id", googleid);
-
-        if (borrowedData && borrowedData?.length > 0) {
-          setBorrowed(borrowedData!);
-          setIsLoading(false);
-          console.log(borrowedData![0]);
-        } else {
-          setBorrowed(null);
-          setIsLoading(false);
-        }
-
-        if (borrowedDataError) {
-          throw new Error(borrowedDataError.details);
-        }
-      } catch (error) {
-        console.log("Error retrieving borrowing data: ", error);
-      }
-    };
-
-    getBorrowed();
-  }, []);
-
-  if (isLoading) {
+const LDBorrowed: React.FC<Ildborrowed> = ({ borrowed, isBorrowedLoading }) => {
+  if (isBorrowedLoading) {
     return (
       <div className=" w-1/2 h-full flex justify-center items-center">
         <h2 className=" text-lg">Collecting Borrowed Loans Data...</h2>
@@ -47,9 +12,19 @@ const LDBorrowed = () => {
     );
   }
 
+  if (!borrowed || borrowed.length < 1) {
+    return (
+      <div className=" w-1/2 h-full flex justify-center items-center text-center bg-gradient-to-t from-orange-600/60 via-orange-500/20 to-transparent rounded-3xl ">
+        <h3 className=" text-lg text-white font-semibold">
+          You don't have any debt...yet
+        </h3>
+      </div>
+    );
+  }
+
   return (
     <div className=" flex w-1/2 p-3 flex-col overflow-auto gap-7">
-      {borrowed?.map((loan) => (
+      {borrowed?.map((loan: any) => (
         <BorrowedCard
           applicant_id={loan.applicant_id}
           date_granted={loan.date_granted}

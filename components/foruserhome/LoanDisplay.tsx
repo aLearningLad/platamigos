@@ -19,6 +19,8 @@ const LoanDisplay = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [disbursed, setDisbursed] = useState<TgrantedLoans[] | null>();
   const [isDisbursedLoading, setIsDisbursedLoading] = useState<boolean>(true);
+  const [borrowed, setBorrowed] = useState<TgrantedLoans[] | null>();
+  const [isBorrowedLoading, setIsBorrowedLoading] = useState(true);
 
   useEffect(() => {
     // FOR APPLIED
@@ -80,6 +82,36 @@ const LoanDisplay = () => {
       }
     };
 
+    // FOR BORROWED
+    const getBorrowed = async () => {
+      const supabase = createClient();
+      const googleid = (await supabase.auth.getUser()).data.user?.id;
+      try {
+        const { data: borrowedData, error: borrowedDataError } = await supabase
+          .from("granted_loans")
+          .select("*")
+          .eq("applicant_id", googleid);
+
+        if (borrowedData && borrowedData?.length > 0) {
+          setBorrowed(borrowedData!);
+          setIsBorrowedLoading(false);
+          console.log(borrowedData![0]);
+        } else {
+          setBorrowed(null);
+          setIsBorrowedLoading(false);
+        }
+
+        if (borrowedDataError) {
+          throw new Error(borrowedDataError.details);
+        }
+      } catch (error) {
+        console.log("Error retrieving borrowing data: ", error);
+      } finally {
+        setIsBorrowedLoading(false);
+      }
+    };
+
+    getBorrowed();
     getDetails();
     getData();
   }, []);
@@ -97,7 +129,9 @@ const LoanDisplay = () => {
       );
 
     case "borrowed":
-      return <LDBorrowed />;
+      return (
+        <LDBorrowed borrowed={borrowed} isBorrowedLoading={isBorrowedLoading} />
+      );
 
     case "pending":
       return <LDPending />;

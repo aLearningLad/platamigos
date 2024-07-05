@@ -11,6 +11,11 @@ export interface Ilddisbursed {
   disbursed: any;
 }
 
+export interface Ildborrowed {
+  isBorrowedLoading: boolean;
+  borrowed: any;
+}
+
 export interface IapplyModalBtn {
   loan_id: string;
 }
