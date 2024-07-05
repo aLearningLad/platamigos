@@ -33,7 +33,9 @@ const LoanCard: React.FC<Tloansfromdb> = async ({
         <h1 className="text-ellipsis font-semibold text-3xl lg:text-2xl bg-gradient-to-r from-orange-400 to-fuchsia-700 bg-clip-text text-transparent">
           {title}
         </h1>
-        <p className="text-xl lg:text-[14px] text-neutral-800">{purpose}</p>
+        <p className="text-xl lg:text-[14px] text-neutral-800 line-clamp-1 text-ellipsis">
+          {purpose}
+        </p>
       </header>
 
       <section className="mt-2 md:mt-4 lg:mt-5 flex flex-col items-start w-full">

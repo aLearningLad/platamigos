@@ -146,7 +146,9 @@ const CreateRight: React.FC<Icreateright> = ({
           <p className=" text-[10px] text-white italic">for {months} months</p>
         </span>
         <button
-          onClick={() => createLoanFxn(loanParams)}
+          onClick={() => {
+            createLoanFxn(loanParams), router.push("/home");
+          }}
           className=" w-full mt-2 md:w-10/12 py-1 lg:py-2 bg-gradient-to-r rounded-md md:rounded-lg from-purple-600/40 via-cyan-600 to-cyan-800 text-white text-3xl  lg:text-2xl "
         >
           Publish

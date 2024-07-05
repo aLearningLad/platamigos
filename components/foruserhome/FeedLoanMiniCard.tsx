@@ -24,7 +24,7 @@ const FeedLoanMiniCard: React.FC<Tloansfromdb> = async ({ ...params }) => {
       >
         <GiCash size={16} color="7cfc00" /> {params.title}
       </h1>
-      <p className=" text-[18px] lg:text-[12px] lg:pb-2 text-neutral-100  lg:text-neutral-300 text-ellipsis line-clamp-1 ">
+      <p className=" text-[18px] lg:text-[12px] lg:mb-2\ text-neutral-100  lg:text-neutral-300 text-ellipsis line-clamp-1 ">
         {params.purpose}
       </p>
 

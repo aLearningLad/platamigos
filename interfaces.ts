@@ -1,5 +1,10 @@
-import { ChangeEvent, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { TcreateLoanParams, TinterestStates, Tloansfromdb } from "./types";
+
+export interface Ildapplied {
+  isLoading: boolean;
+  allApplied: any;
+}
 
 export interface IapplyModalBtn {
   loan_id: string;

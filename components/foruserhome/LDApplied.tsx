@@ -1,47 +1,13 @@
 "use client";
 
+import { Ildapplied } from "@/interfaces";
 import { Tloansfromdb } from "@/types";
 import { getAllApplied } from "@/utils/myFxns/getAllApplied";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 import { GiCash } from "react-icons/gi";
 
-const LDApplied = () => {
-  const [allApplied, setAllApplied] = useState<any>();
-  const [loanid, setLoanid] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const getData = async () => {
-      const supabase = createClient();
-      try {
-        const googleid = (await supabase.auth.getUser()).data.user?.id;
-        const data = await getAllApplied();
-
-        const { data: appliedLoan, error: appliedLoanError } = await supabase
-          .from("homefeed")
-          .select("*")
-          .eq("loan_id", data![0].loan_id);
-
-        setLoanid(data![0].loan_id);
-
-        console.log("This is all applied: ", appliedLoan);
-
-        if (appliedLoan && appliedLoan?.length > 0) {
-          setAllApplied(appliedLoan);
-          setIsLoading(false);
-        } else {
-          setAllApplied(null);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getData();
-  }, []);
-
+const LDApplied: React.FC<Ildapplied> = ({ isLoading, allApplied }) => {
   if (isLoading) {
     return (
       <div className=" w-1/2 h-full flex justify-center items-center">
