@@ -6,6 +6,11 @@ export interface Ildapplied {
   allApplied: any;
 }
 
+export interface Ilddisbursed {
+  isDisbursedLoading: boolean;
+  disbursed: any;
+}
+
 export interface IapplyModalBtn {
   loan_id: string;
 }

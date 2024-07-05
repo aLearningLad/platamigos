@@ -41,8 +41,8 @@ const LDBorrowed = () => {
 
   if (isLoading) {
     return (
-      <div className=" w-full h-full flex justify-center items-center">
-        <h2 className=" text-lg">Loading...</h2>
+      <div className=" w-1/2 h-full flex justify-center items-center">
+        <h2 className=" text-lg">Collecting Borrowed Loans Data...</h2>
       </div>
     );
   }

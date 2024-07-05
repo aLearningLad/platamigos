@@ -8,15 +8,17 @@ import LDPending from "./LDPending";
 import LDApplied from "./LDApplied";
 import LDBorrowed from "./LDBorrowed";
 import { useEffect, useState } from "react";
-import { createClient } from "@/utils/supabase/server";
 import { getAllApplied } from "@/utils/myFxns/getAllApplied";
-import { Tloansfromdb } from "@/types";
+import { createClient } from "@/utils/supabase/client";
+import { TgrantedLoans } from "@/types";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
   const [allApplied, setAllApplied] = useState<any>();
   const [loanid, setLoanid] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [disbursed, setDisbursed] = useState<TgrantedLoans[] | null>();
+  const [isDisbursedLoading, setIsDisbursedLoading] = useState<boolean>(true);
 
   useEffect(() => {
     // FOR APPLIED
@@ -37,10 +39,10 @@ const LoanDisplay = () => {
 
         if (appliedLoan && appliedLoan?.length > 0) {
           setAllApplied(appliedLoan);
-          setIsLoading(false);
+          // setIsLoading(false);
         } else {
           setAllApplied(null);
-          setIsLoading(false);
+          // setIsLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -49,6 +51,36 @@ const LoanDisplay = () => {
       }
     };
 
+    // FOR DISBURSED DATA
+    const getDetails = async () => {
+      const supabase = createClient();
+      const googleid = (await supabase.auth.getUser()).data.user?.id;
+
+      try {
+        const { data: disbursedData, error: disbursedDataError } =
+          await supabase
+            .from("granted_loans")
+            .select("*")
+            .eq("lender_id", googleid);
+        console.log(disbursedData);
+
+        if (disbursedData && disbursedData.length > 0) {
+          setDisbursed(disbursedData);
+          setIsDisbursedLoading(false);
+        } else {
+          setDisbursed(null);
+          setIsDisbursedLoading(false);
+        }
+
+        if (disbursedDataError) {
+          throw new Error(disbursedDataError.details);
+        }
+      } catch (error) {
+        console.log("Error while collecting disbursed loans: ", error);
+      }
+    };
+
+    getDetails();
     getData();
   }, []);
 
@@ -57,7 +89,12 @@ const LoanDisplay = () => {
       return <LDAll />;
 
     case "disbursed":
-      return <LDDisbursed />;
+      return (
+        <LDDisbursed
+          disbursed={disbursed}
+          isDisbursedLoading={isDisbursedLoading}
+        />
+      );
 
     case "borrowed":
       return <LDBorrowed />;
@@ -66,7 +103,7 @@ const LoanDisplay = () => {
       return <LDPending />;
 
     case "applied":
-      return <LDApplied isLoading allApplied />;
+      return <LDApplied isLoading={isLoading} allApplied={allApplied} />;
 
     default:
       return (

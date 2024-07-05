@@ -1,47 +1,14 @@
 "use client";
 
-import { TgrantedLoans } from "@/types";
-import { createClient } from "@/utils/supabase/client";
-import { useEffect, useState } from "react";
+import { Ttodisburse } from "@/types";
 import DisbursedCard from "./DisbursedCard";
+import { Idisbursedcard, Ilddisbursed } from "@/interfaces";
 
-const LDDisbursed = () => {
-  const [disbursed, setDisbursed] = useState<TgrantedLoans[] | null>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const getDetails = async () => {
-      const supabase = createClient();
-      const googleid = (await supabase.auth.getUser()).data.user?.id;
-
-      try {
-        const { data: disbursedData, error: disbursedDataError } =
-          await supabase
-            .from("granted_loans")
-            .select("*")
-            .eq("lender_id", googleid);
-        console.log(disbursedData);
-
-        if (disbursedData && disbursedData.length > 0) {
-          setDisbursed(disbursedData);
-          setIsLoading(false);
-        } else {
-          setDisbursed(null);
-          setIsLoading(false);
-        }
-
-        if (disbursedDataError) {
-          throw new Error(disbursedDataError.details);
-        }
-      } catch (error) {
-        console.log("Error while collecting disbursed loans: ", error);
-      }
-    };
-
-    getDetails();
-  }, []);
-
-  if (isLoading) {
+const LDDisbursed: React.FC<Ilddisbursed> = ({
+  disbursed,
+  isDisbursedLoading,
+}) => {
+  if (isDisbursedLoading) {
     return (
       <div className=" w-full h-full flex justify-center items-center text-lg text-center">
         Hang on a second...
@@ -58,7 +25,7 @@ const LDDisbursed = () => {
       <div className="w-full h-full relative overflow-auto flex flex-col justify-center">
         {disbursed ? (
           <div className=" w-full h-full overflow-auto flex flex-col gap-7 items-center ">
-            {disbursed.map((loan, index) => (
+            {disbursed.map((loan: any, index: number) => (
               <DisbursedCard
                 applicant_name={loan.applicant_name}
                 index={index}

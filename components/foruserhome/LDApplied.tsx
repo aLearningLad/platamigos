@@ -11,7 +11,9 @@ const LDApplied: React.FC<Ildapplied> = ({ isLoading, allApplied }) => {
   if (isLoading) {
     return (
       <div className=" w-1/2 h-full flex justify-center items-center">
-        <h1 className=" text-neutral-300 text-[18px] ">Just a second...</h1>
+        <h1 className=" text-neutral-300 text-[18px] ">
+          Just a second, bruv...
+        </h1>
       </div>
     );
   }
