@@ -237,7 +237,7 @@ const LoanDisplay = () => {
     getBorrowed();
     getDetails();
     getData();
-  }, []);
+  }, [homefeed]);
 
   switch (currentHub) {
     case "all":
