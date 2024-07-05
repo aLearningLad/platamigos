@@ -59,7 +59,7 @@ const LDApplied: React.FC<Ildapplied> = ({ isLoading, allApplied }) => {
             </span>
           </div>
         ) : (
-          <div className=" w-full h-full flex justify-center items-center bg-gradient-to-b from-cyan-950/60 via-cyan-800/30 to-transparent rounded-full ">
+          <div className="w-full h-full flex justify-center items-center bg-gradient-to-b from-cyan-950/60 via-cyan-800/30 to-transparent rounded-full ">
             <p className=" text-lg font-semibold text-neutral-200 ">
               You haven't applied for anything yet!
             </p>

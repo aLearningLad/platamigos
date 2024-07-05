@@ -3,6 +3,7 @@
 import { Ttodisburse } from "@/types";
 import DisbursedCard from "./DisbursedCard";
 import { Idisbursedcard, Ilddisbursed } from "@/interfaces";
+import Link from "next/link";
 
 const LDDisbursed: React.FC<Ilddisbursed> = ({
   disbursed,
@@ -35,11 +36,16 @@ const LDDisbursed: React.FC<Ilddisbursed> = ({
             ))}
           </div>
         ) : (
-          <div className="w-full h-full flex justify-center flex-col items-center text-center  ">
+          <div className="w-full h-full flex justify-center flex-col items-center text-center bg-gradient-to-tr from-pink-600/70 via-pink-400/10 to-transparent rounded-full  ">
             <h3 className=" text-lg font-semibold mb-3">
               You haven't granted any loans yet!
             </h3>
-            <button>Fix This</button>
+            <Link
+              className=" w-fit px-7 border-4 bg-transparent text-pink-300 hover:font-semibold hover:scale-95 transition-all duration-500 ease-in-out border-pink-500 py-2 text-lg hover:bg-pink-500 rounded-lg hover:text-white"
+              href="/all"
+            >
+              Fix This
+            </Link>
           </div>
         )}
       </div>
