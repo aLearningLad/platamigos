@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { getAllApplied } from "@/utils/myFxns/getAllApplied";
 import { createClient } from "@/utils/supabase/client";
 import { TgrantedLoans, Tloansfromdb } from "@/types";
+import { getGoogleDetailsClient } from "@/utils/myFxns/getGoogleDetailsClient";
 
 const LoanDisplay = () => {
   const currentHub = useStore((store: Istore) => store.currentHub);
@@ -21,6 +22,7 @@ const LoanDisplay = () => {
   const [isDisbursedLoading, setIsDisbursedLoading] = useState<boolean>(true);
   const [borrowed, setBorrowed] = useState<TgrantedLoans[] | null>();
   const [isBorrowedLoading, setIsBorrowedLoading] = useState(true);
+  const [userDP, setUserDP] = useState("");
 
   // STATES FOR LDALL
   const [homefeed, setHomeFeed] = useState<Tloansfromdb[] | null>();
@@ -219,6 +221,18 @@ const LoanDisplay = () => {
       }
     };
 
+    const getProfilePic = async () => {
+      try {
+        const result = await getGoogleDetailsClient();
+        const googleProfilePic = result?.user_metadata.avatar_url;
+
+        setUserDP(googleProfilePic);
+      } catch (error) {
+        console.log("Error getting profile picture: ", error);
+      }
+    };
+
+    getProfilePic();
     getAllData();
     getBorrowed();
     getDetails();
@@ -227,7 +241,9 @@ const LoanDisplay = () => {
 
   switch (currentHub) {
     case "all":
-      return <LDAll allLoans={allLoans} loansToShow={loansToShow} />;
+      return (
+        <LDAll allLoans={allLoans} loansToShow={loansToShow} userDP={userDP} />
+      );
 
     case "disbursed":
       return (

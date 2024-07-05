@@ -1,29 +1,9 @@
 "use client";
 
-import { getGoogleDetailsClient } from "@/utils/myFxns/getGoogleDetailsClient";
+import { Isearchbar } from "@/interfaces";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
-const SearchBar = () => {
-  const [userDP, setUserDP] = useState("");
-
-  useEffect(() => {
-    const getProfilePic = async () => {
-      try {
-        const result = await getGoogleDetailsClient();
-        const googleProfilePic = result?.user_metadata.avatar_url;
-
-        setUserDP(googleProfilePic);
-      } catch (error) {
-        console.log("Error getting profile picture: ", error);
-      }
-    };
-
-    getProfilePic();
-  }, []);
-
-  const googleDetails = getGoogleDetailsClient();
-
+const SearchBar: React.FC<Isearchbar> = ({ userDP }) => {
   return (
     <div className="w-full sticky top-0 flex py-2 mb-2 h-[20%] gap-1">
       <div className=" w-[7%] h-full relative rounded-full overflow-clip py-1">

@@ -6,6 +6,10 @@ export interface Ildapplied {
   allApplied: any;
 }
 
+export interface Isearchbar {
+  userDP: string;
+}
+
 export interface Ilddisbursed {
   isDisbursedLoading: boolean;
   disbursed: any;
@@ -14,6 +18,7 @@ export interface Ilddisbursed {
 export interface Ildallbody {
   allLoans: any[];
   loansToShow: any;
+  userDP?: string;
 }
 
 export interface Ildborrowed {
