@@ -1,6 +1,7 @@
 "use client";
 
 import { Icreateright } from "@/interfaces";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 
 const CreateRight: React.FC<Icreateright> = ({
@@ -27,6 +28,7 @@ const CreateRight: React.FC<Icreateright> = ({
   );
 
   const totalRepayment = instalmentAmount * months;
+  const router = useRouter();
 
   useEffect(() => {
     setInterestRate(

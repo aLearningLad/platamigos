@@ -69,14 +69,30 @@ const LDAllBody = () => {
           allLoans.push(...homefeedData!);
         }
 
+        // if (appliedFor && appliedFor.length > 0) {
+        //   let updatedApplied: any[] = [];
+        //   for (let aLoan of appliedFor) {
+        //     let updatedLoan = { ...aLoan, APPLIED: "Yes" };
+        //     updatedApplied.push(updatedLoan);
+        //     allLoans.push(updatedLoan);
+        //   }
+        //   console.log("Marked loans: ", updatedApplied);
+
+        //   // allLoans.push(...appliedFor!);
+        // }
+
         if (appliedFor && appliedFor.length > 0) {
-          let aLoan;
-          for (aLoan of appliedFor) {
-            aLoan += { APPLIED: "YES" };
-            allLoans.push(aLoan);
+          let updatedApplied: any[] = [];
+          for (let aLoan of appliedFor) {
+            console.log("Original loan: ", aLoan); // Log each original loan for debugging
+            let updatedLoan = { ...aLoan, APPLIED: "Yes" };
+            updatedApplied.push(updatedLoan);
+            allLoans.push(updatedLoan);
+            console.log("single loan: ", aLoan);
           }
-          console.log("Marked loans: ", appliedFor);
-          // allLoans.push(...appliedFor!);
+          console.log("Marked loans: ", updatedApplied);
+        } else {
+          console.log("appliedFor is empty or undefined");
         }
 
         if (grantedByData && grantedByData.length > 0) {
@@ -88,6 +104,8 @@ const LDAllBody = () => {
         }
         // console.log("Array of loans here: ", ...allLoans);
         // console.log("Loans applied for: ", appliedFor);
+        console.log("Marked loans: ", appliedFor);
+
         setLoansToShow(allLoans);
       } catch (error) {
         console.log(error);

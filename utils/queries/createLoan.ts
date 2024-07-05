@@ -2,6 +2,8 @@
 
 import { TcreateLoanParams } from "@/types";
 import { createClient } from "../supabase/client";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 // import { createClient } from "../supabase/server";
 
 export const createLoan = async (loanParams: TcreateLoanParams) => {
@@ -60,7 +62,12 @@ export const createLoan = async (loanParams: TcreateLoanParams) => {
         });
 
       if (addToDisbursedError) {
+        toast.error("Please try again!");
         throw new Error(addToDisbursedError.details);
+      }
+
+      if (!addToDisbursedError) {
+        toast.success("Published!");
       }
     }
 
