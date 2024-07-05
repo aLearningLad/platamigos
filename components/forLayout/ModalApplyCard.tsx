@@ -17,12 +17,16 @@ const ModalApplyCard: React.FC<TloansfromdbForMiniCard> = ({ ...params }) => {
         <h2 className=" text-[18px] ">{params.lendername}</h2>
       </span>
 
-      <div className=" w-9/12 flex-col items-center min-h-fit flex my-3 md:my-5 lg:my-12 xl:my-16 max-h-[30%] overflow-auto bg-neutral-500/30 rounded-3xl  p-2 md:p-3 lg:p-5 xl:p-8 text-start ">
-        <h3>Intended Usage of Funds</h3>
-        <h3 className="text-white text-lg lg:text-[14px] ">{params.purpose}</h3>
+      <div className=" w-full lg:w-9/12 flex-col items-center min-h-fit flex my-3 md:my-5 lg:my-12 xl:my-16 max-h-[35vh] lg:max-h-[30%] overflow-auto bg-neutral-500/30 rounded-3xl  p-2 md:p-3 lg:p-5 xl:p-8 text-center lg:text-start ">
+        <h3 className=" text-[18px] lg:text-[22px] px-5 lg:px-8 border-b-2  ">
+          Intended Usage of Funds
+        </h3>
+        <h3 className="text-white text-[16px] lg:text-[14px] ">
+          {params.purpose}
+        </h3>
       </div>
 
-      <div className=" w-full py-2 lg:py-5 flex flex-col lg:flex-row items-center">
+      <div className=" w-full py-2 lg:py-5 grid grid-cols-2 lg:flex flex-col lg:flex-row items-center">
         <section className=" hover:bg-neutral-100/10 rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-95 w-full h-full p-3 flex flex-col items-center justify-center text-center">
           <GiCash size={30} color="#adff2f" />
           <h2 className=" text-[16px] flex items-center font-extrabold lg:text-[22px] bg-gradient-to-r from-lime-400 to-emerald-700 bg-clip-text text-transparent">
@@ -52,11 +56,6 @@ const ModalApplyCard: React.FC<TloansfromdbForMiniCard> = ({ ...params }) => {
           </h2>
           <p className="text-[12px] lg:text-[14px] ">Total due</p>
         </section>
-
-        {/* 
-        
-        <section>total</section>
-        <section>credit score of expiry date</section> */}
       </div>
 
       <SubmitApplication
