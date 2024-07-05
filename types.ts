@@ -116,6 +116,7 @@ export type TloansfromdbForMiniCard = {
   months: number;
   loan_id: string;
   index?: number;
+  number_payments?: number;
 };
 
 export type Tfootersocialsdata = {
