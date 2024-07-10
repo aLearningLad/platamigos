@@ -31,6 +31,10 @@ const LoanDisplay = () => {
   const [grantedBy, setGrantedBy] = useState<any[] | null>();
   const allLoans: any[] = [];
   const [loansToShow, setLoansToShow] = useState<any>([]);
+  let updatedApplied: any[] = [];
+  let updatedGranted: any[] = [];
+  let updatedRecieved: any[] = [];
+  let updatedPending: any[] = [];
 
   useEffect(() => {
     // FOR APPLIED
@@ -178,42 +182,40 @@ const LoanDisplay = () => {
           allLoans.push(...homefeedData!);
         }
 
-        // if (appliedFor && appliedFor.length > 0) {
-        //   let updatedApplied: any[] = [];
-        //   for (let aLoan of appliedFor) {
-        //     let updatedLoan = { ...aLoan, APPLIED: "Yes" };
-        //     updatedApplied.push(updatedLoan);
-        //     allLoans.push(updatedLoan);
-        //   }
-        //   console.log("Marked loans: ", updatedApplied);
-
-        //   // allLoans.push(...appliedFor!);
-        // }
-
+        // LOANS I APPLIED FOR
         if (appliedFor && appliedFor.length > 0) {
-          let updatedApplied: any[] = [];
           for (let aLoan of appliedFor) {
-            console.log("Original loan: ", aLoan); // Log each original loan for debugging
-            let updatedLoan = { ...aLoan, APPLIED: "Yes" };
+            // console.log("Original loan: ", aLoan); // Log each original loan for debugging
+            let updatedLoan = { ...aLoan, TYPE: "APPLIEDFOR" };
             updatedApplied.push(updatedLoan);
             allLoans.push(updatedLoan);
-            console.log("single loan: ", aLoan);
+            // console.log("single loan: ", aLoan);
           }
           console.log("Marked loans: ", updatedApplied);
         } else {
           console.log("appliedFor is empty or undefined");
         }
 
-        if (grantedByData && grantedByData.length > 0) {
-          allLoans.push(...grantedByData!);
+        // LOANS I DISBURSED
+        if (grantedToData && grantedToData.length > 0) {
+          for (let eachGranted of grantedToData) {
+            // console.log("Original grantedLoan: ", eachGranted);
+            let newGranted = { ...eachGranted, TYPE: "DISBURSED" };
+            updatedGranted.push(newGranted);
+          }
+          console.log("Loans marked as DISBURSED: ", updatedGranted);
         }
 
-        if (grantedToData && grantedToData.length > 0) {
-          allLoans.push(...grantedToData!);
+        // LOANS I WAS GIVEN
+        if (grantedByData && grantedByData.length > 0) {
+          for (let eachRecieved of grantedByData) {
+            let newRecieved = { ...eachRecieved, TYPE: "RECIEVED" };
+            updatedRecieved.push(newRecieved);
+          }
+          console.log("Loans marked as recieved: ");
         }
-        // console.log("Array of loans here: ", ...allLoans);
-        // console.log("Loans applied for: ", appliedFor);
-        console.log("Marked loans: ", appliedFor);
+
+        // console.log("Marked loans: ", appliedFor);
 
         setLoansToShow(allLoans);
       } catch (error) {

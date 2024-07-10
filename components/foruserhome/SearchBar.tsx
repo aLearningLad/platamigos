@@ -17,7 +17,7 @@ const SearchBar: React.FC<Isearchbar> = ({ userDP }) => {
       <div className=" w-full h-full pl-2 pr-3 flex justify-center items-center">
         <input
           type="text"
-          className="w-full focus:outline-none h-full placeholder:text-neutral-200 bg-blue-950 rounded-md text-white p-2 text-[14px]"
+          className="w-full focus:outline-none h-full placeholder:text-neutral-200 bg-blue-950/50 rounded-md text-white p-2 text-[14px]"
           placeholder="Search by title..."
         />
       </div>
