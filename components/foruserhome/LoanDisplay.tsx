@@ -190,6 +190,7 @@ const LoanDisplay = () => {
             updatedApplied.push(updatedLoan);
             allLoans.push(updatedLoan);
             // console.log("single loan: ", aLoan);
+            loansToShow.push(allLoans);
           }
           console.log("Marked loans: ", updatedApplied);
         } else {
@@ -202,6 +203,7 @@ const LoanDisplay = () => {
             // console.log("Original grantedLoan: ", eachGranted);
             let newGranted = { ...eachGranted, TYPE: "DISBURSED" };
             updatedGranted.push(newGranted);
+            loansToShow.push(updatedGranted);
           }
           console.log("Loans marked as DISBURSED: ", updatedGranted);
         }
@@ -211,6 +213,7 @@ const LoanDisplay = () => {
           for (let eachRecieved of grantedByData) {
             let newRecieved = { ...eachRecieved, TYPE: "RECIEVED" };
             updatedRecieved.push(newRecieved);
+            loansToShow.push(updatedRecieved);
           }
           console.log("Loans marked as recieved: ");
         }
