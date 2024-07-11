@@ -4,8 +4,7 @@ import LandingNav from "./LandingNav";
 
 const LandingUI = () => {
   return (
-    <div className=" w-full lg:h-full min-h-[100vh] max-h-fit text-white ">
-      <LandingNav />
+    <div className=" w-full relative lg:h-full min-h-[100vh] max-h-fit text-white ">
       <LandingMain />
       <LandingFooter />
     </div>
