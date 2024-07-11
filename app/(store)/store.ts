@@ -10,8 +10,13 @@ const useStore = create<Istore>((set) => ({
   noIssue: null,
   currentHub: "all",
   showMobileOptionsModal: false,
+  showNavBtnModal: false,
 
   // ----------------------------> SETTERS <---------------------------------
+
+  //SET showNavBtnModal
+  setShowNavBtnModal: (newState: boolean) =>
+    set((state) => ({ showNavBtnModal: newState })),
 
   // SET MOBILE OPTIONS MODAL
   setMobileOptionsModal: (newState: boolean) =>

@@ -3,7 +3,6 @@ export type Tloanstoshow = any; //DEFINE LATER
 export type Tlandingnavdata = {
   navId: number;
   navtitle: string;
-  navlink: string;
 };
 
 export type TgrantedLoans = {

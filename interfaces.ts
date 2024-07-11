@@ -49,6 +49,8 @@ export interface Istore {
   setCurrentHub: (hubname: string) => void;
   showMobileOptionsModal: boolean;
   setMobileOptionsModal: (newState: boolean) => void;
+  showNavBtnModal: boolean;
+  setShowNavBtnModal: (newState: boolean) => void;
 }
 
 export interface Ihubbtn {
