@@ -36,6 +36,14 @@ export interface Idisbursedcard {
   total_due: number;
 }
 
+export interface Ifirstrowcard {
+  tileId: number;
+  heading?: string;
+  CTA: string;
+  blurb?: string;
+  tileMedia?: React.ReactElement | string;
+}
+
 export interface Istore {
   modalToApply: boolean;
   setModalToApply: () => void;

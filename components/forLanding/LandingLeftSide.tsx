@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
 import FirstRowCard from "./FirstRowCard";
 import SecondRowCard from "./SecondRowCard";
+import { firstrowdata } from "@/devdata/firstrowdata";
 
 const LandingLeftSide = () => {
   const falsedata = [1, 2, 3, 4, 5, 6, 7];
@@ -52,13 +53,16 @@ const LandingLeftSide = () => {
   return (
     <div className=" hidden lg:flex w-5/12 flex-col py-12 items-center overflow-auto lg:h-full ">
       <div className="relative flex h-fit w-full flex-row items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
-        <Marquee
-          pauseOnHover
-          vertical
-          className="[--duration:20s] border-2 border-white w-full"
-        >
-          {firstRow.map((review) => (
-            <FirstRowCard />
+        <Marquee pauseOnHover vertical className="[--duration:20s] w-full">
+          {firstrowdata.map((card) => (
+            <FirstRowCard
+              CTA={card.CTA}
+              tileId={card.tileId}
+              blurb={card.blurb}
+              heading={card.heading}
+              key={card.tileId}
+              tileMedia={card.tileMedia}
+            />
           ))}
         </Marquee>
         <Marquee
