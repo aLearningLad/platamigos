@@ -4,3 +4,5 @@ export { default as LandingNav } from "./LandingNav";
 export { default as LandingFooter } from "./LandingFooter";
 export { default as LandingRightSide } from "./LandingRightSide";
 export { default as LandingLeftSide } from "./LandingLeftSide";
+export { default as LandingNavBtn } from "./LandingNavBtn";
+export { default as InfoModal } from "./InfoModal";
