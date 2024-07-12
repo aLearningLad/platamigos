@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
+import FirstRowCard from "./FirstRowCard";
 
 const LandingLeftSide = () => {
   const falsedata = [1, 2, 3, 4, 5, 6, 7];
@@ -48,11 +49,11 @@ const LandingLeftSide = () => {
   };
 
   return (
-    <div className=" hidden border-2 border-white lg:flex w-4/12 flex-col px-4 py-12 items-center overflow-auto lg:h-full ">
-      <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className=" hidden lg:flex w-4/12 flex-col py-12 items-center overflow-auto lg:h-full ">
+      <div className="relative flex h-fit w-full flex-row items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
         <Marquee pauseOnHover vertical className="[--duration:20s]">
           {firstRow.map((review) => (
-            <p>first row here</p>
+            <FirstRowCard />
           ))}
         </Marquee>
         <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
@@ -60,8 +61,8 @@ const LandingLeftSide = () => {
             <p>second row here</p>
           ))}
         </Marquee>
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
+        {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div> */}
+        {/* <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div> */}
       </div>
     </div>
   );

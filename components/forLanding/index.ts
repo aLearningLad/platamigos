@@ -7,3 +7,4 @@ export { default as LandingLeftSide } from "./LandingLeftSide";
 export { default as LandingNavBtn } from "./LandingNavBtn";
 export { default as InfoModal } from "./InfoModal";
 export { default as StartBtn } from "./StartBtn";
+export { default as FirstRowCard } from "./FirstRowCard";
