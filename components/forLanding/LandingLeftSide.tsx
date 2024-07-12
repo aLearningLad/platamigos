@@ -53,7 +53,11 @@ const LandingLeftSide = () => {
   return (
     <div className=" hidden lg:flex w-5/12 flex-col py-12 items-center overflow-auto lg:h-full ">
       <div className="relative flex h-fit w-full flex-row items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
-        <Marquee pauseOnHover vertical className="[--duration:20s] w-full">
+        <Marquee
+          pauseOnHover
+          vertical
+          className="[--duration:20s] gap-7 w-full"
+        >
           {firstrowdata.map((card) => (
             <FirstRowCard
               CTA={card.CTA}

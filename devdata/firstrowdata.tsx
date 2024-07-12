@@ -17,4 +17,10 @@ export const firstrowdata: Ifirstrowcard[] = [
     blurb:
       "Help others achieve their goals while earning attractive returns. Become a lender and watch your money grow.",
   },
+  {
+    tileId: 87261,
+    blurb:
+      "Your security is our priority. Enjoy transparent transactions with full confidence in our platform's security measures. We use state-of-the-art encryption to protect your data and ensure safe, worry-free lending and borrowing.",
+    CTA: "Learn More",
+  },
 ];
