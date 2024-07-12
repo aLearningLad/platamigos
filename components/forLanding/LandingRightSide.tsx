@@ -3,7 +3,7 @@ import StartBtn from "./StartBtn";
 
 const LandingRightSide = () => {
   return (
-    <div className="w-full lg:pl-7 lg:w-8/12 flex flex-col lg:items-start lg:text-start items-center text-center justify-center ">
+    <div className="w-full lg:pl-7 lg:w-7/12 flex flex-col lg:items-start lg:text-start items-center text-center justify-center ">
       <h1 className=" text-2xl lg:text-5xl font-extrabold">Platamigos</h1>
 
       <h3 className=" text-lg lg:text-3xl ">
